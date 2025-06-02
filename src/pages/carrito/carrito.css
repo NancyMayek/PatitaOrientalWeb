@@ -1,0 +1,212 @@
+/* Estructura general */
+
+:root {
+  --primary-color: #425084;
+  --secondary-color: #d679af;
+  --text-color: #080105;
+  --background-color: #f4f4f4;
+  font-family: poppins, sans-serif;
+}
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: 'Poppins', sans-serif;
+  
+}
+.carrito-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: #425084;
+}
+
+/* Carrito vacío */
+.carrito-vacio {
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 400px;
+}
+
+.carrito-vacio h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.img-carrito {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  border-radius: 20px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Carrito a la izquierda */
+.carrito {
+  flex: 2;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.carrito h2 {
+  text-align: center;
+  color: #080105;
+  margin-bottom: 0.2rem;
+  font-size: 3rem;
+}
+
+/* Producto individual */
+.producto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+.detalle {
+  flex: 2;
+}
+.detalle strong {
+  font-size: 1.1rem;
+}
+.cantidad {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cantidad button {
+  padding: 0.3rem 0.7rem;
+  font-size: 1rem;
+  background-color: #eee;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.precio {
+  font-weight: bold;
+  flex: 0.8;
+}
+.eliminar {
+  background-color: transparent;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Botones inferiores */
+.seguir, .vaciar {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #3498db;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.vaciar {
+  width: 22%;
+  padding: 0.75rem;
+  background-color: #d679af;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+/* Resumen del pedido */
+.resumen {
+  flex: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  min-width: 280px;
+}
+.resumen h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.resumen p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+.total {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Método de pago */
+.metodo-pago h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.metodo-pago label {
+  display: block;
+  margin: 0.5rem 0;
+}
+.metodo-pago small {
+  display: block;
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+/* Botón de finalizar */
+.finalizar {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #425084;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .carrito-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .carrito, .resumen {
+    width: 100%;
+  }
+  .producto {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .cantidad {
+    justify-content: flex-start;
+  }
+  .precio {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .carrito h2, .resumen h3 {
+    font-size: 1.4rem;
+  }
+  .carrito-container {
+    padding: 1rem 0.5rem;
+  }
+  .cantidad button {
+    font-size: 0.9rem;
+  }
+  .finalizar {
+    font-size: 0.95rem;
+  }
+}
