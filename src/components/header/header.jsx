@@ -15,7 +15,7 @@ const Header = () => {
             {/* Logo */}
             <Link className="logo" to="/"> {/* 👈 cambia a Link */}
             <img
-                srcSet="../../../public/images/logo-patita-oriental/PatitaOriental_Azul_Horizontal.png"
+                src="../../../public/images/logo-patita-oriental/PatitaOriental_Azul_Horizontal.png"
                 alt="Logo Patita Oriental"
             />
             </Link>
@@ -36,17 +36,17 @@ const Header = () => {
 
                 {/* Íconos móviles dentro del menú */}
                 <div className="iconos-movil">
-                    <Link to="/Profile"><img srcSet="../../../public/images/iconos/LogoUsr.svg" alt="Perfil" /></Link>
-                    <Link to="/Favoritos"><img className="icono-corazon" srcSet="../../../public/images/iconos/LogoLove.svg" alt="Favoritos" /></Link>
-                    <Link to="/Carrito"><img srcSet="../../../public/images/iconos/LogoCart.svg" alt="Carrito" /></Link>
+                    <Link to="/Profile"><img src="../../../public/images/iconos/LogoUsr.svg" alt="Perfil" /></Link>
+                    <Link to="/Favoritos"><img className="icono-corazon" src="../../../public/images/iconos/LogoLove.svg" alt="Favoritos" /></Link>
+                    <Link to="/Carrito"><img src="../../../public/images/iconos/LogoCart.svg" alt="Carrito" /></Link>
                 </div>
             </nav>
 
             {/* Íconos (escritorio) */}
             <div className="iconos">
-            <Link to="/Profile"><img srcSet="../../../public/images/iconos/LogoUsr.svg" alt="Perfil" /></Link>
-            <Link to="/Favoritos"><img className="icono-corazon" srcSet="../../../public/images/iconos/LogoLove.svg" alt="Favoritos" /></Link>
-            <Link to="/Carrito"><img srcSet="../../../public/images/iconos/LogoCart.svg" alt="Carrito" /></Link>
+            <Link to="/Profile"><img src="../../../public/images/iconos/LogoUsr.svg" alt="Perfil" /></Link>
+            <Link to="/Favoritos"><img className="icono-corazon" src="../../../public/images/iconos/LogoLove.svg" alt="Favoritos" /></Link>
+            <Link to="/Carrito"><img src="../../../public/images/iconos/LogoCart.svg" alt="Carrito" /></Link>
             </div>
       </div>
     </header>
