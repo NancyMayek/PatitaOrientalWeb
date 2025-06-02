@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"; 
-import patitaLogoAzul from '../../../public/images/logo-patita-oriental/PatitaOriental_Azul_Horizontal.png'
+import patitaLogoAzul from '../../../public/images/logo-patita-oriental/PatitaOriental_Azul_Horizontal.png';
+import iconoDeUsuario from '../../../public/images/iconos/LogoUsr.svg';
+import iconoDeCorazon from '../../../public/images/iconos/LogoLove.svg';
+import iconoDeCarrito from '../../../public/images/iconos/LogoCart.svg';
 import "./header.css";
 
 const Header = () => {
@@ -37,17 +40,17 @@ const Header = () => {
 
                 {/* Íconos móviles dentro del menú */}
                 <div className="iconos-movil">
-                    <Link to="/Profile"><img src="../../../public/images/iconos/LogoUsr.svg" alt="Perfil" /></Link>
-                    <Link to="/Favoritos"><img className="icono-corazon" src="../../../public/images/iconos/LogoLove.svg" alt="Favoritos" /></Link>
-                    <Link to="/Carrito"><img src="../../../public/images/iconos/LogoCart.svg" alt="Carrito" /></Link>
+                    <Link to="/Profile"><img src={iconoDeUsuario} alt="Perfil" /></Link>
+                    <Link to="/Favoritos"><img className="icono-corazon" src={iconoDeCorazon} alt="Favoritos" /></Link>
+                    <Link to="/Carrito"><img src={iconoDeCarrito} alt="Carrito" /></Link>
                 </div>
             </nav>
 
             {/* Íconos (escritorio) */}
             <div className="iconos">
-            <Link to="/Profile"><img src="../../../public/images/iconos/LogoUsr.svg" alt="Perfil" /></Link>
-            <Link to="/Favoritos"><img className="icono-corazon" src="../../../public/images/iconos/LogoLove.svg" alt="Favoritos" /></Link>
-            <Link to="/Carrito"><img src="../../../public/images/iconos/LogoCart.svg" alt="Carrito" /></Link>
+            <Link to="/Profile"><img src={iconoDeUsuario} alt="Perfil" /></Link>
+            <Link to="/Favoritos"><img className="icono-corazon" src={iconoDeCorazon} alt="Favoritos" /></Link>
+            <Link to="/Carrito"><img src={iconoDeCarrito} alt="Carrito" /></Link>
             </div>
       </div>
     </header>
