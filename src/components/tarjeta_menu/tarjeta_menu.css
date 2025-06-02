@@ -1,0 +1,155 @@
+.contenedor-tarjeta-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 5px solid var(--color-morado);
+  border-radius: 26px;
+  width: 470px;
+  min-height: 250px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.contenedor-producto {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.contenedor-producto img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.contenedor-info-producto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  flex: 1;
+}
+
+.titulo-comida,
+.precio-comida {
+  text-align: center;
+  width: 100%;
+}
+
+.titulo-comida {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 0 0.3rem 0;
+  color: black;
+}
+
+.precio-comida {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem 0;
+  color: #333;
+}
+
+.descripcion-comida {
+  font-size: 0.9rem;
+  text-align: justify;
+  color: #555;
+  line-height: 1.4;
+  padding: 0 10px;
+  margin: 0;
+}
+
+.contenedor-botones-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--color-rosa);
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom-left-radius: 21px;
+  border-bottom-right-radius: 21px;
+  margin: 0;
+}
+
+.añadir-comida {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.icono-resta,
+.icono-suma {
+  width: 2rem;
+  cursor: pointer;
+}
+
+.icono-corazon-rojo {
+  cursor: pointer;
+  width: 2rem;
+}
+
+.contenedor-botones-menu h3 {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .contenedor-tarjeta-menu {
+    border-width: 3px;
+    width: 330px;
+    min-height: 400px;
+  }
+
+  .contenedor-producto {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .contenedor-producto img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .contenedor-info-producto {
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .titulo-comida {
+    font-size: 1.2rem;
+    margin: 0 0 0.3rem 0;
+  }
+
+  .precio-comida {
+    font-size: 1rem;
+    margin: 0 0 0.4rem 0;
+  }
+
+  .descripcion-comida {
+    font-size: 0.8rem;
+  }
+
+  .contenedor-botones-menu {
+    padding: 0.7rem;
+  }
+
+  .icono-resta,
+  .icono-suma {
+    width: 1.5rem;
+  }
+
+  .icono-corazon-rojo {
+    width: 2rem;
+  }
+
+  .añadir-comida {
+    font-size: 1.1rem;
+  }
+}

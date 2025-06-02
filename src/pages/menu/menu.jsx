@@ -1,11 +1,18 @@
-import './menu.css'
+import Products from "../../components/tarjeta_menu/leerProductos";
+import "./menu.css"
 
-const  Menu  = () => {
-    return(
-        <>
-        <h1>Pagina Menu</h1>
-        </>
-    );
-}
+const Menu = () => {
+  return (
+    <main>
+      <h2 className="menu-title">Conoce nuestro menú</h2>
+      <ul className="filtros">
+        <li><a className="filtro-btn" href="#comidas">Comida</a></li>
+        <li><a className="filtro-btn" href="#bebidas">Bebidas</a></li>
+        <li><a className="filtro-btn" href="#postres">Postres</a></li>
+      </ul>
+      <Products url="/data/menu.json" />
+    </main>
+  );
+};
 
-export {Menu}
+export {Menu};
