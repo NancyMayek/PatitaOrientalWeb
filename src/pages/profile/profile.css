@@ -1,0 +1,65 @@
+.perfil-de-usuario-contenedor {
+  display: flex;
+  background-color: white;
+}
+
+.perfil-de-Usuario-SideBar {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-right: 2rem;
+
+  .Usuario-SideBar-Boton {
+    background-color: var(--color-rosa);
+    border-radius: 0 50px 50px 0;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: white;
+    }
+  }
+}
+
+.usuarurio-info-resumen {
+  display: flex;
+  justify-content: center;
+}
+
+.usuario-foto-seccion {
+  display: flex;
+  .foto-container {
+    width: 100%;
+    overflow: hidden;
+    .foto-de-perfil {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Makes the image cover the entire container */
+    }
+  }
+  .icono-editar-foto{
+    width: 30px;
+  }
+}
+
+.direccion {
+  display: flex;
+}
+
+.form-nivel-1,
+.form-nivel-2,
+.form-nivel-3 {
+  display: flex;
+}
+
+.metodos-de-pago-seccion {
+  display: flex;
+}
+
+.metodos-de-pago {
+  display: flex;
+  flex-direction: column;
+}
