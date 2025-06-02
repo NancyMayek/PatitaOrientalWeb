@@ -20,7 +20,7 @@ const Menu_Tematico = () => {
 
      // Cargar los paquetes del menú temático
   useEffect(() => {
-    fetch('/data/menuTematico.json')
+    fetch('/data/menutematico.json')
       .then(response => response.json())
       .then(data => setPaquetes(data))
       .catch(error => console.error('Error al cargar los datos del menú temático', error));
