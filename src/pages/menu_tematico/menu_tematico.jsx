@@ -1,6 +1,6 @@
 import './menu_tematico.css'
 import React, { useEffect, useState } from "react";
-import TarjetaMenuTematico from "../../components/tarjetamtematico/tarjetamtematico.jsx";
+import TarjetaMenuTematico from '../../components/tarjeta_menu/tarjeta_menu_tematico';
 
 const Menu_Tematico = () => {
     const [paquetes, setPaquetes] = useState([]);
