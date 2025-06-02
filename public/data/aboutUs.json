@@ -1,0 +1,62 @@
+{
+  "desarrolladores": [
+    {
+      "nombre_completo": "Nancy Mayek Torres Aguilar",
+      "descripcion": "Soy desarrolladora web con formación en Ingeniería en Ciencias de la Computación. Descubrí mi pasión por el desarrollo web muy temprano en mi carrera, y desde entonces me he dedicado a crear soluciones funcionales con un enfoque visual. Me motiva construir experiencias digitales que sean intuitivas, atractivas y eficientes.",
+      "telefono": "(+52) 221-418-8737",
+      "email": "torresaguilarnancymayek@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/nancy-mayek-torres-aguilar"
+    },
+    {
+      "nombre_completo": "Francisco Javier Caldera Castro",
+      "descripcion": "Soy Ingeniero mecatronico con experiencia en Desarrollo Web, apasionado por la tecnologia y los nuevos retos que esta conlleva. Desde la preparatoria indague en empresas y me fui orientando a la parte de ingenieria. Por lo cual he estado muy de cerca aprendiendo y actalizandome hacia las necesidades del cliente.",
+      "telefono": "(+52) 33-1113-7876",
+      "email": "fcaldera@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/francisco-javier-caldera/"
+    },
+    {
+      "nombre_completo": "Abigail Alexandra Galvez Cortés",
+      "descripcion": "Soy desarrolladora web con formación en Ingeniería Petrolera. Me apasiona el diseño de páginas web y crear soluciones funcionales aplicando mis conocimientos y experiencia en optimización de procesos y pensamiento lógico - analitico. Considero que mi amor por el aprendizaje y la creatividad son herramientas clave en el sector tecnológico para crear proyectos de impacto.",
+      "telefono": "(+52) 55-1030-1572",
+      "email": "galvezabigail79@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/abigail-alexandra-galvez-cortés"
+    },
+    {
+      "nombre_completo": "Cecilia Guadalupe Gutierrez Urbano",
+      "descripcion": "Soy Ingeniera en Tecnologías de la Información y Comunicaciones. Me apasiona el diseño de páginas web, y por eso decidí adentrarme mas el mundo del desarrollo web para entenderlo a profundidad. Me encanta explorar nuevas tecnologias y estoy motivada por seguir creciendo y desarrollandome profesionalmente en este campo.",
+      "telefono": "(+52) 55-1576-5737",
+      "email": "ceciliagutierrezurbano@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/cecilia-guadalupe-gutierrez-urbano-091396255/"
+    },
+    {
+      "nombre_completo": "América Yazmín Rodríguez Rodríguez",
+      "descripcion": "Soy desarrolladora web con formación en Ingeniería Industrial. Me apasiona crear soluciones web funcionales aplicando mi experiencia en mejora de procesos y pensamiento lógico. Me considero una persona adaptable, proactiva y orientada a resultados. Estoy en constante aprendizaje y motivada por desarrollar tecnología que genere un impacto real.",
+      "telefono": "(+52) 33-1791-1448",
+      "email": "amerodriguez@outlook.com",
+      "linkedin": "https://www.linkedin.com/in/america-yazmin-rodriguez-rodriguez/"
+    },
+    {
+      "nombre_completo": "Shelder Tatiana Flores Durán",
+      "descripcion": "Soy Desarrolladora web, con formación en Ingenieria Textil, Apasionada por la programación y el desarrollo web, con un enfoque en el stack tecnológico de Java. Me apasiona crear soluciones digitales integrando creatividad, funcionalidad y estructura.",
+      "telefono": "(+52) 56-1329-8923",
+      "email": "sheldertatiana12@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/shelder-tatiana-flores-duran"
+    },
+    {
+      "nombre_completo": "José Gabriel Álvarez Pérez",
+      "descripcion": "Desarrollador FullStack Junior con formación en ingeniería electrónica y experiencia en mantenimiento técnico, enfocado en la creación de soluciones web robustas con Java, Spring Boot, JavaScript y bases de datos SQL.",
+      "telefono": "(+52)33-2750-6168",
+      "email": "gabrielalvarezp20@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/jose-gabriel-alvarez-perez"
+    },
+    {
+      "nombre_completo": "César Daniel Godínez Caudillo",
+      "descripcion": "Desarrollador full-stack con experiencia en desarrollo backend y frontend, bases de datos y análisis de datos. Busco seguir desarrollándome como desarrollador o ingeniero de datos, contribuyendo al éxito organizacional mediante soluciones eficientes y escalables.",
+      "telefono": "(+52)392-928-7223",
+      "email": "cesardaniel826@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/cesar-godinez-caudillo"
+    }
+  ],
+  "total_registros": 8,
+  "fecha_actualizacion": "2023-11-15"
+}

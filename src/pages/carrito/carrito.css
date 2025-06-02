@@ -7,12 +7,7 @@
   --background-color: #f4f4f4;
   font-family: poppins, sans-serif;
 }
-body {
-  margin: 0;
-  padding: 1rem;
-  font-family: 'Poppins', sans-serif;
-  
-}
+
 .carrito-container {
   display: flex;
   flex-wrap: wrap;
