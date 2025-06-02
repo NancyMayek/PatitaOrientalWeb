@@ -2,7 +2,7 @@ import patitaLogo from '../../../public/images/logo-patita-oriental/PatitaOrient
 import instagramLogo from '../../../public/images/iconos/icons8-instagram-50.png'
 import whatsappLogo from '../../../public/images/iconos/icons8-whatsapp-50.png'
 import facebookLogo from '../../../public/images/iconos/icons8-facebook-nuevo-50.png'
-import './Footer.css';
+import './footer.css';
 
 const Footer = () => {
   return (
