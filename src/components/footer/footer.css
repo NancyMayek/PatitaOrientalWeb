@@ -1,0 +1,63 @@
+.patita-footer {
+  background-color: #D9D9D9;
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+}
+
+.footer-content {
+  width: 100%;
+  margin: 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#logo-footer {
+  width: 200px;
+}
+
+.footer-brand {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footer-legal p {
+  color: #666;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.copyright {
+  font-size: 12px;
+}
+
+.logo-social-media {
+  padding: 0 10px;
+  height: 40px;
+}
+
+.logo-content {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  #logo-footer {
+    display: none;
+  }
+
+  .logo-social-media {
+    width: 60px;
+    height: auto;
+  }
+
+  .copyright {
+    display: none;
+  }
+}
