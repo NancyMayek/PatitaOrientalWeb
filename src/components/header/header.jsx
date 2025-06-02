@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"; // 👈 importa Link
+import { Link } from "react-router-dom"; 
+import patitaLogoAzul from '../../../public/images/logo-patita-oriental/PatitaOriental_Azul_Horizontal.png'
 import "./header.css";
 
 const Header = () => {
@@ -15,7 +16,7 @@ const Header = () => {
             {/* Logo */}
             <Link className="logo" to="/"> {/* 👈 cambia a Link */}
             <img
-                src="../../../public/images/logo-patita-oriental/PatitaOriental_Azul_Horizontal.png"
+                src={patitaLogoAzul}
                 alt="Logo Patita Oriental"
             />
             </Link>
