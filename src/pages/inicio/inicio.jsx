@@ -58,7 +58,7 @@ const Inicio = () => {
           </h3>
           <img src="./images/home-icons/star-icon-end.png" className="star-icon" alt="star-end" />
         </div>
-        <div className="row advantages-section text-white align-items-center">
+        <div className="row advantages-section text-white align-items-center mb-4">
           <div className="col-md-3">
             <i><img src="./images/home-icons/canasta-icon.png" className="icon"/></i>
             <p>Ingredientes frescos</p>
@@ -81,7 +81,12 @@ const Inicio = () => {
       {/* Platillos Más Vendidos */}
       <section className="p-4" >
         <div className="container container d-flex flex-column align-items-center">
-          <h3 className="mb-4 fw-bold">Platillos más vendidos</h3>
+          <h3 className="mb-0 fw-bold">Platillos más vendidos</h3>
+          <section class="decorative-lines">
+          <div class="line-group mb-4">
+            <span class="line long pink"></span>
+          </div>
+        </section>
           <div className="row">
             <div className="col-md-6 mb-4">
               <TarjetaMenu />
