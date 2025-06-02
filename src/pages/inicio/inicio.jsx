@@ -10,7 +10,7 @@ const Inicio = () => {
           <h1 className="display-5 fw-bold mb-3">
             La <span style={{ color: "#425184" }}>mejor</span> comida <span style={{ color: "#d579af" }}>Coreana</span> en México
           </h1>
-          <button className="btn btn-pink mt-3">Pedir ahora</button>
+          <button className="btn btn-pink mt-3 align-self-center">Pedir ahora</button>
         </div>
       </section>
       <section class="decorative-lines">
@@ -83,16 +83,10 @@ const Inicio = () => {
         <div className="container container d-flex flex-column align-items-center">
           <h3 className="mb-4 fw-bold">Platillos más vendidos</h3>
           <div className="row">
-            <div className="col-md-3 mb-4">
+            <div className="col-md-6 mb-4">
               {/* <TarjetaMenu /> */}
             </div>
-            <div className="col-md-3 mb-4">
-              {/* <TarjetaMenu /> */}
-            </div>
-            <div className="col-md-3 mb-4">
-              {/* <TarjetaMenu /> */}
-            </div>
-            <div className="col-md-3 mb-4">
+            <div className="col-md-6 mb-4">
               {/* <TarjetaMenu /> */}
             </div>
           </div>
