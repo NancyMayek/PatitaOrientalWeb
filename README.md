@@ -1,4 +1,4 @@
-# patitaOriental
+# PATITA ORIENTAL PAGINA WEB
 
 #REGLAS:
 - No mover los siguientes componentes 
