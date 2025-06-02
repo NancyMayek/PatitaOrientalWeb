@@ -28,10 +28,18 @@ const TarjetaMenu = ({nombre,precio,descripcion,imagen}) => {
                 </div>
             </div>
             <div className="contenedor-botones-menu">
+                <button>
+
                 <img className='icono-resta' srcSet="../../../public/images/iconos/icono-menos.svg" alt="icono menos" onClick={() => handleDecrement(1)}/>
-                <h3 className='añadir-comida'>Añadir</h3>
+                </button>
+                <p className='cantidad-articulos'>{count}</p>
+                <button>
                 <img  className='icono-suma' srcSet="../../../public/images/iconos/icono-mas.svg" alt="icono mas" onClick={()=> handleIncrement(10)} />
+                </button>
+                <h3 className='añadir-comida'>Añadir</h3>
+                <button>
                 <img className='icono-corazon-rojo' srcSet="../../../public/images/iconos/icono-corazon-negro.svg" alt="icono corazon" />
+                </button>
             </div>
         </div>
     );
