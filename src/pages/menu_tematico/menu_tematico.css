@@ -6,10 +6,18 @@
   overflow: hidden;
 }
 
+.imagen-banner {
+  width: 100%;
+  max-width: 100%;      /* o un valor fijo como 800px si quieres un tamaño fijo */
+  height: 300px;        /* ajusta a lo que necesites */
+  overflow: hidden;     /* para recortar el exceso si usas object-fit */
+  position: relative;
+}
+
 .imagen-banner img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;    /* esto recorta y escala manteniendo la proporción */
   display: block;
 }
 
