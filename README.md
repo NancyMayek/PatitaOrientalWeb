@@ -8,5 +8,5 @@
 
 ## COMO CORRER EL PROYECTO
 1. Despues de clonar el repositorio corre estos comandos:
-    ~/PatitaOrientalWeb (main) $ npm install
-    ~/PatitaOrientalWeb (main) $ npm run dev -- --open
+  -  ~/PatitaOrientalWeb (main) $ npm install
+  - ~/PatitaOrientalWeb (main) $ npm run dev -- --open
