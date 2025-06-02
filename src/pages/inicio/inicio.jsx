@@ -1,5 +1,5 @@
 import './inicio.css'
-// import TarjetaMenu from "../../components/tarjeta_menu/tarjeta_menu";
+import TarjetaMenu from "../../components/tarjeta_menu/tarjeta_menu";
 
 const Inicio = () => {
     return(
@@ -10,7 +10,7 @@ const Inicio = () => {
           <h1 className="display-5 fw-bold mb-3">
             La <span style={{ color: "#425184" }}>mejor</span> comida <span style={{ color: "#d579af" }}>Coreana</span> en México
           </h1>
-          <button className="btn btn-pink mt-3">Pedir ahora</button>
+          <button className="btn btn-pink mt-1 align-self-center">Pedir ahora</button>
         </div>
       </section>
       <section class="decorative-lines">
@@ -58,7 +58,7 @@ const Inicio = () => {
           </h3>
           <img src="./images/home-icons/star-icon-end.png" className="star-icon" alt="star-end" />
         </div>
-        <div className="row advantages-section text-white align-items-center">
+        <div className="row advantages-section text-white align-items-center mb-4">
           <div className="col-md-3">
             <i><img src="./images/home-icons/canasta-icon.png" className="icon"/></i>
             <p>Ingredientes frescos</p>
@@ -81,28 +81,25 @@ const Inicio = () => {
       {/* Platillos Más Vendidos */}
       <section className="p-4" >
         <div className="container container d-flex flex-column align-items-center">
-          <h3 className="mb-4 fw-bold">Platillos más vendidos</h3>
+          <h3 className="mb-0 fw-bold">Platillos más vendidos</h3>
+          <section class="decorative-lines">
+          <div class="line-group mb-4">
+            <span class="line long pink"></span>
+          </div>
+        </section>
           <div className="row">
-            <div className="col-md-3 mb-4">
-              {/* <TarjetaMenu /> */}
+            <div className="col-md-6 mb-4">
+              <TarjetaMenu />
             </div>
-            <div className="col-md-3 mb-4">
-              {/* <TarjetaMenu /> */}
-            </div>
-            <div className="col-md-3 mb-4">
-              {/* <TarjetaMenu /> */}
-            </div>
-            <div className="col-md-3 mb-4">
-              {/* <TarjetaMenu /> */}
+            <div className="col-md-6 mb-4">
+              <TarjetaMenu />
             </div>
           </div>
         </div>
       </section>
 
       {/* Sección Temática */}
-
-
-      <section className="text-center p-5 tematica-section mb-5 d-flex align-items-center">
+      <section className="text-center p-5 tematica-section mb-0 d-flex align-items-center">
         <div className="tematica-text p-4 d-flex flex-column align-items-end">
             <h3 className="display-6 fw-bold mb-3">
                 Descubre nuestros <span style={{ color: "#425184" }}>Platillos <span style={{ color: "#d579af" }}>Temáticos</span></span>

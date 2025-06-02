@@ -1,27 +1,29 @@
-body {
-  
-  display: block !important;
-  place-items: center;
-  
-  min-height: 100vh;
-}
 
 .banner-section {
-  background-image: url('./img/banner.png');
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/banner.png');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   height: 400px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/banner.png');
+  padding-left: 0 !important;
 }
+
 
 .banner-text {
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   margin-top: 70px;
-  margin-left: 0%;
+  margin-left: 0;
   margin-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 650px; 
 }
+
 
 .about-section {
   background: rgba(255, 255, 255, 0.8);
@@ -40,18 +42,28 @@ body {
 }
 
 .tematica-section {
-  background-image: url('./img/tematica.png');
-  background-size: cover;
-  height: 300px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/tematica.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+  padding-right: 0 !important; 
 }
 
 .tematica-text {
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   margin-top: 20px;
+  margin-left: auto; 
+  margin-right: 0;
   max-width: 700px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
+
 
 .btn-pink {
   background-color: #e89bb7;
