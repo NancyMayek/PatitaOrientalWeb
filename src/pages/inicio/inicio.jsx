@@ -94,7 +94,7 @@ const Inicio = () => {
       </section>
 
       {/* Sección Temática */}
-      <section className="text-center p-5 tematica-section mb-5 d-flex align-items-center">
+      <section className="text-center p-5 tematica-section mb-0 d-flex align-items-center">
         <div className="tematica-text p-4 d-flex flex-column align-items-end">
             <h3 className="display-6 fw-bold mb-3">
                 Descubre nuestros <span style={{ color: "#425184" }}>Platillos <span style={{ color: "#d579af" }}>Temáticos</span></span>
