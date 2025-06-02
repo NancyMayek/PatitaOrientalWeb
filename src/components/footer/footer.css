@@ -3,10 +3,11 @@
   padding: 20px 0;
   text-align: center;
   display: flex;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   height: 70px;
   width: 100%;
+  position: "fixed",
 }
 
 .footer-content {
@@ -61,3 +62,4 @@
     display: none;
   }
 }
+
