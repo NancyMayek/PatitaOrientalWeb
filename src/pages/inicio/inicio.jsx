@@ -1,5 +1,5 @@
 import './inicio.css'
-// import TarjetaMenu from "../../components/tarjeta_menu/tarjeta_menu";
+import TarjetaMenu from "../../components/tarjeta_menu/tarjeta_menu";
 
 const Inicio = () => {
     return(
@@ -10,7 +10,7 @@ const Inicio = () => {
           <h1 className="display-5 fw-bold mb-3">
             La <span style={{ color: "#425184" }}>mejor</span> comida <span style={{ color: "#d579af" }}>Coreana</span> en México
           </h1>
-          <button className="btn btn-pink mt-3 align-self-center">Pedir ahora</button>
+          <button className="btn btn-pink mt-1 align-self-center">Pedir ahora</button>
         </div>
       </section>
       <section class="decorative-lines">
@@ -84,18 +84,16 @@ const Inicio = () => {
           <h3 className="mb-4 fw-bold">Platillos más vendidos</h3>
           <div className="row">
             <div className="col-md-6 mb-4">
-              {/* <TarjetaMenu /> */}
+              <TarjetaMenu />
             </div>
             <div className="col-md-6 mb-4">
-              {/* <TarjetaMenu /> */}
+              <TarjetaMenu />
             </div>
           </div>
         </div>
       </section>
 
       {/* Sección Temática */}
-
-
       <section className="text-center p-5 tematica-section mb-5 d-flex align-items-center">
         <div className="tematica-text p-4 d-flex flex-column align-items-end">
             <h3 className="display-6 fw-bold mb-3">
