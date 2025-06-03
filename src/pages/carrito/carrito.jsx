@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './carrito.css';
 
 const Carrito = () => {
@@ -14,6 +15,7 @@ const Carrito = () => {
 
     const [productos, setProductos] = useState(productosIniciales);
     const [metodoPago, setMetodoPago] = useState("");
+    const navigate = useNavigate();
 
     const handlePagoChange = (e) => {
         setMetodoPago(e.target.value);
@@ -46,6 +48,7 @@ const Carrito = () => {
         <div className="carrito-container">
             <div className="carrito">
                 <h2>Carrito de compra</h2>
+                
 
                 {productos.length === 0 ? (
                     <div className="carrito-vacio">
@@ -55,8 +58,14 @@ const Carrito = () => {
                             className="img-carrito"
                         />
                         <p>Tu carrito está vacío</p>
-                    </div>
 
+                        <button 
+                            className="boton-menu" 
+                            onClick={() => navigate('/menu')}
+                        >
+                            ← Ir al Menú
+                        </button>
+                    </div>
                 ) : (
                     productos.map(producto => (
                         <div className="producto" key={producto.id}>
@@ -72,7 +81,10 @@ const Carrito = () => {
                             <div className="precio">
                                 ${(producto.precio * producto.cantidad).toFixed(2)}
                             </div>
-                            <button className="eliminar" onClick={() => eliminarProducto(producto.id)}>
+                            <button 
+                                className="eliminar" 
+                                onClick={() => eliminarProducto(producto.id)}
+                            >
                                 Eliminar
                             </button>
                         </div>
@@ -81,68 +93,84 @@ const Carrito = () => {
 
                 {productos.length > 0 && (
                     <>
-                        <a href="#" className="seguir">← Seguir comprando</a>
-                        <button className="vaciar" onClick={vaciarCarrito}>Vaciar carrito</button>
+                        <button 
+                            className="seguir" 
+                            onClick={() => navigate('/menu')}
+                        >
+                            ← Seguir comprando
+                        </button>
+                        <button 
+                            className="vaciar" 
+                            onClick={vaciarCarrito}
+                        >
+                            Vaciar carrito
+                        </button>
                     </>
                 )}
             </div>
 
-            <div className="resumen">
-                <h3>Resumen del pedido</h3>
-                <p>Subtotal: <span>${subtotal.toFixed(2)}</span></p>
-                <p>Envío: <span>${envio.toFixed(2)}</span></p>
-                <p className="total">Total: <span>${total.toFixed(2)}</span></p>
+            {productos.length > 0 && (
+                <div className="resumen">
+                    <h3>Resumen del pedido</h3>
+                    <p>Subtotal: <span>${subtotal.toFixed(2)}</span></p>
+                    <p>Envío: <span>${envio.toFixed(2)}</span></p>
+                    <p className="total">Total: <span>${total.toFixed(2)}</span></p>
 
-                <div className="metodo-pago">
-                    <h4>Método de pago</h4>
+                    <div className="metodo-pago">
+                        <h4>Método de pago</h4>
+                        <label>
+                            <input
+                                type="radio"
+                                name="pago"
+                                value="efectivo"
+                                checked={metodoPago === "efectivo"}
+                                onChange={handlePagoChange}
+                            />
+                            Pago en efectivo
+                        </label>
+                        <small>Paga al recibir tu pedido</small>
 
-                    <label>
-                        <input
-                            type="radio"
-                            name="pago"
-                            value="efectivo"
-                            checked={metodoPago === "efectivo"}
-                            onChange={handlePagoChange}
-                        />
-                        Pago en efectivo
-                    </label>
-                    <small>Paga al recibir tu pedido</small>
+                        <label>
+                            <input
+                                type="radio"
+                                name="pago"
+                                value="transferencia"
+                                checked={metodoPago === "transferencia"}
+                                onChange={handlePagoChange}
+                            />
+                            Transferencia bancaria
+                        </label>
+                        <small>Realiza una transferencia a nuestra cuenta</small>
 
-                    <label>
-                        <input
-                            type="radio"
-                            name="pago"
-                            value="transferencia"
-                            checked={metodoPago === "transferencia"}
-                            onChange={handlePagoChange}
-                        />
-                        Transferencia bancaria
-                    </label>
-                    <small>Realiza una transferencia a nuestra cuenta</small>
+                        {metodoPago === "transferencia" && (
+                            <div className="datos-transferencia">
+                                <p><strong>Datos bancarios:</strong></p>
+                                <p>Banco: Banorte</p>
+                                <p>Cuenta: 1234567890</p>
+                                <p>CLABE: 012345678901234567</p>
+                                <p>Nombre: Patita Oriental S.A.</p>
+                                <p><em>Envía tu comprobante al siguiente WhatsApp:</em></p>
+                                <a
+                                    href="https://wa.me/5211234567890"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    +52 333 356 7890
+                                </a>
+                            </div>
+                        )}
+                    </div>
 
-                    {metodoPago === "transferencia" && (
-                        <div className="datos-transferencia">
-                            <p><strong>Datos bancarios:</strong></p>
-                            <p>Banco: Banorte</p>
-                            <p>Cuenta: 1234567890</p>
-                            <p>CLABE: 012345678901234567</p>
-                            <p>Nombre: Patita Oriental S.A.</p>
-                            <p><em>Envía tu comprobante al siguiente WhatsApp:</em></p>
-                            <a
-                                href="https://wa.me/5211234567890"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                +52 333 356 7890
-                            </a>
-                        </div>
-                    )}
+                    <button 
+                        className="finalizar" 
+                        onClick={handleFinalizarPedido}
+                    >
+                        Realizar pedido
+                    </button>
                 </div>
-
-                <button className="finalizar" onClick={handleFinalizarPedido}>Realizar pedido</button>
-            </div>
+            )}
         </div>
     );
 };
 
-export default Carrito;
+export { Carrito };

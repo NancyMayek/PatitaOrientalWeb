@@ -6,7 +6,7 @@ import { Inicio } from './pages/inicio/inicio'
 import { About } from './pages/about/about'
 import { Menu } from './pages/menu/menu'
 import { Menu_tematico } from './pages/menu_tematico/menu_tematico'
-import Carrito from './pages/carrito/carrito';
+import {Carrito} from './pages/carrito/carrito';
 import { Profile } from './pages/profile/profile'
 import { Registro } from './pages/registro/registro'
 import { Inicio_de_sesion } from './pages/inicio_de_sesion/inicio_de_sesion'
