@@ -5,6 +5,8 @@ import Footer from './components/footer/footer'
 import { Inicio } from './pages/inicio/inicio'
 import { About } from './pages/about/about'
 import { Menu } from './pages/menu/menu'
+import { Menu_tematico } from './pages/menu_tematico/menu_tematico'
+import {Carrito} from './pages/carrito/carrito';
 import  Menu_tematico  from './pages/menu_tematico/menu_tematico'
 import Carrito from './pages/carrito/carrito';
 import { Profile } from './pages/profile/profile'
