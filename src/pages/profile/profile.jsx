@@ -19,14 +19,14 @@ const  Profile= () => {
         <div className="usuarurio-info-resumen">
           <div className="usuario-foto-seccion">
             <div className="foto-container">
-            <img className="foto-de-perfil" src="../../../public/images/profile-picture-example.png" alt="foto de perfil" />
+            <img className="foto-de-perfil" src="../../../public/images/profile-picture/profile-picture-example.png" alt="foto de perfil" />
             </div>
-            <img className="icono-editar-foto"src="../../../public/images/icon-editar-foto.svg" alt="icono de editar foto" />
+            <img className="icono-editar-foto"src="../../../public/images/iconos/icon-editar-foto.svg" alt="icono de editar foto" />
           </div>
           <div className="usuario-informacion-principal">
             <h1>Percy Jackson</h1>
             <div className="direccion">
-              <img src="../../../public/images/icon-direccion.svg" alt="icono de casa" />
+              <img src="../../../public/images/iconos/icon-direccion.svg" alt="icono de casa" />
               <h2>Av. de la Paz #875, Col. Centro, Guadalajara</h2>
             </div>
           </div>
@@ -36,42 +36,42 @@ const  Profile= () => {
             <label htmlFor="nombre">Nombre:</label>
             <div>
               <input type="text" id="nombre" name="nombre" required />
-              <img src="../../../public/images/icon-editar.svg" alt="icono de editar" />
+              <img src="../../../public/images/iconos/icon-editar.svg" alt="icono de editar" />
             </div>
             <label htmlFor="apellido">Apellido:</label>
             <div>
               <input type="text" id="apellido" name="apellido" required />
-              <img src="../../../public/images/icon-editar.svg" alt="icono de editar" />
+              <img src="../../../public/images/iconos/icon-editar.svg" alt="icono de editar" />
             </div>
           </div>
           <div className="form-nivel-2">
             <label htmlFor="correo">Correo:</label>
             <div>
               <input type="email" id="correo" name="correo" required />
-              <img src="../../../public/images/icon-editar.svg" alt="icono de editar" />
+              <img src="../../../public/images/iconos/icon-editar.svg" alt="icono de editar" />
             </div>
             <label htmlFor="telefono">Teléfono:</label>
             <div>
               <input type="number" id="telefono" name="telefono" required />
-              <img src="../../../public/images/icon-editar.svg" alt="icono de editar" />
+              <img src="../../../public/images/iconos/icon-editar.svg" alt="icono de editar" />
             </div>
           </div>
           <div className="form-nivel-3">
             <label htmlFor="direccion">Dirección:</label>
             <div>
               <input type="text" id="direccion" name="direccion" required />
-              <img src="../../../public/images/icon-editar.svg" alt="icono de editar" />
+              <img src="../../../public/images/iconos/icon-editar.svg" alt="icono de editar" />
             </div>
             <label htmlFor="CP">Código Postal:</label>
             <div>
               <input type="number" id="CP" name="CP" required />
-              <img src="../../../public/images/icon-editar.svg" alt="icono de editar" />
+              <img src="../../../public/images/iconos/icon-editar.svg" alt="icono de editar" />
             </div>
           </div>
           <label htmlFor="referencias">Referencias:</label>
           <div>
             <input type="text" id="referencias" name="referencias" required />
-            <img src="../../../public/images/icon-editar.svg" alt="icono de editar" />
+            <img src="../../../public/images/iconos/icon-editar.svg" alt="icono de editar" />
           </div>
 
           <h2>Métodos de pago:</h2>
