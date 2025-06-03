@@ -72,4 +72,5 @@ const Menu_Tematico = () => {
     );
 };
 
-export default Menu_Tematico;
+
+export { Menu_Tematico };
