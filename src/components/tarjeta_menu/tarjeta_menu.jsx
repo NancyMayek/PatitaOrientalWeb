@@ -1,7 +1,7 @@
 import './tarjeta_menu.css'
 import { useState } from 'react';
 
-const TarjetaMenu = ({nombre,precio,descripcion,imagen}) => {
+const TarjetaMenu = (product) => {
     const [count, setCount] = useState(1);
     const handleIncrement = (maxValue) =>{
         if(count < maxValue) setCount( count + 1);
@@ -20,11 +20,11 @@ const TarjetaMenu = ({nombre,precio,descripcion,imagen}) => {
              <br></br>
               <br></br>
             <div className="contenedor-producto">
-                <img src={imagen} alt={`imagen de ${nombre}`} />
+                <img src={product.imagen} alt={`imagen de ${product.nombre}`} />
                 <div className="contenedor-info-producto">
-                    <h1 className="titulo-comida">{nombre}</h1>
-                    <h3 className="precio-comida">${precio}.00</h3>
-                    <p className="descripcion-comida">{descripcion}</p>
+                    <h1 className="titulo-comida">{product.nombre}</h1>
+                    <h3 className="precio-comida">${product.precio}.00</h3>
+                    <p className="descripcion-comida">{product.descripcion}</p>
                 </div>
             </div>
             <div className="contenedor-botones-menu">
@@ -35,7 +35,7 @@ const TarjetaMenu = ({nombre,precio,descripcion,imagen}) => {
                 <button>
                     <img  className='icono-suma' srcSet="../../../public/images/iconos/icono-mas.svg" alt="icono mas" onClick={()=> handleIncrement(10)} />
                 </button>
-                <button>
+                <button /* onClick={() => buyProducts(product)} */>
                     <h3 className='añadir-comida'>Añadir</h3>
                 </button>
                 <button>
