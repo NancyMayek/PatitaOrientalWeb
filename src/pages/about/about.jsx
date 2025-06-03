@@ -1,12 +1,14 @@
 import './about.css'
 
+
 const About = () => {
      return (
-  <div className="about-root main-content">{/* encapsula los estilos de about.css */}    
+  <div className="about-root main-content">{/* encapsula los estilos de about.css */} 
+  <br></br><br></br><br></br><br></br>
   <h1>Historia de Patita Oriental</h1>
-    <seccion id="historia">
-      <div className="section">
-        <img srcSet="public\images\imgAbout\Platillo1.png" alt="imagen1"></img>
+    <section id="historia">
+        <div className="section">
+            <img src="/images/imgAbout/Platillo1.png" alt="imagen1" />
          <div className="text">
                 <h2>Del antojo al emprendimiento: así nació Patita Oriental</h2>
                 <p>La idea de este restaurante coreano en Jalisco surgió cuando Gabriel y sus roomies, amantes de la
@@ -41,8 +43,9 @@ const About = () => {
                     y conecte mejor con su comunidad.</p>
             </div>
         </div>
-    </seccion> 
+    </section> 
     <section id="sobreDevelopers">
+        <br></br>
       <div className="developerCards derecha">
             <div id="info_developers">
 
@@ -356,7 +359,7 @@ const About = () => {
         
         <div className="container">
             <div className="lineasRectas-decoration-derecha">
-                <img src="public\images\imgAbout\images/grafico_lineas_rectas_derecha.svg" alt="línea recta decorativa" />
+                <img src="public\images\imgAbout\grafico_lineas_rectas_derecha.svg" alt="línea recta decorativa" />
             </div>
         </div>
         <div className="developerCards derecha">
@@ -409,7 +412,7 @@ const About = () => {
         </div>
 
         <div className ="container">
-            <div classN="lineasRectas-decoration">
+            <div className="lineasRectas-decoration">
                 <img srcSet="public\images\imgAbout\grafico_lineas_rectas_izquierda.svg" alt="línea recta decorativa" />
             </div>
         </div>

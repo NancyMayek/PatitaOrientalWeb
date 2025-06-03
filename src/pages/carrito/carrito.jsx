@@ -44,6 +44,7 @@ const Carrito = () => {
 
     return (
         <div className="carrito-container">
+            
             <div className="carrito">
                 <h2>Carrito de compra</h2>
 
