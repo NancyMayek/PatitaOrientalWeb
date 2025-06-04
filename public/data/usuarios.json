@@ -1,0 +1,61 @@
+{
+  "usuarios": {
+    "usuario": [
+      {
+        "id": "1",
+        "nombre": "Elena",
+        "apellido": "Martínez Duarte",
+        "correo": "elena.martinez@example.com",
+        "telefono": "5567891234",
+        "direccion": "Calle Río Nilo 15",
+        "referencias": "frente a la escuela primaria",
+        "imagen": "https://randomuser.me/api/portraits/women/12.jpg",
+        "empleado": 1
+      },
+      {
+        "id": "2",
+        "nombre": "Carlos",
+        "apellido": "Ramírez López",
+        "correo": "carlos.ramirez@example.com",
+        "telefono": "5523456789",
+        "direccion": "456 avenida central",
+        "referencias": "cerca del parque",
+        "imagen": "https://randomuser.me/api/portraits/men/32.jpg",
+        "empleado": 1
+      },
+      {
+        "id": "3",
+        "nombre": "Lucía",
+        "apellido": "Gómez Sánchez",
+        "correo": "lucia.gomez@example.com",
+        "telefono": "5512345678",
+        "direccion": "789 calle sur",
+        "referencias": "frente a la farmacia",
+        "imagen": "https://randomuser.me/api/portraits/women/44.jpg",
+        "empleado": 0
+      },
+      {
+        "id": "4",
+        "nombre": "David",
+        "apellido": "Hernández Ruiz",
+        "correo": "david.hernandez@example.com",
+        "telefono": "5534567890",
+        "direccion": "1010 norte",
+        "referencias": "junto a una panadería",
+        "imagen": "https://randomuser.me/api/portraits/men/76.jpg",
+        "empleado": 1
+      },
+      {
+        "id": "5",
+        "nombre": "Fernanda",
+        "apellido": "Mendoza Torres",
+        "correo": "fernanda.mendoza@example.com",
+        "telefono": "5545678901",
+        "direccion": "Av. Reforma 222",
+        "referencias": "al lado del museo",
+        "imagen": "https://randomuser.me/api/portraits/women/65.jpg",
+        "empleado": 0
+      }
+    ]
+  }
+}
