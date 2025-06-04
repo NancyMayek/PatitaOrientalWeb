@@ -1,0 +1,100 @@
+:root {
+  --primary-color: #425184;
+  --secondary-color: #D579AF;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.contact-section {
+  background-color: var(--primary-color);
+  padding: 60px 0;
+  min-height: 100vh;
+}
+
+.cat-img {
+  max-width: 70%;
+}
+
+.contact-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 4.8rem;
+  margin-top: 20px;
+}
+
+.decorative-lines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.decorative-lines .row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.line {
+  height: 12px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.white {
+  background-color: white;
+}
+
+.pink {
+  background-color: var(--secondary-color);
+}
+
+/* Tamaños personalizados */
+.short {
+  width: 50px;
+}
+
+.medium {
+  width: 110px;
+}
+
+.long {
+  width: 160px;
+}
+
+.extra-long {
+  width: 300px;
+}
+
+.space {
+  width: 70px;
+}
+
+.contact-form .form-control {
+  border-radius: 8px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.btn-pink {
+  background-color:  var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.btn-pink:hover {
+  background-color:  var(--secondary-color);
+}
