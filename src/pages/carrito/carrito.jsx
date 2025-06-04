@@ -57,12 +57,7 @@ const Carrito = () => {
                         />
                         <p>Tu carrito está vacío</p>
 
-                        <button 
-                            className="boton-menu" 
-                            onClick={() => navigate('/menu')}
-                        >
-                            ← Ir al Menú
-                        </button>
+                        <Link to="/Menu" className="boton-menu">← Ir al Menú</Link>
                     </div>
                 ) : (
                     carrito.map(product => (
@@ -95,7 +90,7 @@ const Carrito = () => {
                 )}
             </div>
 
-            {productos.length > 0 && (
+            {carrito.length > 0 && (
                 <div className="resumen">
                     <h3>Resumen del pedido</h3>
                     <p>Subtotal: <span>${subtotal.toFixed(2)}</span></p>
