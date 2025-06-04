@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* Declaración de variables para reutilizar colores y estilos */
+.about-root {
+  --color_fondo: white;
+  --color_texto_menú: #405084;
+  --color_botones: #d679af;
+  --color_acento: #405084;
+  --fuente_principal: "Poppins", sans-serif;
+  --padding_tarjetas: 5px;
+  --color_texto: #000;
+  --color_morado_principal: #405084;
+}
+
+.about-root h1,
+.about-root h2,
+.about-root h3,
+.about-root h4,
+.about-root h5,
+.about-root h6,
+.about-root p,
+.about-root a {
+  font-family: var(--fuente_principal);
+}
+body.about-root {
+  background-color: var(--color_morado_principal);
+}
+
+.about-root .subtitulos_para_seccion {
+  font-size: 140%;
+  font-weight: bold;
+}
+
+#sobreDevelopers {
+  background-color: #425184 !important; /* Forzar el fondo morado */
+  min-height: 100vh;
+  width: 100%;
+}
+
+.about-root .developerCards {
+  display: flex;
+  margin-top: 2rem;
+  height: 350px;
+}
+
+.about-root .imagen_circular {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white !important;
+  height: 100%;
+}
+
+
+.about-root .derecha {
+  margin-right: 30%;
+}
+
+.about-root .derecha .imagen_circular {
+  border-radius: 0px 1000px 1000px 0px;
+}
+
+.about-root .derecha .imagen_circular img {
+  padding-right: 5%;
+}
+
+
+.about-root .izquierda {
+  margin-left: 30%;
+  border-radius: 1000px 0px 0px 1000px;
+}
+
+.about-root .izquierda .imagen_circular {
+  border-radius: 1000px 0px 0px 1000px;
+}
+
+.about-root .izquierda .imagen_circular img {
+  padding-left: 5%;
+}
+
+.about-root .nombre_developers {
+  color: #d579af !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-root .grafico-estrella-developers {
+  width: 4%;
+  height: auto;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.about-root #info_developers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  padding: 5% 5%;
+  background-color: white !important;
+}
+
+.about-root .contactame-developer h3 {
+  font-size: 120%;
+}
+
+.about-root .contactame-developer h4 {
+  font-size: 100%;
+}
+
+.about-root #contactoTelyEmail {
+  display: flex;
+  justify-content: center;
+}
+
+.about-root .contacto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.about-root .icon-contactame {
+  width: 20px;
+  margin: 2%;
+}
+
+.about-root .imagen_circular img {
+  height: 90%;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.about-root .parrafos {
+  font-size: 100%;
+  text-align: justify;
+}
+
+/* Resetear estilos del navegador */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+
+.about-root .header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.about-root .logo img {
+  height: 40px;
+}
+
+/* Navegación */
+.about-root .navegacion {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.about-root .navegacion a {
+  text-decoration: none;
+  color: var(--color_texto_menú);
+  font-family: var(--fuente_principal);
+  font-weight: 500;
+}
+
+/* Iconos */
+.about-root .iconos a img {
+  height: 30px;
+  margin-left: 10px;
+}
+
+/* SECCIONES EN ZIGZAG */
+.about-root .section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 100px 20px 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-root .section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.about-root .section img {
+  width: 25%;
+  border-radius: 20px; /* Bordes ovalados */
+  object-fit: cover;
+}
+
+.about-root .text {
+  width: 50%;
+  font-family: var(--fuente_principal);
+  color: var(--color_texto);
+}
+
+/* TIPOGRAFÍAS */
+.about-root h1 {
+    font-family: var(--fuente_principal);
+    font-size: 54px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--color_texto_menú);
+}
+
+.about-root h2 {
+  font-family: var(--fuente_principal);
+  font-size: 44px;
+  margin-bottom: 10px;
+}
+
+.about-root p {
+  font-family: var(--fuente_principal);
+  font-size: 26px;
+  line-height: 1.4;
+}
+
+/* Decoraciones */
+.about-root .container {
+  width: 100%; /* o el ancho que necesites */
+  height: 100px; /* o el alto que necesites */
+}
+
+.about-root .lineasRectas-decoration-derecha {
+  position: absolute;
+  right: 0;
+  z-index: 0;
+}
+.about-root .lineasRectas-decoration {
+  position: absolute;
+  left: 0;
+  z-index: 0;
+}
