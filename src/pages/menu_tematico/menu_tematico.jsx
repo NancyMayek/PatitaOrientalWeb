@@ -7,14 +7,10 @@ const Menu_Tematico = () => {
     const [indiceBanner, setIndiceBanner] = useState(0);
 
  const imagenesBanner = [
-        { src: "https://live.staticflickr.com/65535/54563994086_1c67a80980_z.jpg", alt: "BTS" },
-        { src: "https://live.staticflickr.com/65535/54564225528_e07beb9a02_c.jpg", alt: "Black Pink" },
-        { src: "https://live.staticflickr.com/65535/54563994016_4af8ea5ef1_c.jpg", alt: "Twice" },
-        { src: "https://live.staticflickr.com/65535/54564225823_3edbc51a60_z.jpg", alt: "EXO" },
-        { src: "https://live.staticflickr.com/65535/54563994556_62ace342ac_z.jpg", alt: "Seventeen" },
-        { src: "https://live.staticflickr.com/65535/54563993941_4f79efc2c0_c.jpg", alt: "SHINee" },
-        { src: "https://live.staticflickr.com/65535/54564225658_d17254698b_z.jpg", alt: "TXT" },
-        { src: "https://live.staticflickr.com/65535/54564175499_5448a69e49_z.jpg", alt: "Stray Kids" },
+    
+        {src: "../../../public/images/menu_tematico/bannerbts1.jpg", alt: "Opcion 2"},
+        {src: "../../../public/images/menu_tematico/bannerbts2.jpg", alt: "Opcion 2"},
+        {src: "../../../public/images/menu_tematico/bannerbts3.jpg", alt: "Opcion 2"},
     ];
 
 
