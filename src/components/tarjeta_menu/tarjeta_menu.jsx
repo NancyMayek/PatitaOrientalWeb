@@ -19,8 +19,6 @@ const TarjetaMenu = (props) => {
     return (
        
         <div className="contenedor-tarjeta-menu">
-             <br></br>
-              <br></br>
             <div className="contenedor-producto">
                 <img src={imagen} alt={`imagen de ${nombre}`} />
                 <div className="contenedor-info-producto">

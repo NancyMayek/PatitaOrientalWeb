@@ -1,5 +1,6 @@
 import './inicio.css'
 import TarjetaMenu from "../../components/tarjeta_menu/tarjeta_menu";
+import { Link } from 'react-router-dom';
 
 const Inicio = () => {
     return(
@@ -10,7 +11,7 @@ const Inicio = () => {
           <h1 className="display-5 fw-bold mb-3">
             La <span style={{ color: "#425184" }}>mejor</span> comida <span style={{ color: "#d579af" }}>Coreana</span> en México
           </h1>
-          <button className="btn btn-pink mt-1 align-self-center">Pedir ahora</button>
+          <Link to = "/Menu"className = "btn btn-pink mt-1 align-self-center"> Pedir ahora</Link>
         </div>
       </section>
       <section class="decorative-lines">
@@ -101,9 +102,11 @@ const Inicio = () => {
       {/* Sección Temática */}
       <section className="text-center p-5 tematica-section mb-0 d-flex align-items-center">
         <div className="tematica-text p-4 d-flex flex-column align-items-end">
+          <Link to = "/Menu_tematico" className='Linkto' >
             <h3 className="display-6 fw-bold mb-3">
                 Descubre nuestros <span style={{ color: "#425184" }}>Platillos <span style={{ color: "#d579af" }}>Temáticos</span></span>
             </h3>
+          </Link>
         </div>
       </section>
         </div>

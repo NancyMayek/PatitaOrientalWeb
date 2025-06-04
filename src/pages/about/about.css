@@ -22,9 +22,9 @@
 .about-root a {
   font-family: var(--fuente_principal);
 }
-body.about-root {
+/* body.about-root {
   background-color: var(--color_morado_principal);
-}
+} */
 
 .about-root .subtitulos_para_seccion {
   font-size: 140%;

@@ -4,7 +4,7 @@ import "./menu.css"
 const Menu = () => {
   return (
     <main>
-      <br></br><br></br>
+
       <h2 className="menu-title">Conoce nuestro menú</h2>
       <ul className="filtros">
         <li><a className="filtro-btn" href="#comidas">Comida</a></li>

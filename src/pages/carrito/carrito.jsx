@@ -36,6 +36,7 @@ const Carrito = () => {
 
     const handleFinalizarPedido = () => {
         alert("Tu pedido ha sido generado, pronto tu conductor estará en camino.");
+        setCart([]);
     };
 
     const subtotal = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
