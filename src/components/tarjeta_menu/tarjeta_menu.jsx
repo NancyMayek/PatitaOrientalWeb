@@ -1,4 +1,4 @@
-import { useBuyProducts } from '../context/buyProducts';
+
 import './tarjeta_menu.css'
 import { useState } from 'react';
 
