@@ -68,7 +68,7 @@ header {
 .navegacion li a {
   text-decoration: none;
   color: var(--color_texto_menu);
-  font-weight:700;
+  font-weight:600;
   transition: color 0.3s;
 }
 
