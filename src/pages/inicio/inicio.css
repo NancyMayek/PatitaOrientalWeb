@@ -1,0 +1,145 @@
+
+.banner-section {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/banner.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 400px;
+  padding-left: 0 !important;
+}
+
+
+.banner-text {
+  background: rgba(255, 255, 255, 0.8);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-top: 70px;
+  margin-left: 0;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 650px; 
+}
+
+
+.about-section {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 80px;
+  max-width: 800px;
+  padding: 40px 20px;
+  padding-left: 20px;
+}
+
+.advantages-section {
+  background: #425184;
+  border-radius: 80px;
+  max-width: 800px;
+  padding: 40px 20px;
+  align-items: center;
+}
+
+.tematica-section {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/tematica.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+  padding-right: 0 !important; 
+}
+
+.tematica-text {
+  background: rgba(255, 255, 255, 0.8);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-top: 20px;
+  margin-left: auto; 
+  margin-right: 0;
+  max-width: 700px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
+.btn-pink {
+  background-color: #e89bb7;
+  color: white;
+  border: none;
+}
+
+.btn-pink:hover {
+  background-color: #d87aa0;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+}
+
+.star-icon {
+    width: 30px;
+    height: 25px;
+}
+/* --------------------------------------------------------------------------- */
+/* Decorative lines styles */
+.decorative-lines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.line-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.line {
+  height: 0.75rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.blue {
+  background-color: #425184;
+}
+
+.pink {
+  background-color: #d87aa0;
+}
+
+.short {
+  width: 10%;
+  min-width: 50px;
+}
+
+.medium {
+  width: 20%;
+  min-width: 80px;
+}
+
+.long {
+  width: 30%;
+  min-width: 100px;
+}
+
+.extra-long {
+  width: 50%;
+  min-width: 150px;
+}
+
+.space {
+  width: 10%;
+  min-width: 40px;
+  visibility: hidden;
+}
