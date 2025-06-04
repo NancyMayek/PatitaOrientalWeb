@@ -1,65 +1,313 @@
 .perfil-de-usuario-contenedor {
+  margin-top: 5rem;
   display: flex;
   background-color: white;
 }
 
+.title-profile {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+/*==========SECCION DE SIDE BAR =============*/
 .perfil-de-Usuario-SideBar {
   display: flex;
   flex-direction: column;
   width: 25%;
   margin-right: 2rem;
 
+  .title-profile {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin-left: 4rem;
+    margin-bottom: 1rem;
+  }
+
   .Usuario-SideBar-Boton {
-    background-color: var(--color-rosa);
+    background-color: var(--color-morado);
     border-radius: 0 50px 50px 0;
     margin-top: 2rem;
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    text-decoration: none;
+    transition: background-color 0.1s ease;
 
     h1 {
+      padding: 1rem;
+      margin-left: 7rem;
       font-size: 1.3rem;
-      font-weight: bold;
+      font-weight: 600;
       color: white;
     }
   }
+
+  .Usuario-SideBar-Boton:hover {
+    background-color: var(--color-rosa);
+  }
 }
 
-.usuarurio-info-resumen {
-  display: flex;
-  justify-content: center;
+/*==========SECCION DE FOTO Y DIRECCION DE USUARIO==========*/
+.informacion-de-usuario-seccion {
+  margin-left: 6%;
+  width: 70%;
 }
-
-.usuario-foto-seccion {
+.usuario-info-resumen {
   display: flex;
-  .foto-container {
-    width: 100%;
-    overflow: hidden;
-    .foto-de-perfil {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Makes the image cover the entire container */
+  position: relative;
+  bottom: 2rem;
+
+  .usuario-foto-seccion {
+    display: flex;
+    .foto-container {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      .foto-de-perfil {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Hace que la imagen cubra todo el contenedor */
+      }
+    }
+    .icono-editar-foto {
+      width: 30px;
+      position: relative;
+      top: 30%;
+      right: 15%;
     }
   }
-  .icono-editar-foto{
-    width: 30px;
+
+  .usuario-informacion-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    .direccion {
+      display: flex;
+      align-items: center;
+      margin-top: 0.5rem;
+      h2 {
+        font-size: 0.9rem;
+        margin-left: 0.5rem;
+      }
+      img {
+        width: 1.6rem;
+        height: auto;
+      }
+    }
   }
 }
 
-.direccion {
-  display: flex;
-}
+/*=========FORMULARIO CON INFORMACION ===========*/
 
 .form-nivel-1,
 .form-nivel-2,
 .form-nivel-3 {
   display: flex;
+  width: 70%;
+  margin-bottom: 1.5rem;
+}
+
+.elemento-de-formulario {
+  width: 50%;
+  label {
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+  .input-grey {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e8e8e8;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 10px;
+    width: 90%;
+    height: 3rem;
+    input {
+      border-style: none;
+      width: 70%;
+      margin-left: 1rem;
+      background-color: #e8e8e8;
+    }
+    input:focus {
+      outline: none;
+    }
+    img {
+      margin-right: 1rem;
+    }
+  }
+}
+
+#referencias {
+  width: 74%;
 }
 
 .metodos-de-pago-seccion {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   display: flex;
+  width: 67%;
+  flex-direction: column;
+  h2 {
+    margin-bottom: 1rem;
+  }
+  .checkbox-metodos-de-pago {
+    display: flex;
+    justify-content: space-evenly;
+    .metodos-de-pago {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      margin-left: 1rem;
+    }
+    input[type="checkbox"] {
+      accent-color: var(--color-rosa);
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  }
 }
 
-.metodos-de-pago {
-  display: flex;
+/*---------------------------------MEDIA QUERY------------------------------*/
+
+@media (max-width: 1200px) {
+  .perfil-de-usuario-contenedor {
+    margin-top: 4rem; /**/
+   
+  }
+  /*==========SECCION DE SIDE BAR =============*/
+  .perfil-de-Usuario-SideBar {
+     display: flex;
   flex-direction: column;
+  width: 25%;
+  margin-right: 0rem;
+
+  .title-profile {
+   
+    font-size: 1.5rem;
+    margin-left: 1rem;
+   
+  }
+
+  .Usuario-SideBar-Boton {
+    background-color: var(--color-morado);
+    border-radius: 0 50px 50px 0;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: start;
+    text-decoration: none;
+    transition: background-color 0.1s ease;
+
+    h1 {
+      padding: 1rem;
+      padding-left: 3rem;
+      margin-left: 0rem;
+      font-size: .9rem;
+    }
+  }
+
+  }
+
+  /*==========SECCION DE FOTO Y DIRECCION DE USUARIO==========*/
+  .informacion-de-usuario-seccion {
+    width: 100%;
+  }
+  
+   
+  }
+
+  /*=========FORMULARIO CON INFORMACION ===========*/
+
+  .form-nivel-1,
+  .form-nivel-2,
+  .form-nivel-3 {
+  
+    width: 100%; /**/
+    
+  }
+
+  
+  
+
+  #referencias {
+    width: 105%; /**/
+  }
+
+  .metodos-de-pago-seccion {
+  
+    width: 100%; /**/
+   
+    .checkbox-metodos-de-pago {
+     
+      label {
+       
+        margin-right: 1rem; /**/
+      }
+     
+    }
+  }
+
+
+/*------------MOVILES------------------*/
+
+@media (max-width: 600px) {
+  .perfil-de-usuario-contenedor {
+    margin-top: 2rem; /**/
+    justify-content: center; /**/
+  }
+
+  .perfil-de-Usuario-SideBar {
+    display: none;
+  }
+  /*==========SECCION DE FOTO Y DIRECCION DE USUARIO==========*/
+  .informacion-de-usuario-seccion {
+    margin-right: 1.5rem;
+  }
+  .usuario-info-resumen {
+    bottom: 0rem;
+    
+
+    .usuario-foto-seccion {
+      .foto-container {
+        width: 130px; /**/
+        height: 130px;
+      }
+    }
+  }
+
+  /*=========FORMULARIO CON INFORMACION ===========*/
+
+  .form-nivel-1,
+  .form-nivel-2,
+  .form-nivel-3 {
+    display: flex;
+    flex-direction: column; /**/
+    margin-bottom: 0rem; /**/
+  }
+
+  .elemento-de-formulario {
+    width: 100%;
+    margin-top: 1rem;
+    .input-grey {
+      width: 100%;
+    }
+  }
+
+  #referencias {
+    width: 100%; /**/
+  }
+
+  .metodos-de-pago-seccion {
+    .checkbox-metodos-de-pago {
+      label {
+        margin-right: 1rem; /**/
+      }
+    }
+  }
 }
