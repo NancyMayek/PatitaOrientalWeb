@@ -1,9 +1,24 @@
 import "./profile.css";
+import { useNavigate } from "react-router-dom";
 import { Favoritos } from "../favoritos/favoritos";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() => {
+    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
+    if (usuarioGuardado) {
+      setUsuario(usuarioGuardado);
+    }
+  }, []);
+  if (!usuario) {
+  return <div>Cargando usuario...</div>;
+}
+
   return (
     <div className="perfil-de-usuario-contenedor">
       {/* Side bar */}
@@ -38,14 +53,14 @@ const Profile = () => {
           </div>
           <div className="usuario-informacion-principal">
             <h1 className="title-profile" id="nombre-usuario ">
-              Percy Jackson
+              {usuario.nombre} {usuario.apellido}
             </h1>
             <div className="direccion">
               <img
                 src="../../../public/images/iconos/icon-direccion.svg"
                 alt="icono de casa"
               />
-              <h2>Av. de la Paz #875, Col. Centro, Guadalajara</h2>
+              <h2>{usuario.direccion}</h2>
             </div>
           </div>
         </div>
@@ -55,7 +70,7 @@ const Profile = () => {
             <div className="elemento-de-formulario">
               <label htmlFor="nombre">Nombre:</label>
               <div className="input-grey">
-                <input type="text" id="nombre" name="nombre" value={"Percy"} required />
+                <input type="text" id="nombre" name="nombre" value={usuario.nombre} required />
                 <img
                   src="../../../public/images/iconos/icon-editar.svg"
                   alt="icono de editar"
@@ -65,7 +80,7 @@ const Profile = () => {
             <div className="elemento-de-formulario">
               <label htmlFor="apellido">Apellido:</label>
               <div className="input-grey">
-                <input type="text" id="apellido" name="apellido" value={"Jackson"} required />
+                <input type="text" id="apellido" name="apellido" value={usuario.apellido} required />
                 <img
                   src="../../../public/images/iconos/icon-editar.svg"
                   alt="icono de editar"
@@ -77,7 +92,7 @@ const Profile = () => {
             <div className="elemento-de-formulario">
               <label htmlFor="correo">Correo:</label>
               <div className="input-grey">
-                <input type="email" id="correo" name="correo" value={"elLadronDelRayo@gmail.com"} required />
+                <input type="email" id="correo" name="correo" value={usuario.email} required />
                 <img
                   src="../../../public/images/iconos/icon-editar.svg"
                   alt="icono de editar"
@@ -87,7 +102,7 @@ const Profile = () => {
             <div className="elemento-de-formulario">
               <label htmlFor="telefono">Teléfono:</label>
               <div className="input-grey">
-                <input type="text" id="telefono" name="telefono" value={"222-222-2334"} required />
+                <input type="text" id="telefono" name="telefono" value={usuario.telefono} required />
                 <img
                   src="../../../public/images/iconos/icon-editar.svg"
                   alt="icono de editar"
@@ -99,7 +114,7 @@ const Profile = () => {
             <div className="elemento-de-formulario">
               <label htmlFor="direccion">Dirección:</label>
               <div className="input-grey">
-                <input type="text" id="direccion" name="direccion" value={"Av. de la Paz #875, Col. Centro, Guadalajara"} required />
+                <input type="text" id="direccion" name="direccion" value={usuario.direccion} required />
                 <img
                   src="../../../public/images/iconos/icon-editar.svg"
                   alt="icono de editar"
@@ -109,7 +124,7 @@ const Profile = () => {
             <div className="elemento-de-formulario">
               <label htmlFor="CP">Código Postal:</label>
               <div className="input-grey">
-                <input type="number" id="CP" name="CP" value={72229} required />
+                <input type="number" id="CP" name="CP" value={usuario.CP} required />
                 <img
                   src="../../../public/images/iconos/icon-editar.svg"
                   alt="icono de editar"
