@@ -3,6 +3,12 @@
     margin-bottom: 2rem;
 }
 .imagen-gato{
-    width: 32rem;
+    width: 25rem;
    
+}
+.alinear {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
 }

@@ -8,7 +8,7 @@ const  Registro= () => {
         <section class="contact-section">
                 <div class="container">
                   <div class="row align-items-center">
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-4 alinear">
                       <img
                         src={gatitoConCorazones}
                         alt="Gatito llamando"
