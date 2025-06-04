@@ -1,0 +1,14 @@
+.link-to-logIn{
+    color: white;
+    margin-bottom: 2rem;
+}
+.imagen-gato{
+    width: 25rem;
+   
+}
+.alinear {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
