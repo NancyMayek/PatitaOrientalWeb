@@ -90,19 +90,9 @@ const Inicio = () => {
           </div>
         </section>
           <div className="row">
-            <div className="col-md-3 mb-4">
-              <TarjetaMenu />
+            <div className="col-md-12 mb-4">
+            <TopProducts url= "/public/data/menu.json" />
             </div>
-            <div className="col-md-3 mb-4">
-              <TarjetaMenu />
-            </div>
-            <div className="col-md-3 mb-4">
-              <TarjetaMenu />
-            </div>
-            <div className="col-md-3 mb-4">
-              <TarjetaMenu />
-            </div>
-
           </div>
         </div>
       </section>
