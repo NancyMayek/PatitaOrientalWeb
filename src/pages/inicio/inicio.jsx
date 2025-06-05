@@ -1,6 +1,7 @@
 import './inicio.css'
 import TarjetaMenu from "../../components/tarjeta_menu/tarjeta_menu";
 import { Link } from 'react-router-dom';
+import { TopProducts } from '../../components/tarjeta_menu/filtrosProductos';
 
 const Inicio = () => {
     return(
@@ -14,17 +15,17 @@ const Inicio = () => {
           <Link to = "/Menu"className = "btn btn-pink mt-1 align-self-center"> Pedir ahora</Link>
         </div>
       </section>
-      <section class="decorative-lines">
-        <div class="line-group">
-          <span class="line short blue"></span>
-          <span class="line medium blue"></span>
-          <span class="line extra-long blue"></span>
+      <section className="decorative-lines">
+        <div className="line-group">
+          <span className="line short blue"></span>
+          <span className="line medium blue"></span>
+          <span className="line extra-long blue"></span>
         </div>
-        <div class="line-group">
-          <span class="line long blue"></span>
-          <span class="line short blue"></span>
-          <span class="line space"></span>
-          <span class="line long pink"></span>
+        <div className="line-group">
+          <span className="line long blue"></span>
+          <span className="line short blue"></span>
+          <span className="line space"></span>
+          <span className="line long pink"></span>
         </div>
       </section>
 
@@ -83,18 +84,16 @@ const Inicio = () => {
       <section className="p-4" >
         <div className="container container d-flex flex-column align-items-center">
           <h3 className="mb-0 fw-bold">Platillos más vendidos</h3>
-          <section class="decorative-lines">
-          <div class="line-group mb-4">
-            <span class="line long pink"></span>
+          <section className="decorative-lines">
+          <div className="line-group mb-4">
+            <span className="line long pink"></span>
           </div>
         </section>
           <div className="row">
-            <div className="col-md-6 mb-4">
-              <TarjetaMenu />
+            <div className="col-md-12 mb-4">
+            <TopProducts url= "/public/data/menu.json" />
             </div>
-            <div className="col-md-6 mb-4">
-              <TarjetaMenu />
-            </div>
+
           </div>
         </div>
       </section>

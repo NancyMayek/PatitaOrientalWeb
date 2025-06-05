@@ -4,7 +4,7 @@ import iconoMas from '../../../public/images/iconos/icono-mas.svg'
 import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg'
 import './tarjeta_menu_tematico.css';
 
-const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen }) => {
+const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart,id }) => {
     const [count, setCount] = useState(0);
     const handleIncrement = (maxValue) => {
         if (count < maxValue) setCount(count + 1);
@@ -37,7 +37,9 @@ const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen }) => {
                     <button>
                          <img className='icono-suma' srcSet={iconoMas} alt="icono más" onClick={()=> handleIncrement(10)} />
                     </button>
-                    <h2 className='añadir-comida'>Añadir</h2>
+                <button onClick={() => onAddToCart({imagen, nombre, precio, descripcion, cantidad: count, id})} >
+                    <h3 className='añadir-comida'>Añadir</h3>
+                </button>
                    
                     <img className='icono-corazon-rojo' srcSet={iconoCorazon} alt="icono corazón" />
                 </div>
