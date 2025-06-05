@@ -1,5 +1,5 @@
 .contenedor-tarjeta-menu {
-  display: flex;
+  display: flex; 
   flex-direction: column;
   background-color: white;
   border: 5px solid var(--color-morado);
@@ -15,13 +15,13 @@
   align-items: center;
   justify-content: flex-start;
   padding: 1.5rem;
-  gap: 1.5rem;
+  gap: 0rem;
   flex: 1;
 }
 
 .contenedor-producto img {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -59,7 +59,7 @@
   text-align: justify;
   color: #555;
   line-height: 1.4;
-  padding: 0 10px;
+  padding: 0 0.5px;
   margin: 0;
 }
 
@@ -155,7 +155,7 @@
 }
 
 button{
-  background: none;      /* Quita el fondo gris */
+  background: none;      
   border: none;
 }
 
@@ -180,4 +180,3 @@ button{
 .añadir-comida:hover{
   color: var(--color-morado);
 }
-

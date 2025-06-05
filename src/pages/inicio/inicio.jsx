@@ -1,6 +1,7 @@
 import './inicio.css'
 import TarjetaMenu from "../../components/tarjeta_menu/tarjeta_menu";
 import { Link } from 'react-router-dom';
+import { TopProducts } from '../../components/tarjeta_menu/filtrosProductos';
 
 const Inicio = () => {
     return(
@@ -101,6 +102,7 @@ const Inicio = () => {
             <div className="col-md-3 mb-4">
               <TarjetaMenu />
             </div>
+
           </div>
         </div>
       </section>
