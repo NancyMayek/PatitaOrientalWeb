@@ -3,11 +3,11 @@
   --secondary-color: #D579AF;
 }
 
-body, html {
+/* body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-}
+} */
 
 .contact-section {
   background-color: var(--primary-color);

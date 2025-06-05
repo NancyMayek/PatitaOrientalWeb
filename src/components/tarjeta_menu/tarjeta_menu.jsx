@@ -1,7 +1,12 @@
+
 import './tarjeta_menu.css'
+import iconoResta from '../../../public/images/iconos/icono-menos.svg'
+import iconoMas from '../../../public/images/iconos/icono-mas.svg'
+import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg'
 import { useState } from 'react';
 
-const TarjetaMenu = ({nombre,precio,descripcion,imagen}) => {
+const TarjetaMenu = (props) => {
+    const { imagen, nombre, precio, descripcion, onAddToCart, id } = props;
     const [count, setCount] = useState(1);
     const handleIncrement = (maxValue) =>{
         if(count < maxValue) setCount( count + 1);
@@ -17,8 +22,6 @@ const TarjetaMenu = ({nombre,precio,descripcion,imagen}) => {
     return (
        
         <div className="contenedor-tarjeta-menu">
-             <br></br>
-              <br></br>
             <div className="contenedor-producto">
                 <img src={imagen} alt={`imagen de ${nombre}`} />
                 <div className="contenedor-info-producto">
@@ -30,15 +33,17 @@ const TarjetaMenu = ({nombre,precio,descripcion,imagen}) => {
             <div className="contenedor-botones-menu">
                 <button>
 
-                <img className='icono-resta' srcSet="../../../public/images/iconos/icono-menos.svg" alt="icono menos" onClick={() => handleDecrement(1)}/>
+                <img className='icono-resta' srcSet={iconoResta} alt="icono menos" onClick={() => handleDecrement(1)}/>
                 </button>
                 <p className='cantidad-articulos'>{count}</p>
                 <button>
-                <img  className='icono-suma' srcSet="../../../public/images/iconos/icono-mas.svg" alt="icono mas" onClick={()=> handleIncrement(10)} />
+                <img  className='icono-suma' srcSet={iconoMas} alt="icono mas" onClick={()=> handleIncrement(10)} />
                 </button>
-                <h3 className='añadir-comida'>Añadir</h3>
+                <button onClick={() => onAddToCart({imagen, nombre, precio, descripcion, cantidad: count ,id})} >
+                    <h3 className='añadir-comida'>Añadir</h3>
+                </button>
                 <button>
-                <img className='icono-corazon-rojo' srcSet="../../../public/images/iconos/icono-corazon-negro.svg" alt="icono corazon" />
+                <img className='icono-corazon-rojo' srcSet={iconoCorazon} alt="icono corazon" />
                 </button>
             </div>
         </div>
