@@ -6,25 +6,25 @@ const Inicio = () => {
     return(
         <div>
               {/* Sección Banner */}
-      <section className="text-center p-5 banner-section d-flex align-items-left">
+      <section className="p-5 banner-section d-flex align-items-left">
         <div className="banner-text p-4 d-flex flex-column align-items-start ">
-          <h1 className="display-5 fw-bold mb-3">
-            La <span style={{ color: "#425184" }}>mejor</span> comida <span style={{ color: "#d579af" }}>Coreana</span> en México
+          <h1 className="display-5 mb-3">
+            La <span style={{ color: "#425184" }}>mejor</span> comida <span className='fw-bold'><span style={{ color: "#d579af"}}>Coreana</span> en México</span>
           </h1>
-          <Link to = "/Menu"className = "btn btn-pink mt-1 align-self-center"> Pedir ahora</Link>
+          <Link to = "/Menu"className = "btn btn-pink"> Pedir ahora</Link>
         </div>
       </section>
-      <section class="decorative-lines">
-        <div class="line-group">
-          <span class="line short blue"></span>
-          <span class="line medium blue"></span>
-          <span class="line extra-long blue"></span>
+      <section class="decorative-lines-inicio">
+        <div class="line-group-inicio justify-content-center">
+          <span class="line-inicio short-inicio blue"></span>
+          <span class="line-inicio medium-inicio blue"></span>
+          <span class="line-inicio extra-long-inicio blue"></span>
         </div>
-        <div class="line-group">
-          <span class="line long blue"></span>
-          <span class="line short blue"></span>
-          <span class="line space"></span>
-          <span class="line long pink"></span>
+        <div class="line-group-inicio justify-content-center">
+          <span class="line-inicio long-inicio blue"></span>
+          <span class="line-inicio short-inicio blue"></span>
+          <span class="line-inicio space-inicio"></span>
+          <span class="line-inicio long-inicio pink"></span>
         </div>
       </section>
 
@@ -42,7 +42,7 @@ const Inicio = () => {
               </h2>
               <img src="./images/home-icons/star-icon-end.png" className="star-icon" alt="star-end" />
             </div>
-            <p>
+            <p className='justify-content-center'>
               Somos tu tienda favorita de comida coreana en Jalisco. Cada plato está diseñado con amor, creatividad y mucha onda coreana para que disfrutes una experiencia completa y deliciosa. Ya sea que seas fan del kimchi, el tteokbokki, el bulgogi o simplemente quieras descubrir nuevos sabores, en nuestra tienda encontrarás un pedacito de Corea… ¡sin salir de México!
             </p>
           </div>
@@ -81,18 +81,24 @@ const Inicio = () => {
 
       {/* Platillos Más Vendidos */}
       <section className="p-4" >
-        <div className="container container d-flex flex-column align-items-center">
-          <h3 className="mb-0 fw-bold">Platillos más vendidos</h3>
-          <section class="decorative-lines">
-          <div class="line-group mb-4">
-            <span class="line long pink"></span>
+        <div className="container container d-flex flex-column">
+          <h3 className="mb-0 fw-bold" style={{marginLeft: "20px"}}>Platillos más vendidos</h3>
+          <section className="decorative-lines-inicio">
+          <div className="line-group-inicio mb-4">
+            <span className="line-inicio long-inicio pink"></span>
           </div>
         </section>
           <div className="row">
-            <div className="col-md-6 mb-4">
+            <div className="col-md-3 mb-4">
               <TarjetaMenu />
             </div>
-            <div className="col-md-6 mb-4">
+            <div className="col-md-3 mb-4">
+              <TarjetaMenu />
+            </div>
+            <div className="col-md-3 mb-4">
+              <TarjetaMenu />
+            </div>
+            <div className="col-md-3 mb-4">
               <TarjetaMenu />
             </div>
           </div>
@@ -100,11 +106,11 @@ const Inicio = () => {
       </section>
 
       {/* Sección Temática */}
-      <section className="text-center p-5 tematica-section mb-0 d-flex align-items-center">
+      <section className="p-5 tematica-section mb-0 d-flex align-items-center">
         <div className="tematica-text p-4 d-flex flex-column align-items-end">
           <Link to = "/Menu_tematico" className='Linkto' >
-            <h3 className="display-6 fw-bold mb-3">
-                Descubre nuestros <span style={{ color: "#425184" }}>Platillos <span style={{ color: "#d579af" }}>Temáticos</span></span>
+            <h3 className="display-6 fw-bold mb-3 text-end" style={{ color: "#425184" }}>
+                Descubre nuestros <br /><span style={{ fontSize: "3.5rem" }}>Platillos <span style={{ color: "#d579af" }}>Temáticos</span></span>
             </h3>
           </Link>
         </div>
