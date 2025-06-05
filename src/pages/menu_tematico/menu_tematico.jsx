@@ -1,10 +1,13 @@
 import './menu_tematico.css'
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import TarjetaMenuTematico from '../../components/tarjeta_menu/tarjeta_menu_tematico';
+import { Context } from '../../components/context/Contex';
 
 const Menu_Tematico = () => {
     const [paquetes, setPaquetes] = useState([]);
     const [indiceBanner, setIndiceBanner] = useState(0);
+
+    const {carrito, setCart} = useContext(Context);
 
  const imagenesBanner = [
     
@@ -29,6 +32,12 @@ const Menu_Tematico = () => {
     }, 10000);
     return () => clearInterval(intervalo);
   }, [imagenesBanner.length]);
+
+    const buyProducts = (product) => {
+      setCart([...carrito, product])
+      console.log(product);
+      
+    }
    
     return (
         <>
@@ -53,13 +62,15 @@ const Menu_Tematico = () => {
 
 
             <div className="contenedor-menu-tematico">
-                {paquetes.map((item, index) => (
+                {paquetes.map((item) => (
                     <TarjetaMenuTematico
-                        key={index}
+                        key={item.id}
+                        id={item.id}
                         nombre={item.Paquete}
                         precio={item.Precio}
                         descripcion={item.Descripción}
                         imagen={item.Imagen}
+                        onAddToCart ={ buyProducts}
                     />
                 ))}
             </div>

@@ -7,7 +7,8 @@
         "precio": 65,
         "descripcion": "Fideos instantáneos de diferentes sabores. Los toppings son por separado.",
         "imagen": "https://live.staticflickr.com/65535/54557082775_eda7183011_b.jpg",
-        "categoria": "comida"
+        "categoria": "comida",
+        "contador": 1
       },
       {
         "id": "comida-2",
@@ -15,7 +16,9 @@
         "precio": 65,
         "descripcion": "Empanadas de pollo con verduras acompañadas con salsa de soya. Incluye 6 piezas.",
         "imagen": "https://live.staticflickr.com/65535/54557082555_f7701e1e3a_b.jpg",
-        "categoria": "comida"
+        "categoria": "comida",
+        "contador": 2
+
       },
       {
         "id": "comida-3",
@@ -23,7 +26,8 @@
         "precio": 65,
         "descripcion": "Empanadas de carne con verduras. Incluye 6 piezas.",
         "imagen": "https://live.staticflickr.com/65535/54556985238_864e8c681a_b.jpg",
-        "categoria": "comida"
+        "categoria": "comida",
+        "contador": 40
       },
       {
         "id": "comida-4",
@@ -31,7 +35,8 @@
         "precio": 50,
         "descripcion": "Comida japonesa en forma de bolita rellena de queso. Incluye 8 piezas.",
         "imagen": "https://live.staticflickr.com/65535/54557082565_90bf8bc258_b.jpg",
-        "categoria": "comida"
+        "categoria": "comida",
+        "contador": 100
       },
       {
         "id": "comida-5",
@@ -39,7 +44,8 @@
         "precio": 55,
         "descripcion": "Comida japonesa en forma de bolita rellena de camarón. Incluye 8 piezas.",
         "imagen": "https://live.staticflickr.com/65535/54557082565_90bf8bc258_b.jpg",
-        "categoria": "comida"
+        "categoria": "comida",
+        "contador": 188
       },
       {
         "id": "comida-6",
@@ -47,7 +53,8 @@
         "precio": 40,
         "descripcion": "Mini empanaditas de pollo con cilantro, acompañadas de sopa picosa. Incluye 7 piezas.",
         "imagen": "https://live.staticflickr.com/65535/54556931139_38462b55f0_b.jpg",
-        "categoria": "comida"
+        "categoria": "comida",
+        "contador": 3
       }
     ],
     "bebidas": [
@@ -57,7 +64,8 @@
         "precio": 70,
         "descripcion": "Bebida sabor galleta oreo con tapioca.",
         "imagen": "https://live.staticflickr.com/65535/54556985183_7305512154_b.jpg",
-        "categoria": "bebida"
+        "categoria": "bebida",
+        "contador": 21
       },
       {
         "id": "bebida-2",
@@ -65,7 +73,8 @@
         "precio": 65,
         "descripcion": "Bebida sabor taro con tapioca.",
         "imagen": "https://live.staticflickr.com/65535/54556931024_72fd257082_b.jpg",
-        "categoria": "bebida"
+        "categoria": "bebida",
+        "contador": 20
       },
       {
         "id": "bebida-3",
@@ -73,7 +82,8 @@
         "precio": 65,
         "descripcion": "Bebida sabor matcha con tapioca.",
         "imagen": "https://live.staticflickr.com/65535/54555862627_0ce40d4934_b.jpg",
-        "categoria": "bebida"
+        "categoria": "bebida",
+        "contador": 19
       },
       {
         "id": "bebida-4",
@@ -81,7 +91,8 @@
         "precio": 60,
         "descripcion": "Bebida sabor taro con tapioca (versión líquida).",
         "imagen": "https://live.staticflickr.com/65535/54557159910_2c3ee8cede_b.jpg",
-        "categoria": "bebida"
+        "categoria": "bebida",
+        "contador": 18
       },
       {
         "id": "bebida-5",
@@ -89,7 +100,8 @@
         "precio": 60,
         "descripcion": "Bebida sabor matcha con tapioca (versión líquida).",
         "imagen": "https://live.staticflickr.com/65535/54557007719_e1b321b76a_b.jpg",
-        "categoria": "bebida"
+        "categoria": "bebida",
+        "contador": 17
       },
       {
         "id": "bebida-6",
@@ -97,7 +109,8 @@
         "precio": 50,
         "descripcion": "Bebida gaseosa sabor fresa con perlas explosivas del mismo sabor.",
         "imagen": "https://live.staticflickr.com/65535/54557082485_e4ca34edeb_b.jpg",
-        "categoria": "bebida"
+        "categoria": "bebida",
+        "contador": 16
       },
       {
         "id": "bebida-7",
@@ -105,7 +118,8 @@
         "precio": 50,
         "descripcion": "Bebida gaseosa sabor mora azul con perlas explosivas del mismo sabor.",
         "imagen": "https://live.staticflickr.com/65535/54556931029_ae8d7a705b_b.jpg",
-        "categoria": "bebida"
+        "categoria": "bebida",
+        "contador": 15
       },
       {
         "id": "bebida-8",
@@ -113,7 +127,8 @@
         "precio": 50,
         "descripcion": "Bebida gaseosa sabor mango con perlas explosivas del mismo sabor.",
         "imagen": "https://live.staticflickr.com/65535/54556985153_0099b96e1e_b.jpg",
-        "categoria": "bebida"
+        "categoria": "bebida",
+        "contador": 14
       },
       {
         "id": "bebida-9",
@@ -121,7 +136,8 @@
         "precio": 30,
         "descripcion": "Bebida japonesa con sabor parecido a la leche con un toque ácido.",
         "imagen": "https://live.staticflickr.com/65535/54556743576_51f4d2e89a_b.jpg",
-        "categoria": "bebida"
+        "categoria": "bebida",
+        "contador": 13
       }
     ],
     "postres": [
@@ -131,7 +147,8 @@
         "precio": 30,
         "descripcion": "Paleta de fresas con crema con forma de ternurines diferentes.",
         "imagen": "https://live.staticflickr.com/65535/54556743811_55fd1014a2_b.jpg",
-        "categoria": "postre"
+        "categoria": "postre",
+        "contador": 5
       },
       {
         "id": "postre-2",
@@ -139,7 +156,8 @@
         "precio": 25,
         "descripcion": "Galleta artesanal decorada con diseños de ternurines.",
         "imagen": "https://live.staticflickr.com/65535/54556826716_911356c52d_b.jpg",
-        "categoria": "postre"
+        "categoria": "postre",
+        "contador": 4
       },
       {
         "id": "postre-3",
@@ -147,7 +165,8 @@
         "precio": 60,
         "descripcion": "Pastelito japonés en forma de pez relleno de mermelada y queso Philadelphia. Incluye 2 piezas.",
         "imagen": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
-        "categoria": "postre"
+        "categoria": "postre",
+        "contador": 2
       },
       {
         "id": "postre-4",
@@ -155,7 +174,8 @@
         "precio": 60,
         "descripcion": "Pastelito japonés en forma de pez relleno de Nutella. Incluye 2 piezas.",
         "imagen": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
-        "categoria": "postre"
+        "categoria": "postre",
+        "contador": 12
       },
       {
         "id": "postre-5",
@@ -163,7 +183,8 @@
         "precio": 60,
         "descripcion": "Pastelito japonés en forma de pez relleno de crema pastelera. Incluye 2 piezas.",
         "imagen": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
-        "categoria": "postre"
+        "categoria": "postre",
+        "contador": 11
       },
       {
         "id": "postre-6",
@@ -171,7 +192,8 @@
         "precio": 65,
         "descripcion": "Pastelito japonés en forma de pez relleno de jamón y queso. Incluye 2 piezas.",
         "imagen": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
-        "categoria": "postre"
+        "categoria": "postre",
+        "contador": 22
       },
       {
         "id": "postre-7",
@@ -179,7 +201,8 @@
         "precio": 65,
         "descripcion": "Pastelito japonés en forma de pez relleno de pepperoni y queso. Incluye 2 piezas.",
         "imagen": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
-        "categoria": "postre"
+        "categoria": "postre",
+        "contador": 10
       }
     ]
   },
