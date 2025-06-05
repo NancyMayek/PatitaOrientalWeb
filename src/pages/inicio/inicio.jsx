@@ -82,20 +82,20 @@ const Inicio = () => {
 
       {/* Platillos Más Vendidos */}
       <section className="p-4" >
-        <div className="container container d-flex flex-column">
+        <div className="container container d-flex flex-column align-items-center">
           <h3 className="mb-0 fw-bold" style={{marginLeft: "20px"}}>Platillos más vendidos</h3>
-          <section className="decorative-lines-inicio">
-          <div className="line-group-inicio mb-4">
-            <span className="line-inicio long-inicio pink"></span>
-          </div>
-        </section>
-          <div className="row">
-            <div className="col-md-12 mb-4">
-            <TopProducts url= "/public/data/menu.json" />
+          <section className="decorative-lines-inicio ">
+            <div className="line-group-inicio mb-4 justify-content-center">
+              <span className="line-inicio long-inicio pink"></span>
             </div>
-          </div>
+          </section>
         </div>
       </section>
+      <div className="row">
+        <div className="col-md-12 mb-4">
+        <TopProducts url= "/public/data/menu.json" />
+        </div>
+      </div>
 
       {/* Sección Temática */}
       <section className="p-5 tematica-section mb-0 d-flex align-items-center">
