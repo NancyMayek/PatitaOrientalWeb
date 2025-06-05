@@ -89,7 +89,7 @@
   cursor: pointer;
 }
 
-.icono-corazon-rojo {
+.icono-corazon-negro {
   cursor: pointer;
   width: 2rem;
 }
@@ -145,7 +145,7 @@
     width: 1.5rem;
   }
 
-  .icono-corazon-rojo {
+  .icono-corazon-negro {
     width: 2rem;
   }
 
@@ -164,3 +164,20 @@ button{
   color: white;
   font-weight: bold;
 }
+
+
+.icono-suma:hover {
+  background-color: white;
+  box-shadow: white;
+  border-radius: 100%;
+}
+.icono-resta:hover {
+  background-color: white;
+  box-shadow: white;
+  border-radius: 100%;
+}
+
+.añadir-comida:hover{
+  color: var(--color-morado);
+}
+

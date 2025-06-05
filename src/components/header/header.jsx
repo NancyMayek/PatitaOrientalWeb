@@ -48,7 +48,7 @@ const Header = () => {
 
             {/* Íconos (escritorio) */}
             <div className="iconos">
-            <Link to="/Profile"><img src={iconoDeUsuario} alt="Perfil" /></Link>
+            <Link to="/Registro"><img src={iconoDeUsuario} alt="Perfil" /></Link>
             <Link to="/Favoritos"><img className="icono-corazon" src={iconoDeCorazon} alt="Favoritos" /></Link>
             <Link to="/Carrito"><img src={iconoDeCarrito} alt="Carrito" /></Link>
             </div>
