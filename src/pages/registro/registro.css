@@ -1,14 +1,79 @@
-.link-to-logIn{
-    color: white;
-    margin-bottom: 2rem;
+.registro-section {
+  background-color: var(--color-morado);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10%;
 }
-.imagen-gato{
-    width: 25rem;
-   
+
+
+.link-to-logIn {
+  color: white;
+  margin-bottom: 2rem;
 }
-.alinear {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
+
+.link-to-logIn:hover {
+  color: var(--color-rosa);
+  margin-bottom: 2rem;
+}
+
+.imagen-gato {
+  width: 19rem;
+}
+.gatitofoto-section {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+padding-right: 2rem;
+}
+
+.profile-picture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 11px;
+  .profile-picture {
+    background-color: white;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 4%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Hace que la imagen cubra todo el contenedor */
+    }
+  }
+  .icono-editar-foto {
+    width: 30px;
+    height: auto;
+    position: relative;
+    right: 20px;
+    top: 50px;
+  }
+
+  
+}
+
+.loading{
+    margin-top: 42%;
+}
+
+
+.registrarse-container {
+  width: 40%;
+
+  .titulo-registrarse {
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+  }
+}
+
+.gatitofoto {
+  background-color: var(--color-morado);
 }

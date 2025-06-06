@@ -11,8 +11,8 @@
 
 .contact-section {
   background-color: var(--primary-color);
-  padding: 60px 0;
-  min-height: 100vh;
+  padding: 1rem 0;
+  
 }
 
 .cat-img {

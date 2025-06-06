@@ -271,7 +271,9 @@
   }
   .usuario-info-resumen {
     bottom: 0rem;
-    
+    .direccion h2{
+      font-size: 0rem;
+    }
 
     .usuario-foto-seccion {
       .foto-container {

@@ -41,7 +41,7 @@ const Profile = () => {
             <div className="foto-container">
               <img
                 className="foto-de-perfil"
-                src="../../../public/images/profile-picture/profile-picture-example.png"
+                src={usuario.imagen}
                 alt="foto de perfil"
               />
             </div>
@@ -144,59 +144,7 @@ const Profile = () => {
             </div>
           </div>
 
-        <div className="metodos-de-pago-seccion">
-          <h2 className="title-profile">Métodos de pago:</h2>
-            <div className="checkbox-metodos-de-pago">
-            <div className="metodos-de-pago">
-              <div>
-                <input
-                  type="checkbox"
-                  id="transferencia"
-                  name="transferencia"
-                  value="transferencia"
-                  required
-                />
-                <label htmlFor="transferencia">Transferencia</label>
-                
-              </div>
-              <div>
-                <input
-                  type="checkbox"
-                  id="efectivo"
-                  name="efectivo"
-                  value="efectivo"
-                  required
-                />
-                <label htmlFor="efectivo">Efectivo</label>
-                
-              </div>
-            </div>
-            <div>
-              <div className="cambio">
-                <input
-                  type="checkbox"
-                  id="cambio"
-                  name="cambio"
-                  value="cambio"
-                  required
-                />
-                <label htmlFor="cambio">Con cambio</label>
-                
-              </div>
-              <div>
-                <input
-                  type="checkbox"
-                  id="noCambio"
-                  name="noCambio"
-                  value="noCambio"
-                  required
-                />
-                <label htmlFor="noCambio">Sin cambio</label>
-                
-              </div>
-            </div>
-            </div>
-          </div>
+        
         </form>
       </div>
     </div>
