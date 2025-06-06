@@ -91,11 +91,11 @@ const Inicio = () => {
           </section>
         </div>
       </section>
-      <div className="row">
+      
         <div className="col-md-12 mb-4">
         <TopProducts url= "/public/data/menu.json" />
         </div>
-      </div>
+      
 
       {/* Sección Temática */}
       <section className="p-5 tematica-section mb-0 d-flex align-items-center">

@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import TarjetaMenu from "./tarjeta_menu"
 import { Context } from "../context/Contex";
+import './tarjeta_menu.css'; 
 
 const Products = ({url}) => {
 
@@ -57,7 +58,7 @@ const Products = ({url}) => {
 
   
   return (
-    <div>
+    <div className="menu-contenedor">
       <h2 id="comidas" className="etiqueta-seccion">Comidas</h2>
       <div className="contenedor-productos">
         {menuData.comidas?.map((product) => (
