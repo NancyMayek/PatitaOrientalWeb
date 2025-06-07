@@ -1,122 +1,14 @@
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { useAuth } from "../../components/context/AuthContext";
+import { useImageUpload } from "../../components/context/uploadImagesContext";
 import defaultProfilePicture from "../../../public/images/iconos/LogoUsr.svg";
 import gatitoConCorazones from "../../../public/images/logo-patita-oriental/gatitoConCorazones.png";
 import "./registro.css";
 
 const Registro = () => {
-  const navigate = useNavigate(); //asignamos la referencia de navegacion
-  const [image, setImage] = useState(null);
-  const [uploading, setUploading] = useState(false);
-  const [uploadedUrl, setUploadedUrl] = useState("");
-  const { setUsuario,   setIsLoggedIn } = useAuth();
-
-
-
-  const cloudName = "dkufsisvv"; // Replace with your Cloudinary cloud name
-  const uploadPreset = "unsigned_upload"; // Replace with your unsigned preset
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setImage(file);
-
-    if (file) {
-      handleUpload(file); // Call upload directly
-    }
-  };
-
-  const handleUpload = async (file) => {
-    if (!file) {
-      alert("Please select an image first");
-      return;
-    }
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", uploadPreset);
-
-    setUploading(true);
-    try {
-      const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      const data = await response.json();
-      if (data.secure_url) {
-        setUploadedUrl(data.secure_url);
-      } else {
-        console.error("Upload failed:", data);
-      }
-    } catch (error) {
-      console.error("Upload error:", error);
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  const [nuevoUsuario, setNuevoUsuario] = useState({
-    // Inicializar el hook
-    id: "",
-    nombre: "",
-    apellido: "",
-    email: "",
-    direccion: "",
-    CP: "",
-    imagen: "",
-    telefono: "",
-    contraseña: "",
-  });
-
-  const guardarInfoDeUsuarios = (e) => {
-    setNuevoUsuario({
-      ...nuevoUsuario, //trae toda la infomacion de el usuario que ya esta escrita
-      [e.target.name]: e.target.value, // solo cambia la que le pide el input
-    });
-  };
-
-  const getUsuarios = async () => {
-    const res = await fetch("http://localhost:3001/api/usuarios", {
-      method: "GET", //  GET es default
-    });
-    if (res.ok) {
-      const data = await res.json(); // API responde con los datos del usuario
-      
-      return data;
-    } else {
-      console.log("Hubo un error al GET JSON DE USUARIOS");
-    }
-  };
-
-  const agregarUsuario = async (e) => {
-    e.preventDefault(); // Previene el comportamiento por defecto del form
-    const usuarioArr = await getUsuarios();
-    nuevoUsuario.id = usuarioArr.length + 1; //añadimos el ID de usuario
-    nuevoUsuario.imagen = uploadedUrl; //añadimos la url de la imagen 
-
-    const res = await fetch("http://localhost:3001/api/usuarios", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(nuevoUsuario),
-    });
-
-    if (res.ok) {
-      const data = await res.json(); // API responde con los datos del usuario
-      localStorage.setItem("usuario", JSON.stringify(data)); // guardar usuario en local storage
-      localStorage.setItem("isLoggedIn", "true");
-      setIsLoggedIn(true);
-      setUsuario(data); // 👈 Aquí actualizas el contexto inmediatamente
-      navigate("/Profile"); // redirigir a la página de perfil
-    } else {
-      console.log("Hubo un error al registrar");
-      return localStorage.setItem("isLoggedIn", "false");;
-    }
-  };
-
+  const { guardarInfoDeUsuarios,agregarUsuario,nuevoUsuario} = useAuth();
+  const {  handleImageChange, uploading, uploadedUrl} = useImageUpload();
+ 
   return (
     <>
       <section className="registro-section">
@@ -154,13 +46,13 @@ const Registro = () => {
           >
             <div className="profile-picture-container mx-auto">
               <div className="profile-picture ">
+            
                 {uploading ? (
                   <div className="d-flex flex-column align-items-center loading">
                     <div
                       className="spinner-border text-primary"
                       role="status"
-                    >
-                  </div>
+                    ></div>
                   </div>
                 ) : uploadedUrl ? (
                   <div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ContextProvider from "./components/context/Contex.jsx";
 import { AuthProvider } from "./components/context/AuthContext.jsx";
+import { ImageUploadProvider } from "./components/context/uploadImagesContext.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
@@ -18,26 +19,28 @@ import "./App.css";
 
 function App() {
   return (
-    <AuthProvider>
-      <ContextProvider>
-        <BrowserRouter>
-          <Header></Header>
-          <Routes>
-            <Route path="/" element={<Inicio />} />
-            <Route path="/Menu" element={<Menu />} />
-            <Route path="/Menu_tematico" element={<Menu_Tematico />} />
-            <Route path="/Carrito" element={<Carrito />} />
-            <Route path="/Contact" element={<Contact />} />
-            <Route path="/About" element={<About />} />
-            <Route path="/Profile" element={<Profile />} />
-            <Route path="/Inicio_de_sesion" element={<Inicio_de_sesion />} />
-            <Route path="/Registro" element={<Registro />} />
-            <Route path="/Favoritos" element={<Favoritos />} />
-          </Routes>
-          <Footer></Footer>
-        </BrowserRouter>
-      </ContextProvider>
-    </AuthProvider>
+    <BrowserRouter>
+      <ImageUploadProvider>
+        <AuthProvider>
+          <ContextProvider>
+            <Header></Header>
+            <Routes>
+              <Route path="/" element={<Inicio />} />
+              <Route path="/Menu" element={<Menu />} />
+              <Route path="/Menu_tematico" element={<Menu_Tematico />} />
+              <Route path="/Carrito" element={<Carrito />} />
+              <Route path="/Contact" element={<Contact />} />
+              <Route path="/About" element={<About />} />
+              <Route path="/Profile" element={<Profile />} />
+              <Route path="/Inicio_de_sesion" element={<Inicio_de_sesion />} />
+              <Route path="/Registro" element={<Registro />} />
+              <Route path="/Favoritos" element={<Favoritos />} />
+            </Routes>
+            <Footer></Footer>
+          </ContextProvider>
+        </AuthProvider>
+      </ImageUploadProvider>
+    </BrowserRouter>
   );
 }
 
