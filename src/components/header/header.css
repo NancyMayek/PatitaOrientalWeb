@@ -30,6 +30,14 @@ header {
   margin: 0 auto;
 }
 
+.imagen-Usuario-header{
+  width: 28px;
+  height: 28px;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  object-fit: cover;
+}
+
 /* Logo */
 .logo img {
   height: 40px;

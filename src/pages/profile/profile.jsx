@@ -1,23 +1,17 @@
 import "./profile.css";
 import { useNavigate } from "react-router-dom";
-import { Favoritos } from "../favoritos/favoritos";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../../components/context/AuthContext";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const [usuario, setUsuario] = useState(null);
+  const { isLoggedIn, setIsLoggedIn, usuario } = useAuth(); //de el contexto solo obtenemos si hay un usuario
 
-  useEffect(() => {
-    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
-    if (usuarioGuardado) {
-      setUsuario(usuarioGuardado);
-    }
-  }, []);
-  if (!usuario) {
-  return <div>Cargando usuario...</div>;
-}
+  const cerrarSesionUsuario = () => {
+    localStorage.removeItem("usuario");
+    setIsLoggedIn(false);
+    navigate("/Inicio_de_sesion");
+  };
 
   return (
     <div className="perfil-de-usuario-contenedor">
@@ -62,89 +56,98 @@ const Profile = () => {
               />
               <h2>{usuario.direccion}</h2>
             </div>
+            <button className="btn-cerrar-sesion" onClick={cerrarSesionUsuario}>Cerrar Sesión</button>
           </div>
         </div>
 
         <form className="form-informacion-usuario">
-          <div className="form-nivel-1">
+          <div className="form-nivel">
             <div className="elemento-de-formulario">
               <label htmlFor="nombre">Nombre:</label>
               <div className="input-grey">
-                <input type="text" id="nombre" name="nombre" value={usuario.nombre} required />
-                <img
-                  src="../../../public/images/iconos/icon-editar.svg"
-                  alt="icono de editar"
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  defaultValue={usuario.nombre}
+                  required
                 />
               </div>
             </div>
             <div className="elemento-de-formulario">
               <label htmlFor="apellido">Apellido:</label>
               <div className="input-grey">
-                <input type="text" id="apellido" name="apellido" value={usuario.apellido} required />
-                <img
-                  src="../../../public/images/iconos/icon-editar.svg"
-                  alt="icono de editar"
+                <input
+                  type="text"
+                  id="apellido"
+                  name="apellido"
+                  defaultValue={usuario.apellido}
+                  required
                 />
               </div>
             </div>
           </div>
-          <div className="form-nivel-2">
+          <div className="form-nivel">
             <div className="elemento-de-formulario">
               <label htmlFor="correo">Correo:</label>
               <div className="input-grey">
-                <input type="email" id="correo" name="correo" value={usuario.email} required />
-                <img
-                  src="../../../public/images/iconos/icon-editar.svg"
-                  alt="icono de editar"
+                <input
+                  type="email"
+                  id="correo"
+                  name="correo"
+                  defaultValue={usuario.email}
+                  required
                 />
               </div>
             </div>
             <div className="elemento-de-formulario">
               <label htmlFor="telefono">Teléfono:</label>
               <div className="input-grey">
-                <input type="text" id="telefono" name="telefono" value={usuario.telefono} required />
-                <img
-                  src="../../../public/images/iconos/icon-editar.svg"
-                  alt="icono de editar"
+                <input
+                  type="text"
+                  id="telefono"
+                  name="telefono"
+                  defaultValue={usuario.telefono}
+                  required
                 />
               </div>
             </div>
           </div>
-          <div className="form-nivel-3">
+          <div className="form-nivel">
             <div className="elemento-de-formulario">
               <label htmlFor="direccion">Dirección:</label>
               <div className="input-grey">
-                <input type="text" id="direccion" name="direccion" value={usuario.direccion} required />
-                <img
-                  src="../../../public/images/iconos/icon-editar.svg"
-                  alt="icono de editar"
+                <input
+                  type="text"
+                  id="direccion"
+                  name="direccion"
+                  defaultValue={usuario.direccion}
+                  required
                 />
               </div>
             </div>
             <div className="elemento-de-formulario">
               <label htmlFor="CP">Código Postal:</label>
               <div className="input-grey">
-                <input type="number" id="CP" name="CP" value={usuario.CP} required />
-                <img
-                  src="../../../public/images/iconos/icon-editar.svg"
-                  alt="icono de editar"
+                <input
+                  type="number"
+                  id="CP"
+                  name="CP"
+                  defaultValue={usuario.CP}
+                  required
                 />
               </div>
             </div>
           </div>
 
-          <div className="elemento-de-formulario" id="referencias">
-            <label htmlFor="referencias">Referencias:</label>
-            <div className="input-grey">
-              <input type="text" id="referencias" name="referencias" value={"Al lado de un Oxxo"} required />
-              <img
-                src="../../../public/images/iconos/icon-editar.svg"
-                alt="icono de editar"
-              />
-            </div>
+          <div className="botones-cambios-usuarios">
+            <button type="submit" className="btn-guardar-cambios">
+              Guardar cambios
+            </button>
+            <button type="submit" className="btn-cancelar-cambios">
+              Cancelar
+            </button>
           </div>
-
-        
         </form>
       </div>
     </div>

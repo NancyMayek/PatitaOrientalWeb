@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../../components/context/AuthContext";
 import defaultProfilePicture from "../../../public/images/iconos/LogoUsr.svg";
 import gatitoConCorazones from "../../../public/images/logo-patita-oriental/gatitoConCorazones.png";
 import "./registro.css";
@@ -10,6 +11,9 @@ const Registro = () => {
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [uploadedUrl, setUploadedUrl] = useState("");
+  const { setUsuario,   setIsLoggedIn } = useAuth();
+
+
 
   const cloudName = "dkufsisvv"; // Replace with your Cloudinary cloud name
   const uploadPreset = "unsigned_upload"; // Replace with your unsigned preset
@@ -81,8 +85,7 @@ const Registro = () => {
     });
     if (res.ok) {
       const data = await res.json(); // API responde con los datos del usuario
-      console.log(data);
-      console.log("usuarios len", data.length + 1);
+      
       return data;
     } else {
       console.log("Hubo un error al GET JSON DE USUARIOS");
@@ -104,9 +107,13 @@ const Registro = () => {
     if (res.ok) {
       const data = await res.json(); // API responde con los datos del usuario
       localStorage.setItem("usuario", JSON.stringify(data)); // guardar usuario en local storage
+      localStorage.setItem("isLoggedIn", "true");
+      setIsLoggedIn(true);
+      setUsuario(data); // 👈 Aquí actualizas el contexto inmediatamente
       navigate("/Profile"); // redirigir a la página de perfil
     } else {
       console.log("Hubo un error al registrar");
+      return localStorage.setItem("isLoggedIn", "false");;
     }
   };
 

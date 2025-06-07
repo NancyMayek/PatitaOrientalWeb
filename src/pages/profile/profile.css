@@ -1,19 +1,19 @@
 .perfil-de-usuario-contenedor {
-  margin-top: 5rem;
+  margin-top: 3rem;
   display: flex;
   background-color: white;
+  padding-bottom: 7%;
 }
 
 .title-profile {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 /*==========SECCION DE SIDE BAR =============*/
 .perfil-de-Usuario-SideBar {
   display: flex;
   flex-direction: column;
-  width: 25%;
-  margin-right: 2rem;
+  width: 30%;
 
   .title-profile {
     display: flex;
@@ -48,13 +48,13 @@
 
 /*==========SECCION DE FOTO Y DIRECCION DE USUARIO==========*/
 .informacion-de-usuario-seccion {
-  margin-left: 6%;
-  width: 70%;
+  margin-left: 4%;
+  width: 50%;
 }
 .usuario-info-resumen {
   display: flex;
   position: relative;
-  bottom: 2rem;
+  bottom: 1rem;
 
   .usuario-foto-seccion {
     display: flex;
@@ -63,6 +63,7 @@
       height: 180px;
       border-radius: 50%;
       overflow: hidden;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       .foto-de-perfil {
         width: 100%;
         height: 100%;
@@ -71,10 +72,12 @@
     }
     .icono-editar-foto {
       width: 30px;
+      height: auto;
       position: relative;
-      top: 30%;
+      top: 25%;
       right: 15%;
     }
+  
   }
 
   .usuario-informacion-principal {
@@ -82,12 +85,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    margin-left: 1rem;
     .direccion {
       display: flex;
       align-items: center;
       margin-top: 0.5rem;
       h2 {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         margin-left: 0.5rem;
       }
       img {
@@ -96,16 +100,23 @@
       }
     }
   }
+  .btn-cerrar-sesion {
+    margin-top: 1rem;
+    background-color: rgb(253, 229, 249);
+    border-radius: 10px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .btn-cerrar-sesion:hover{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
 }
 
 /*=========FORMULARIO CON INFORMACION ===========*/
 
-.form-nivel-1,
-.form-nivel-2,
-.form-nivel-3 {
+.form-nivel {
   display: flex;
-  width: 70%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .elemento-de-formulario {
@@ -123,11 +134,11 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
       rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     border-radius: 10px;
-    width: 90%;
+    width: 95%;
     height: 3rem;
     input {
       border-style: none;
-      width: 70%;
+      width: 90%;
       margin-left: 1rem;
       background-color: #e8e8e8;
     }
@@ -140,38 +151,27 @@
   }
 }
 
-#referencias {
-  width: 74%;
+.botones-cambios-usuarios {
+  margin-top: 2rem;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.btn-guardar-cambios {
+  padding: 0.8rem 2rem;
+  background-color: var(--color-rosa);
+  color: white;
+  border-radius: 10px;
+  margin-right: 0.5rem;
 }
 
-.metodos-de-pago-seccion {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  display: flex;
-  width: 67%;
-  flex-direction: column;
-  h2 {
-    margin-bottom: 1rem;
-  }
-  .checkbox-metodos-de-pago {
-    display: flex;
-    justify-content: space-evenly;
-    .metodos-de-pago {
-      display: flex;
-      flex-direction: column;
-    }
-    label {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      margin-left: 1rem;
-    }
-    input[type="checkbox"] {
-      accent-color: var(--color-rosa);
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-    }
-  }
+.btn-cancelar-cambios {
+  padding: 0.8rem 2rem;
+  background-color: rgb(255, 135, 135);
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  color: white;
 }
 
 /*---------------------------------MEDIA QUERY------------------------------*/
@@ -179,80 +179,64 @@
 @media (max-width: 1200px) {
   .perfil-de-usuario-contenedor {
     margin-top: 4rem; /**/
-   
   }
   /*==========SECCION DE SIDE BAR =============*/
   .perfil-de-Usuario-SideBar {
-     display: flex;
-  flex-direction: column;
-  width: 25%;
-  margin-right: 0rem;
-
-  .title-profile {
-   
-    font-size: 1.5rem;
-    margin-left: 1rem;
-   
-  }
-
-  .Usuario-SideBar-Boton {
-    background-color: var(--color-morado);
-    border-radius: 0 50px 50px 0;
-    margin-top: 2rem;
     display: flex;
-    justify-content: start;
-    text-decoration: none;
-    transition: background-color 0.1s ease;
+    flex-direction: column;
+    width: 25%;
+    margin-right: 0rem;
 
-    h1 {
-      padding: 1rem;
-      padding-left: 3rem;
-      margin-left: 0rem;
-      font-size: .9rem;
+    .title-profile {
+      font-size: 1.5rem;
+      margin-left: 1rem;
     }
-  }
 
+    .Usuario-SideBar-Boton {
+      background-color: var(--color-morado);
+      border-radius: 0 50px 50px 0;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: start;
+      text-decoration: none;
+      transition: background-color 0.1s ease;
+
+      h1 {
+        padding: 1rem;
+        padding-left: 3rem;
+        margin-left: 0rem;
+        font-size: 0.9rem;
+      }
+    }
   }
 
   /*==========SECCION DE FOTO Y DIRECCION DE USUARIO==========*/
   .informacion-de-usuario-seccion {
     width: 100%;
   }
-  
-   
-  }
+}
 
-  /*=========FORMULARIO CON INFORMACION ===========*/
+/*=========FORMULARIO CON INFORMACION ===========*/
 
-  .form-nivel-1,
-  .form-nivel-2,
-  .form-nivel-3 {
-  
-    width: 100%; /**/
-    
-  }
+.form-nivel-1,
+.form-nivel-2,
+.form-nivel-3 {
+  width: 100%; /**/
+}
 
-  
-  
+#referencias {
+  width: 105%; /**/
+}
 
-  #referencias {
-    width: 105%; /**/
-  }
+.metodos-de-pago-seccion {
+  width: 100%; /**/
 
-  .metodos-de-pago-seccion {
-  
-    width: 100%; /**/
-   
-    .checkbox-metodos-de-pago {
-     
-      label {
-       
-        margin-right: 1rem; /**/
-      }
-     
+  .checkbox-metodos-de-pago {
+    label {
+      margin-right: 1rem; /**/
     }
   }
-
+}
 
 /*------------MOVILES------------------*/
 
@@ -271,7 +255,7 @@
   }
   .usuario-info-resumen {
     bottom: 0rem;
-    .direccion h2{
+    .direccion h2 {
       font-size: 0rem;
     }
 
