@@ -17,37 +17,70 @@ const Admin = () => {
     setproducto({ ...producto, [e.target.name]: e.target.value });
   };
 
-
   const validarPrecio = (valor) => {
-    const regex = /^\d+(\.\d{1,2})?$/; // Acepta números como 10, 10.5, 10.50
+    const regex = /^\d+(\.\d{1,2})?$/;
     return regex.test(valor);
-  }
+  };
 
-  const validarNombre = (nombre) =>{
+  const validarNombre = (nombre) => {
     return nombre.trim().length > 3;
-  }
+  };
 
-  const validarImagen = (url) =>{
+  const validarImagen = (url) => {
     return /\.(jpeg|jpg|gif|png|webp|bmp|svg)$/i.test(url);
-  }
+  };
+
+  const validarDescripcion = (descripcion) => {
+    const longitud = descripcion.trim().length;
+    return longitud > 15 && longitud < 100;
+  };
+
+  const validarCategoria = (categoria) => {
+    const categoriasValidas = ["comida", "bebida", "postre"];
+    return categoriasValidas.includes(categoria.toLowerCase().trim());
+  };
 
   const agregarProductos = (e) => {
     e.preventDefault();
-    
-    localStorage.setItem("producto", JSON.stringify(producto));
+
+    if (
+      !validarNombre(producto.nombre) ||
+      !validarPrecio(producto.precio) ||
+      !validarDescripcion(producto.descripcion) ||
+      !validarImagen(producto.imagen) ||
+      !validarCategoria(producto.categoria)
+    ) {
+      alert("Por favor, completa los campos correctamente.");
+      return;
+    }
+
+    const nuevoProducto = { ...producto, id: Date.now().toString() };
+    const productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
+    productosGuardados.push(nuevoProducto);
+    localStorage.setItem("productos", JSON.stringify(productosGuardados));
+
+    alert("Tu producto ha sido registrado");
+    console.log("Productos guardados:", productosGuardados);
+
+    setproducto({
+      id: "",
+      nombre: "",
+      precio: "",
+      descripcion: "",
+      imagen: "",
+      categoria: "",
+      contador: 0,
+    });
   };
 
   return (
     <section className="contact-section">
       <div className="w-50 mx-auto">
-        <form
-          className="contact-form"
-          id="contactForm"
-          onSubmit={agregarProductos}
-        >
+        <form className="contact-form" id="contactForm" onSubmit={agregarProductos}>
           <h4 className="text-white mb-4 fw-bold mb-3 form-title">
             Agregar Productos
           </h4>
+
           <div className="mb-3">
             <input
               type="text"
@@ -55,7 +88,8 @@ const Admin = () => {
               onChange={handleProductos}
               value={producto.nombre}
               className="form-control"
-              placeholder="Nombre" required
+              placeholder="Nombre"
+              required
             />
           </div>
           <div className="mb-3">
@@ -65,7 +99,8 @@ const Admin = () => {
               onChange={handleProductos}
               value={producto.precio}
               className="form-control"
-              placeholder="Precio" required
+              placeholder="Precio"
+              required
             />
           </div>
           <div className="mb-3">
@@ -75,7 +110,8 @@ const Admin = () => {
               onChange={handleProductos}
               value={producto.descripcion}
               className="form-control"
-              placeholder="Decripcion" required
+              placeholder="Descripción"
+              required
             />
           </div>
           <div className="mb-3">
@@ -85,7 +121,8 @@ const Admin = () => {
               onChange={handleProductos}
               value={producto.imagen}
               className="form-control"
-              placeholder="Pon la Url de la imagen" required
+              placeholder="Pon la URL de la imagen"
+              required
             />
           </div>
           <div className="mb-3">
@@ -95,7 +132,8 @@ const Admin = () => {
               onChange={handleProductos}
               value={producto.categoria}
               className="form-control"
-              placeholder="Categoria" required
+              placeholder="Categoría (comida, bebida o postre)"
+              required
             />
           </div>
 
