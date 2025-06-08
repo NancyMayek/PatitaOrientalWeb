@@ -45,12 +45,12 @@ const Carrito = () => {
 
 
     return (
-        <div className="d-flex flex-wrap justify-content-center align-items-start carrito-container">
+        <div className="justify-content-center carrito-container">
 
             <div className="container-fluid py-3 px-4">
                 <h1 className="titulo-carrito">Carrito de compra</h1>
             </div>
-            <div className="carrito">
+            <div className="carrito ">
                 {carrito.length === 0 ? (
                     <div className="carrito-vacio ">
                         <img
