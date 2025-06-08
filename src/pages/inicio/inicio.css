@@ -1,6 +1,6 @@
 
 .banner-section {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/banner.png');
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./img/banner.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -11,38 +11,42 @@
 
 
 .banner-text {
+  display:flex;
+  align-items: center;
   background: rgba(255, 255, 255, 0.8);
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  margin-top: 70px;
+  margin-top: 40px;
   margin-left: 0;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   padding-left: 30px;
   padding-right: 30px;
   max-width: 650px; 
+  max-height:max-content;
 }
 
 
 .about-section {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 80px;
-  max-width: 800px;
+  max-width: 1000px;
   padding: 40px 20px;
   padding-left: 20px;
+  text-align: justify;
 }
 
 .advantages-section {
   background: #425184;
-  border-radius: 80px;
-  max-width: 800px;
+  border-radius: 100px;
+  max-width: 1300px;
   padding: 40px 20px;
   align-items: center;
 }
 
 .tematica-section {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/tematica.png');
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/public/images/inicio/black-pink-imagen.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -52,8 +56,8 @@
 
 .tematica-text {
   background: rgba(255, 255, 255, 0.8);
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   margin-top: 20px;
@@ -86,7 +90,7 @@
 }
 /* --------------------------------------------------------------------------- */
 /* Decorative lines styles */
-.decorative-lines {
+.decorative-lines-inicio {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,16 +99,15 @@
   width: 100%;
 }
 
-.line-group {
+.line-group-inicio {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0.5rem;
   width: 100%;
   padding: 0 1rem;
 }
 
-.line {
+.line-inicio {
   height: 0.75rem;
   border-radius: 999px;
   flex-shrink: 0;
@@ -118,28 +121,32 @@
   background-color: #d87aa0;
 }
 
-.short {
+.short-inicio {
   width: 10%;
   min-width: 50px;
 }
 
-.medium {
+.medium-inicio {
   width: 20%;
   min-width: 80px;
 }
 
-.long {
+.long-inicio {
   width: 30%;
   min-width: 100px;
 }
 
-.extra-long {
+.extra-long-inicio {
   width: 50%;
   min-width: 150px;
 }
 
-.space {
+.space-inicio {
   width: 10%;
   min-width: 40px;
   visibility: hidden;
+}
+
+.Linkto{
+  text-decoration: none;
 }

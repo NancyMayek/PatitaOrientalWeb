@@ -1,5 +1,5 @@
 .contenedor-tarjeta-menu {
-  display: flex;
+  display: flex; 
   flex-direction: column;
   background-color: white;
   border: 5px solid var(--color-morado);
@@ -15,13 +15,13 @@
   align-items: center;
   justify-content: flex-start;
   padding: 1.5rem;
-  gap: 1.5rem;
+  gap: 0rem;
   flex: 1;
 }
 
 .contenedor-producto img {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -59,7 +59,7 @@
   text-align: justify;
   color: #555;
   line-height: 1.4;
-  padding: 0 10px;
+  padding: 0 0.5px;
   margin: 0;
 }
 
@@ -89,7 +89,7 @@
   cursor: pointer;
 }
 
-.icono-corazon-rojo {
+.icono-corazon-negro {
   cursor: pointer;
   width: 2rem;
 }
@@ -99,27 +99,34 @@
 }
 
 @media (max-width: 640px) {
+  
   .contenedor-tarjeta-menu {
     border-width: 3px;
     width: 330px;
     min-height: 400px;
+   
+  }
+  .menu-contenedor{
+display:flex;
+flex-direction: column;
+justify-content: center;
+
   }
 
   .contenedor-producto {
-    flex-direction: column;
     padding: 1rem;
   }
 
   .contenedor-producto img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     margin-bottom: 1rem;
   }
 
   .contenedor-info-producto {
     align-items: center;
     text-align: center;
-    padding: 0.5rem 1rem;
+    padding: 0rem;
   }
 
   .titulo-comida {
@@ -133,7 +140,7 @@
   }
 
   .descripcion-comida {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
   }
 
   .contenedor-botones-menu {
@@ -145,7 +152,7 @@
     width: 1.5rem;
   }
 
-  .icono-corazon-rojo {
+  .icono-corazon-negro {
     width: 2rem;
   }
 
@@ -155,7 +162,7 @@
 }
 
 button{
-  background: none;      /* Quita el fondo gris */
+  background: none;      
   border: none;
 }
 
@@ -163,4 +170,20 @@ button{
   font-size: 1.1rem;
   color: white;
   font-weight: bold;
+}
+
+
+.icono-suma:hover {
+  background-color: white;
+  box-shadow: white;
+  border-radius: 100%;
+}
+.icono-resta:hover {
+  background-color: white;
+  box-shadow: white;
+  border-radius: 100%;
+}
+
+.añadir-comida:hover{
+  color: var(--color-morado);
 }

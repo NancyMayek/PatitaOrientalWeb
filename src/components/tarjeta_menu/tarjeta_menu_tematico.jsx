@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import iconoResta from '../../../public/images/iconos/icono-menos.svg'
+import iconoMas from '../../../public/images/iconos/icono-mas.svg'
+import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg'
 import './tarjeta_menu_tematico.css';
 
-const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen }) => {
+const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart,id }) => {
     const [count, setCount] = useState(0);
     const handleIncrement = (maxValue) => {
         if (count < maxValue) setCount(count + 1);
@@ -28,15 +31,17 @@ const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen }) => {
                 </div>
                 <div className="contenedor-botones-menu">
                     <button>
-                    <img className='icono-resta' srcSet="../../../public/images/iconos/icono-menos.svg" alt="icono menos"  onClick={()=> handleDecrement(0)} />
+                    <img className='icono-resta' srcSet={iconoResta} alt="icono menos"  onClick={()=> handleDecrement(0)} />
                     </button>
                     <p className='cantidad-de-paquete' >{count}</p>
                     <button>
-                         <img className='icono-suma' srcSet="../../../public/images/iconos/icono-mas.svg" alt="icono más" onClick={()=> handleIncrement(10)} />
+                         <img className='icono-suma' srcSet={iconoMas} alt="icono más" onClick={()=> handleIncrement(10)} />
                     </button>
-                    <h2 className='añadir-comida'>Añadir</h2>
+                <button onClick={() => onAddToCart({imagen, nombre, precio, descripcion, cantidad: count, id})} >
+                    <h3 className='añadir-comida'>Añadir</h3>
+                </button>
                    
-                    <img className='icono-corazon-rojo' srcSet="../../../public/images/iconos/icono-corazon-negro.svg" alt="icono corazón" />
+                    <img className='icono-corazon-rojo' srcSet={iconoCorazon} alt="icono corazón" />
                 </div>
             </div>
         </>

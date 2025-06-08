@@ -1,4 +1,3 @@
-
 .menu-title {
   font-size: 2rem;
   font-weight: 700;
@@ -7,7 +6,8 @@
   margin: 2rem auto 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 4px solid #d679af;
-  width: fit-content;
+  width: 90%;
+  word-wrap: break-word;
 }
 
 .filtros {
@@ -35,17 +35,17 @@
 
 .filtro-btn:hover,
 .filtro-btn.active {
-  background-color: #eb84ff;
+  background-color: #d679af;
 }
 
 .etiqueta-seccion {
   background-color: #d679af;
   color: white;
   font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 10px 150px;
+  border-radius: 0 25px 25px 0; 
   width: fit-content;
-  margin: 0 2rem 1rem 2rem;
+  margin: 0 0 1rem 0; 
   font-size: 1.2rem;
 }
 
@@ -55,7 +55,7 @@
   gap: 2rem;
   padding: 0 2rem 4rem;
   width: 100%;
-  max-width: 1400px;
+  max-width: 2000px;
   margin: 0 auto;
   box-sizing: border-box;
   justify-items: center;
