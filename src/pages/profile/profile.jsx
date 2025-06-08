@@ -104,7 +104,7 @@ const Profile = () => {
               <label htmlFor="telefono">Teléfono:</label>
               <div className="input-grey">
                 <input
-                  type="text"
+                  type="number"
                   id="telefono"
                   name="telefono"
                   defaultValue={usuario.telefono}

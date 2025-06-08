@@ -13,23 +13,22 @@ Este componente envuelve la aplicación en el contexto de autenticación.
 Es donde se define qué valores estarán disponibles globalmente.
 */
 export const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const apiurl = "http://localhost:3001/api/usuarios"; //Aqui cambias la variable de la url de la api
   const { uploadedUrl, setUploadedUrl } = useImageUpload();
-  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false); // crea un estado isLoggedIn que indica si el usuario está logueado (por defecto, false).
-  const [logInInput, setLogInInput] = useState({
-    //para el inicio de sesion de formulario
-    inputEmail: "",
-    inputContraseña: "",
-  });
   const [usuario, setUsuario] = useState(() => {
     //estado usuario almacena los datos del usuario (nombre, email, etc.) desde el localStorage. Si hay un usuario guardado, lo carga automáticamente al iniciar.
     const storedUser = localStorage.getItem("usuario");
     return storedUser ? JSON.parse(storedUser) : null;
   });
-
+  const [logInInput, setLogInInput] = useState({
+    //para el inicio de sesion de formulario
+    inputEmail: "",
+    inputContraseña: "",
+  });
   const [nuevoUsuario, setNuevoUsuario] = useState({
-    // Inicializar el hook
+    //para el registro de usuarioformulario
     id: "",
     nombre: "",
     apellido: "",
@@ -64,7 +63,6 @@ export const AuthProvider = ({ children }) => {
   const logInCheck = async (e) => {
     e.preventDefault();
     const usuariosJson = await getListaUsuarios();
-    console.log(usuariosJson);
     const foundUser = usuariosJson.find(
       (usuarioJson) => usuarioJson.email === logInInput.inputEmail
     );
@@ -76,10 +74,10 @@ export const AuthProvider = ({ children }) => {
         setUsuario(foundUser); // Aquí actualizas el contexto inmediatamente
         navigate("/Profile"); // redirigir a la página de perfil
         setLogInInput({
-        //Limpiar el forms de inicio
-        inputEmail: "",
-        inputContraseña: "",
-      });
+          //Limpiar el forms de inicio
+          inputEmail: "",
+          inputContraseña: "",
+        });
       } else {
         console.log("Contraseña incorrecta");
       }
@@ -87,6 +85,7 @@ export const AuthProvider = ({ children }) => {
       console.log("Usuario no encontrado");
     }
   };
+
   const guardarInfoDeUsuarios = (e) => {
     setNuevoUsuario({
       ...nuevoUsuario, //trae toda la infomacion de el usuario que ya esta escrita
@@ -133,6 +132,29 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  
+
+  const uptadeUser = async(e) => {
+    e.preventDefault();
+    const usuarioGuardado= JSON.parse(localStorage.getItem("usuario"));
+     fetch(`http://localhost:3001/api/usuarios/${usuarioGuardado.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    })
+      .then(res => res.json())
+      .then(data => {
+        alert('User updated successfully!');
+        setUsuario(data);
+        console.log(data);
+      })
+      .catch(err => {
+        console.error('Error updating user:', err);
+      });
+  }
+ 
   //Este efecto se ejecuta una sola vez al cargar la app:
   useEffect(() => {
     const usuarioGuardado = JSON.parse(localStorage.getItem("usuario")); //Recupera los datos del usuario desde localStorage.
@@ -162,6 +184,7 @@ export const AuthProvider = ({ children }) => {
         setLogInInput,
         guardarLogInInput,
         logInCheck,
+        uptadeUser,
       }}
     >
       {children}
