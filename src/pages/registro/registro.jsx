@@ -3,6 +3,7 @@ import { useAuth } from "../../components/context/AuthContext";
 import { useImageUpload } from "../../components/context/uploadImagesContext";
 import defaultProfilePicture from "../../../public/images/iconos/LogoUsr.svg";
 import gatitoConCorazones from "../../../public/images/logo-patita-oriental/gatitoConCorazones.png";
+import iconoEditarFoto from "../../../public/images/iconos/icon-editar-foto.svg";
 import "./registro.css";
 
 const Registro = () => {
@@ -77,7 +78,7 @@ const Registro = () => {
                 <label htmlFor="fileInput">
                   <img
                     className="icono-editar-foto"
-                    src="../../../public/images/iconos/icon-editar-foto.svg"
+                    src={iconoEditarFoto}
                     alt="icono de editar foto"
                     style={{ cursor: "pointer" }} // Make it look clickable
                   />
