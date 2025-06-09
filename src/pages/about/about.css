@@ -245,3 +245,88 @@
   left: 0;
   z-index: 0;
 }
+@media (max-width: 768px) {
+  .about-root h1 {
+    font-size: 32px;
+    margin: 20px 10px;
+  }
+
+  .about-root h2 {
+    font-size: 24px;
+  }
+
+  .about-root p {
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  .about-root .section {
+    flex-direction: column !important;
+    padding: 40px 20px;
+  }
+
+  .about-root .section img {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .about-root .text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .about-root .developerCards {
+    flex-direction: column !important;
+    height: auto;
+    margin: 2rem 0;
+    padding: 0 10px;
+    text-align: center;
+  }
+  
+
+  .about-root .imagen_circular {
+    border-radius: 50% !important;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+
+  .about-root .imagen_circular img {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+  }
+
+  .about-root #info_developers {
+    padding: 20px;
+  }
+
+  .about-root .contacto {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-root .grafico-estrella-developers {
+    width: 10%;
+    margin: 0 5px;
+  }
+
+  .about-root .container,
+  .about-root .lineasRectas-decoration,
+  .about-root .lineasRectas-decoration-derecha {
+    display: none;
+  }
+
+  .about-root #contactoTelyEmail {
+    flex-direction: column;
+  }
+  @media (max-width: 600px) {
+  .about-root .section img {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .about-root .imagen_circular {
+    display: none;
+  }
+}
+}
