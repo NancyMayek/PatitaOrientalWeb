@@ -8,6 +8,10 @@
   height: 100vh;
 }
 
+.registro-login-title {
+  color: white;
+  font-size: 4rem;
+}
 
 .link-to-logIn {
   color: white;
@@ -19,16 +23,19 @@
   margin-bottom: 2rem;
 }
 
+#cambioDeRegistro-InicioSesion-mobile {
+  display: none;
+}
+
 .imagen-gato {
   width: 19rem;
 }
 .gatitofoto-section {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-padding-right: 2rem;
+  padding-right: 2rem;
 }
 
 .profile-picture-container {
@@ -58,22 +65,19 @@ padding-right: 2rem;
     right: 20px;
     top: 50px;
   }
-  .icono-editar-foto:hover{
+  .icono-editar-foto:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 35px;
     height: auto;
   }
-
-  
 }
 
-.loading{
-    margin-top: 42%;
+.loading {
+  margin-top: 42%;
 }
-
 
 .registrarse-container {
-  width: 40%;
+  width: 35%;
 
   .titulo-registrarse {
     margin-top: 1rem;
@@ -83,4 +87,123 @@ padding-right: 2rem;
 
 .gatitofoto {
   background-color: var(--color-morado);
+}
+
+@media screen and (max-width: 950px) {
+  .registro-section {
+    padding-top: 2rem;
+    flex-direction: column;
+    padding-bottom: 5rem;
+    height: auto;
+  }
+
+  .registro-login-title {
+    font-size: 2rem;
+  }
+
+  #cambioDeRegistro-InicioSesion {
+    display: none;
+  }
+  #cambioDeRegistro-InicioSesion-mobile {
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .profile-picture-container {
+    .profile-picture {
+      margin-top: 0%;
+    }
+  }
+
+  .imagen-gato {
+    width: 5rem;
+  }
+  .gatitofoto-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+  .lineas {
+    display: none;
+  }
+
+  .registrarse-container {
+    width: 90%;
+
+    .titulo-registrarse {
+      margin-top: 1rem;
+      margin-bottom: 0rem;
+    }
+  }
+
+  .gatitofoto {
+    background-color: var(--color-morado);
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .registro-section {
+    padding-top: 2rem;
+    flex-direction: column;
+    padding-bottom: 5rem;
+    height: auto;
+  }
+
+  .registro-login-title {
+    font-size: 1.5rem;
+  }
+
+  #cambioDeRegistro-InicioSesion {
+    display: none;
+  }
+  #cambioDeRegistro-InicioSesion-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-picture-container {
+    .profile-picture {
+      margin-top: 0%;
+    }
+  }
+
+  .imagen-gato {
+    width: 4rem;
+    position: relative;
+    bottom: 10px;
+  }
+  .gatitofoto-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+  .lineas {
+    display: none;
+  }
+
+  .registrarse-container {
+    width: 90%;
+
+    .titulo-registrarse {
+      margin-top: 1rem;
+      margin-bottom: 0rem;
+    }
+  }
+
+  .gatitofoto {
+    background-color: var(--color-morado);
+  }
 }

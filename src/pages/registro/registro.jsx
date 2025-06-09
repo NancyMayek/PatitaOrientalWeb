@@ -6,9 +6,9 @@ import gatitoConCorazones from "../../../public/images/logo-patita-oriental/gati
 import "./registro.css";
 
 const Registro = () => {
-  const { guardarInfoDeUsuarios,agregarUsuario,nuevoUsuario} = useAuth();
-  const {  handleImageChange, uploading, uploadedUrl} = useImageUpload();
- 
+  const { guardarInfoDeUsuarios, agregarUsuario, nuevoUsuario } = useAuth();
+  const { handleImageChange, uploading, uploadedUrl } = useImageUpload();
+
   return (
     <>
       <section className="registro-section">
@@ -18,19 +18,19 @@ const Registro = () => {
             alt="Gatito llamando"
             className="imagen-gato"
           />
-          <h2 className="contact-title mb-3">¡Bienvenido!</h2>
-          <h3 className="text-white">
+          <h2 className="registro-login-title mb-3">¡Bienvenido!</h2>
+          <h3 className="text-white" id="cambioDeRegistro-InicioSesion">
             ¿Ya tienes una cuenta?{" "}
             <Link className="link-to-logIn" to="/Inicio_de_sesion">
               Inicia Sesión
             </Link>
           </h3>
-          <div className="row row-1">
+          <div className="row row-1 lineas">
             <div className="line short white"></div>
             <div className="line medium white"></div>
             <div className="line extra-long white"></div>
           </div>
-          <div className="row row-2">
+          <div className="row row-2 lineas">
             <div className="line long white"></div>
             <div className="line short white"></div>
             <div className="line space"></div>
@@ -46,7 +46,6 @@ const Registro = () => {
           >
             <div className="profile-picture-container mx-auto">
               <div className="profile-picture ">
-            
                 {uploading ? (
                   <div className="d-flex flex-column align-items-center loading">
                     <div
@@ -174,10 +173,18 @@ const Registro = () => {
                 />
               </div>
             </div>
-
             <button type="submit" className="btn btn-pink w-100 fw-bold">
               Enviar
             </button>
+            <h3
+              className="text-white"
+              id="cambioDeRegistro-InicioSesion-mobile"
+            >
+              ¿Ya tienes una cuenta?{" "}
+              <Link className="link-to-logIn" to="/Inicio_de_sesion">
+                Inicia Sesión
+              </Link>
+            </h3>
           </form>
         </div>
       </section>

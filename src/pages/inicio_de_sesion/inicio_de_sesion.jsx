@@ -18,19 +18,19 @@ const Inicio_de_sesion = () => {
             alt="Gatito llamando"
             className="imagen-gato"
           />
-          <h2 className="contact-title mb-3">¡Hola de nuevo!</h2>
-          <h3 className="text-white">
-            ¿Ya tienes una cuenta?{" "}
+          <h2 className="registro-login-title mb-3">¡Hola de nuevo!</h2>
+          <h3 className="text-white"  id="cambioDeRegistro-InicioSesion">
+            ¿Aún no tienes una cuenta?{" "}
             <Link className="link-to-logIn" to="/Registro">
               Regístrate
             </Link>
           </h3>
-          <div className="row row-1">
+          <div className="row row-1 lineas">
             <div className="line short white"></div>
             <div className="line medium white"></div>
             <div className="line extra-long white"></div>
           </div>
-          <div className="row row-2">
+          <div className="row row-2 lineas">
             <div className="line long white"></div>
             <div className="line short white"></div>
             <div className="line space"></div>
@@ -69,6 +69,15 @@ const Inicio_de_sesion = () => {
             <button type="submit" className="btn btn-pink w-100 fw-bold">
               Ingresar
             </button>
+            <h3
+              className="text-white"
+              id="cambioDeRegistro-InicioSesion-mobile"
+            >
+              ¿No tienes una cuenta?{" "}
+            <Link className="link-to-logIn" to="/Registro">
+              Regístrate
+            </Link>
+            </h3>
           </form>
         </div>
       </section>
