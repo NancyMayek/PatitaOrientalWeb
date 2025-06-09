@@ -77,7 +77,6 @@
       top: 25%;
       right: 15%;
     }
-  
   }
 
   .usuario-informacion-principal {
@@ -100,16 +99,36 @@
       }
     }
   }
-  .btn-cerrar-sesion {
-    margin-top: 1rem;
-    background-color: rgb(253, 229, 249);
-    border-radius: 10px;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-  }
-  .btn-cerrar-sesion:hover{
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  }
+}
+
+.usuario-nav-botones-movile {
+  display: none;
+}
+.btn-cerrar-sesion {
+  margin-top: 1rem;
+  background-color: rgb(253, 229, 249);
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+.btn-cerrar-sesion:hover {
+  background-color: red;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.btn-Favoritos {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  background-color: var(--color-morado);
+  color: white;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+.btn-Favoritos:hover {
+  background-color: var(--color-rosa);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 /*=========FORMULARIO CON INFORMACION ===========*/
@@ -184,7 +203,7 @@
   .perfil-de-Usuario-SideBar {
     display: flex;
     flex-direction: column;
-    width: 25%;
+
     margin-right: 0rem;
 
     .title-profile {
@@ -214,33 +233,14 @@
   .informacion-de-usuario-seccion {
     width: 100%;
   }
-}
-
-/*=========FORMULARIO CON INFORMACION ===========*/
-
-.form-nivel-1,
-.form-nivel-2,
-.form-nivel-3 {
-  width: 100%; /**/
-}
-
-#referencias {
-  width: 105%; /**/
-}
-
-.metodos-de-pago-seccion {
-  width: 100%; /**/
-
-  .checkbox-metodos-de-pago {
-    label {
-      margin-right: 1rem; /**/
-    }
+  .form-nivel {
+    width: 100%; /**/
   }
 }
 
 /*------------MOVILES------------------*/
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
   .perfil-de-usuario-contenedor {
     margin-top: 2rem; /**/
     justify-content: center; /**/
@@ -250,6 +250,10 @@
     display: none;
   }
   /*==========SECCION DE FOTO Y DIRECCION DE USUARIO==========*/
+  .usuario-nav-botones-movile {
+    display: flex;
+  }
+
   .informacion-de-usuario-seccion {
     margin-right: 1.5rem;
   }
@@ -269,9 +273,7 @@
 
   /*=========FORMULARIO CON INFORMACION ===========*/
 
-  .form-nivel-1,
-  .form-nivel-2,
-  .form-nivel-3 {
+  .form-nivel {
     display: flex;
     flex-direction: column; /**/
     margin-bottom: 0rem; /**/
@@ -293,6 +295,65 @@
     .checkbox-metodos-de-pago {
       label {
         margin-right: 1rem; /**/
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .perfil-de-usuario-contenedor {
+    margin-top: 1rem;
+  }
+
+  .informacion-de-usuario-seccion {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 100%;
+  }
+
+  .usuario-info-resumen {
+    display: flex;
+    position: static;
+    bottom: 0rem;
+
+    .usuario-foto-seccion {
+      margin-bottom: 1rem;
+      position: relative;
+      left: 11px;
+    }
+    .icono-editar-foto {
+      width: 30px;
+      height: auto;
+      position: relative;
+      right: 30%;
+    }
+  }
+
+  .title-profile {
+    font-size: 1.3rem;
+  }
+
+  .usuario-info-resumen {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .usuario-informacion-principal {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .direccion {
+        display: flex;
+        align-items: center;
+        margin-top: 0.5rem;
+        h2 {
+          font-size: 1rem;
+          margin-left: 0.5rem;
+        }
+        img {
+          width: 1.6rem;
+          height: auto;
+        }
       }
     }
   }

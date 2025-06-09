@@ -13,6 +13,14 @@ const Profile = () => {
     navigate("/Inicio_de_sesion");
   };
 
+  const favoritosSesionUsuario = () => {
+    navigate("/Favoritos");
+  };
+
+  const reloadProfile = () => {
+    navigate("/Profile");
+  }
+
   return (
     <div className="perfil-de-usuario-contenedor">
       {/* Side bar */}
@@ -24,8 +32,8 @@ const Profile = () => {
         <Link className="Usuario-SideBar-Boton" to="/Favoritos">
           <h1>Favoritos</h1>
         </Link>
-        <div className="Usuario-SideBar-Boton">
-          <h1>Historial de pedidos</h1>
+        <div className="Usuario-SideBar-Boton" onClick={cerrarSesionUsuario}>
+          <h1>Cerrar Sesión</h1>
         </div>
       </div>
       {/* Informacion de usuario */}
@@ -56,7 +64,10 @@ const Profile = () => {
               />
               <h2>{usuario.direccion}</h2>
             </div>
-            <button className="btn-cerrar-sesion" onClick={cerrarSesionUsuario}>Cerrar Sesión</button>
+             <div className="usuario-nav-botones-movile ">
+              <button className="btn-Favoritos" onClick={favoritosSesionUsuario}> Ver Favoritos</button>
+              <button className="btn-cerrar-sesion" onClick={cerrarSesionUsuario}> Cerrar Sesión</button>
+          </div>
           </div>
         </div>
 
@@ -144,7 +155,7 @@ const Profile = () => {
             <button type="submit" className="btn-guardar-cambios">
               Guardar cambios
             </button>
-            <button type="submit" className="btn-cancelar-cambios">
+            <button type="submit" onClick={reloadProfile} className="btn-cancelar-cambios">
               Cancelar
             </button>
           </div>
