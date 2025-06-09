@@ -99,27 +99,34 @@
 }
 
 @media (max-width: 640px) {
+  
   .contenedor-tarjeta-menu {
     border-width: 3px;
     width: 330px;
     min-height: 400px;
+   
+  }
+  .menu-contenedor{
+display:flex;
+flex-direction: column;
+justify-content: center;
+
   }
 
   .contenedor-producto {
-    flex-direction: column;
     padding: 1rem;
   }
 
   .contenedor-producto img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     margin-bottom: 1rem;
   }
 
   .contenedor-info-producto {
     align-items: center;
     text-align: center;
-    padding: 0.5rem 1rem;
+    padding: 0rem;
   }
 
   .titulo-comida {
@@ -133,7 +140,7 @@
   }
 
   .descripcion-comida {
-    font-size: 0.8rem;
+    font-size: 0.5rem;
   }
 
   .contenedor-botones-menu {

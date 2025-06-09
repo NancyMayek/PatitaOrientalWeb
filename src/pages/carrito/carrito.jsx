@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Context } from '../../components/context/Contex';
 import './carrito.css';
 import { Link } from 'react-router-dom';
@@ -22,12 +22,12 @@ const Carrito = () => {
     const eliminarProducto = (id) => {
         const foundId = carrito.find((product) => product.id === id);
 
-        const nuevoCarrito = carrito.filter((product) =>{
+        const nuevoCarrito = carrito.filter((product) => {
             return product !== foundId
         })
 
         setCart(nuevoCarrito);
-        
+
     };
 
     const vaciarCarrito = () => {
@@ -43,15 +43,16 @@ const Carrito = () => {
     const envio = carrito.length > 0 ? 5.0 : 0;
     const total = subtotal + envio;
 
-    return (
-        <div className="carrito-container">
-            
-            <div className="carrito">
-                <h2>Carrito de compra</h2>
-                
 
+    return (
+        <div className="justify-content-center carrito-container">
+
+            <div className="container-fluid py-3 px-4">
+                <h1 className="titulo-carrito">Carrito de compra</h1>
+            </div>
+            <div className="carrito ">
                 {carrito.length === 0 ? (
-                    <div className="carrito-vacio">
+                    <div className="carrito-vacio ">
                         <img
                             src="/images/carrito-imagenes/foto-carrito-vacio-.jpg"
                             alt="Carrito vacío"
@@ -144,8 +145,8 @@ const Carrito = () => {
                         )}
                     </div>
 
-                    <button 
-                        className="finalizar" 
+                    <button
+                        className="finalizar"
                         onClick={handleFinalizarPedido}
                     >
                         Realizar pedido
