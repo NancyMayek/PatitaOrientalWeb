@@ -1,7 +1,7 @@
 .contenedor-tarjeta-menu {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   background-color: white;
   border: 5px solid var(--color-morado);
   border-radius: 26px;
@@ -9,20 +9,23 @@
   max-width: 500px;
   height: 100%;
   box-sizing: border-box;
-  padding: 0.5 rem;
+  overflow: hidden; /* evita que el contenido sobresalga del borde redondeado */
 }
+
 .contenido-tarjeta {
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 1rem;  
 }
-
 
 .contenedor-producto {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .contenedor-producto img {
@@ -30,13 +33,15 @@
   width: 200px;
   height: 200px;
   object-fit: cover;
+  max-width: 100%;
 }
 
 .titulo-comida {
-  font-size: 1.6rem;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
 }
 
 .precio-comida {
+  font-size: 1.1rem;
   padding: 0.5rem;
 }
 
@@ -44,66 +49,48 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 2rem;
-}
-
-.contenedor-botones-menu {
-  display: flex;
-  justify-content: space-around;
-  border-radius: 0 0 22px 22px;
-  background-color: var(--color-rosa);
-  padding: 1rem;
+  text-align: center;
+  padding-left: 1rem;
 }
 
 .descripcion-comida {
   text-align: justify;
   overflow-wrap: break-word;
+  font-size: clamp(0.75rem, 2vw, 1rem);
 }
 
-/* Responsivo */
+.contenedor-botones-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-radius: 0 0 22px 22px;
+  background-color: var(--color-rosa);
+  padding: 0.8rem 1rem; /* Ajustado para que no se vea tan separado */
+}
+
+.icono-resta,
+.icono-suma {
+  width: 1.5rem;
+}
+
+.icono-corazon-rojo {
+  width: 2rem;
+}
+
+.añadir-comida {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+/* Media Query para dispositivos pequeños */
 @media (max-width: 530px) {
   .contenedor-tarjeta-menu {
     border-width: 3px;
-    width: 100%;
-    min-height: auto;
   }
 
   .contenedor-producto img {
     width: 150px;
     height: 150px;
   }
-
-  .contenedor-info-producto {
-    padding-left: 1rem;
-  }
-
-  .titulo-comida {
-    font-size: 1.1rem;
-  }
-
-  .precio-comida {
-    font-size: 1rem;
-    padding: 0rem;
-  }
-
-  .descripcion-comida {
-    font-size: 0.7rem;
-  }
-
-  .contenedor-botones-menu {
-    padding: 0.7rem;
-  }
-
-  .icono-resta,
-  .icono-suma {
-    width: 1.5rem;
-  }
-
-  .icono-corazon-rojo {
-    width: 2rem;
-  }
-
-  .añadir-comida {
-    font-size: 1.1rem;
-  }
 }
+
