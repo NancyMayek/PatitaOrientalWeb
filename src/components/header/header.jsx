@@ -46,7 +46,7 @@ const Header = () => {
                 <img src={usuario.imagen} alt="Perfil" />
               </Link>
             ) : (
-              <Link to="/Registro">
+              <Link to="/Inicio_de_sesion">
                 <img src={iconoDeUsuario} alt="Registro" />
               </Link>
             )}
@@ -74,7 +74,7 @@ const Header = () => {
               />
             </Link>
           ) : (
-            <Link to="/Registro">
+            <Link to="/Inicio_de_sesion">
               <img
                 className="imagen-Usuario-header"
                 src={iconoDeUsuario}
