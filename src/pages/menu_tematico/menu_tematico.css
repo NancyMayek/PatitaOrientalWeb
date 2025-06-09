@@ -1,24 +1,26 @@
 .banner-carrusel {
   position: relative;
   width: 100%;
-  height: 60vh; /* Altura responsiva */
-  margin-top: 80px; /* Para que no tape el header */
+  height: auto;
+  margin-top: 80px;
   overflow: hidden;
 }
 
 .imagen-banner {
   width: 100%;
-  max-width: 100%;      /* o un valor fijo como 800px si quieres un tamaño fijo */
-  height: 300px;        /* ajusta a lo que necesites */
-  overflow: hidden;     /* para recortar el exceso si usas object-fit */
+  height: auto;
   position: relative;
+  overflow: hidden;
 }
 
 .imagen-banner img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;    /* esto recorta y escala manteniendo la proporción */
+  height: auto;
+  max-height: 60vh;
+  object-fit: cover;
   display: block;
+  transition: opacity 1s ease-in-out; /* Transición suave */
+  opacity: 1;
 }
 
 .botones-banner {
@@ -28,6 +30,7 @@
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
+  z-index: 2;
 }
 
 .boton-banner {
@@ -46,31 +49,43 @@
   transform: scale(1.2);
 }
 
+/* RESPONSIVE STYLES */
+@media (max-width: 768px) {
+  .imagen-banner img {
+    max-height: 40vh;
+  }
+}
 
+@media (max-width: 480px) {
+  .imagen-banner img {
+    max-height: 30vh;
+  }
 
+  .botones-banner {
+    bottom: 10px;
+    gap: 6px;
+  }
+
+  .boton-banner {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Estilos de las tarjetas (sin cambios) */
 .contenedor-menu-tematico {
   display: grid;
-grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   padding: 2rem;
   justify-items: center;
-  background-color: #fdf8f9; /* Un rosa muy claro */
-   /* Asegura que todas las tarjetas tengan misma altura */
+  background-color: #fdf8f9;
   align-items: stretch;
 }
 
-/* Ajustes responsivos (opcional) */
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
   .contenedor-menu-tematico {
     grid-template-columns: 1fr;
-    padding: 1rem;
-    gap: 1.5rem;
-  }
-} */
- @media (max-width: 600px) {
-  .contenedor-menu-tematico {
-    grid-template-columns: 1fr;
-    align-items: stretch;  
+    align-items: stretch;
   }
 }
- 

@@ -11,9 +11,9 @@ const Menu_Tematico = () => {
 
  const imagenesBanner = [
     
-        {src: "../../../public/images/menu_tematico/bannerbts1.jpg", alt: "Opcion 2"},
-        {src: "../../../public/images/menu_tematico/bannerbts2.jpg", alt: "Opcion 2"},
-        {src: "../../../public/images/menu_tematico/bannerbts3.jpg", alt: "Opcion 2"},
+        {src: "https://live.staticflickr.com/65535/54573324737_455d6f7e9c_b.jpg", alt: "Opcion 2"},
+        {src: "https://live.staticflickr.com/65535/54574421998_6239f1fa3d_b.jpg", alt: "Opcion 2"},
+        {src: "https://live.staticflickr.com/65535/54574192601_d821823de6_b.jpg", alt: "Opcion 2"},
     ];
 
 
