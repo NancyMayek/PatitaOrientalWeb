@@ -38,7 +38,7 @@
   justify-content: space-between;
   border: 1.5px solid #d679af;
   padding: 1rem 1rem;
-  border-radius: 8px;
+  border-radius: 18px;
   transition: background-color 0.3s ease;
   margin-bottom: 1rem;
 }
@@ -71,7 +71,7 @@
   font-size: 1rem;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -80,6 +80,7 @@
   background-color: #f2ebf0;
   color: rgb(15, 14, 14);
   border-color: #d679af;
+  border-radius: 30px;
 }
 
 .precio {
@@ -92,6 +93,7 @@
 
 .eliminar {
   color: #0e0101;
+  border-radius: 30px;
   margin-right: 1rem;
   padding: 0.5rem 0.75rem;
  background-color: #e3afaf;
@@ -167,7 +169,27 @@
   margin-top: 1rem;
   cursor: pointer;
 }
-  
+
+/* Estilo para el alert pedido realizado */
+.swal2-title-custom {
+  font-size: 24px;
+  color: #d679af;
+  font-weight: bold;
+   font-family: 'popins', sans-serif;
+}
+.swal2-button-custom {
+  font-size: 16px !important;
+  padding: 10px 25px !important;
+  border-radius: 10px !important;
+  font-weight: bold;
+  background-color: #425084 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.swal2-rounded {
+  border-radius: 30px !important;
+}
 
 /* Resumen del pedido contenedor derecha  */
 .resumen {
