@@ -47,7 +47,7 @@ const Carrito = () => {
     return (
         <div className="justify-content-center carrito-container">
 
-            <div className="container-fluid py-3 px-4">
+            <div className="container-fluid">
                 <h1 className="titulo-carrito">Carrito de compra</h1>
             </div>
             <div className="carrito ">

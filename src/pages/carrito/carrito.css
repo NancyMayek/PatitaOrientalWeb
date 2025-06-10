@@ -26,7 +26,7 @@
   padding: 1.5rem;
   border-radius: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 1rem;
+  margin: 0;
   min-width: 300px;
 }
 
@@ -135,11 +135,13 @@
   text-align: left;
   color: white;
   border-bottom: 6px solid #d679af;
-  padding-bottom: 12px;
+  padding-bottom: 0;
   display: inline-block;
   font-weight: 600;
   font-size: 2rem;
   letter-spacing: 0.03em;
+  margin-top: 0.3rem;
+  margin-bottom: 0;
 }
 
 /* Botones inferiores */
@@ -261,7 +263,6 @@ display: inline-block;
 @media (max-width: 992px) {
   .carrito {
     flex: 1 1 100%;
-    margin: 1rem 0;
     align-items: center;
   }
 
@@ -280,6 +281,7 @@ display: inline-block;
 @media (max-width: 600px) {
   .carrito-container {
   align-items: center;
+  margin-top: 0;
 
   }
   .carrito-vacio {
@@ -367,5 +369,9 @@ display: inline-block;
     font-size: 1rem;
     width: 60%;
     padding: 0.65rem;
+  }
+  .titulo-carrito {
+    font-size: 1.6rem;
+    margin-bottom: 0;
   }
 }
