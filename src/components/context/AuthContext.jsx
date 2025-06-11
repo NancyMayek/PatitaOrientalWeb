@@ -123,10 +123,6 @@ export const AuthProvider = ({ children }) => {
         contraseña: "",
       });
       navigate("/Profile"); // redirigir a la página de perfil
-      /*setUploadedUrl(
-        "https://res.cloudinary.com/dkufsisvv/image/upload/v1749665101/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/hemsfcvyetspmc5d450i.svg"
-      ); *///agrego la imagen pre-determinada
-      
     } else {
       console.log("Hubo un error al registrar");
       return localStorage.setItem("isLoggedIn", "false");
