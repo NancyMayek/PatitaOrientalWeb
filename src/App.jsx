@@ -21,7 +21,7 @@ function App() {
     <ContextProvider>
       <BrowserRouter>
       <Header></Header>
-        <Routes>
+        <Routes> 
           <Route path="/" element={<Inicio/>}/>
           <Route path="/Menu" element={<Menu/>}/>
           <Route path="/Menu_tematico" element={<Menu_Tematico/>}/>
