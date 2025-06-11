@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../components/context/AuthContext";
 import { useImageUpload } from "../../components/context/uploadImagesContext";
-import defaultProfilePicture from "../../../public/images/iconos/LogoUsr.svg";
+//import defaultProfilePicture from "../../../public/images/iconos/LogoUsr.svg";
 import gatitoConCorazones from "../../../public/images/logo-patita-oriental/gatitoConCorazones.png";
 import iconoEditarFoto from "../../../public/images/iconos/icon-editar-foto.svg";
 import "./registro.css";
 
 const Registro = () => {
   const { guardarInfoDeUsuarios, agregarUsuario, nuevoUsuario } = useAuth();
-  const { handleImageChange, uploading, uploadedUrl } = useImageUpload();
-
+  const { handleImageChange, uploading, uploadedUrl,  setUploadedUrl} = useImageUpload();
+  const defaultProfilePicture = "https://res.cloudinary.com/dkufsisvv/image/upload/v1749665101/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/hemsfcvyetspmc5d450i.svg";
+  setUploadedUrl(defaultProfilePicture);
   return (
     <>
       <section className="registro-section">
@@ -54,8 +55,8 @@ const Registro = () => {
                       role="status"
                     ></div>
                   </div>
-                ) : uploadedUrl ? (
-                  <div>
+                ) : uploadedUrl ?  //añadimos la url de la imagen (
+                (  <div>
                     <img src={uploadedUrl} alt="Uploaded" />
                   </div>
                 ) : (
@@ -72,7 +73,7 @@ const Registro = () => {
                   id="fileInput"
                   onChange={handleImageChange}
                   accept="image/*"
-                  style={{ display: "none" }} // Hide the real file input
+                  style={{ display: "none" }} 
                 />
 
                 <label htmlFor="fileInput">
@@ -80,7 +81,7 @@ const Registro = () => {
                     className="icono-editar-foto"
                     src={iconoEditarFoto}
                     alt="icono de editar foto"
-                    style={{ cursor: "pointer" }} // Make it look clickable
+                    style={{ cursor: "pointer" }} 
                   />
                 </label>
               </div>

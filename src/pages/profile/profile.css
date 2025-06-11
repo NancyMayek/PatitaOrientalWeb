@@ -70,12 +70,12 @@
         object-fit: cover; /* Hace que la imagen cubra todo el contenedor */
       }
     }
-    .icono-editar-foto {
+    .icono-editar-foto-profile {
       width: 30px;
       height: auto;
       position: relative;
-      top: 25%;
-      right: 15%;
+      bottom: -120px;
+      right: 25px;
     }
   }
 
@@ -268,6 +268,11 @@
         width: 130px; /**/
         height: 130px;
       }
+      .icono-editar-foto-profile {
+      
+      bottom: -95px;
+    
+    }
     }
   }
 
@@ -321,12 +326,7 @@
       position: relative;
       left: 11px;
     }
-    .icono-editar-foto {
-      width: 30px;
-      height: auto;
-      position: relative;
-      right: 30%;
-    }
+    
   }
 
   .title-profile {

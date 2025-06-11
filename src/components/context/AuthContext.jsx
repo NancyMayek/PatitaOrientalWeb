@@ -122,10 +122,11 @@ export const AuthProvider = ({ children }) => {
         telefono: "",
         contraseña: "",
       });
-      setUploadedUrl(
-        "https://res.cloudinary.com/dkufsisvv/image/upload/v1749313416/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/mod5xozkfukeuc8laqyg.svg"
-      ); //agrego la imagen pre-determinada
       navigate("/Profile"); // redirigir a la página de perfil
+      /*setUploadedUrl(
+        "https://res.cloudinary.com/dkufsisvv/image/upload/v1749665101/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/hemsfcvyetspmc5d450i.svg"
+      ); *///agrego la imagen pre-determinada
+      
     } else {
       console.log("Hubo un error al registrar");
       return localStorage.setItem("isLoggedIn", "false");
@@ -134,15 +135,18 @@ export const AuthProvider = ({ children }) => {
 
   
 
-  const uptadeUser = async(e) => {
-    e.preventDefault();
+  const uptadeUser = async (e) => {
+    console.log(uploadedUrl);
+    if(uploadedUrl !== "") usuario.imagen = uploadedUrl; //añadimos la url de la imagen
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+    console.log("usuario imagen es", usuario.imagen);
     const usuarioGuardado= JSON.parse(localStorage.getItem("usuario"));
      fetch(`http://localhost:3001/api/usuarios/${usuarioGuardado.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(usuarioGuardado),
     })
       .then(res => res.json())
       .then(data => {
