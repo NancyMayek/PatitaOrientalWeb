@@ -4,7 +4,7 @@ import './about.css'
 const About = () => {
      return (
   <div className="about-root main-content">{/* encapsula los estilos de about.css */} 
-  <br></br><br></br><br></br><br></br>
+  <br></br>
   <h1>Historia de Patita Oriental</h1>
     <section id="historia">
         <div className="section">
@@ -17,7 +17,7 @@ const About = () => {
             </div>
       </div>
       <div className="section">
-            <img srcSet="public\images\imgAbout\Platillo2.png" alt="imagen2"></img>
+            <img srcSet="/images/imgAbout/Platillo2.png" alt="imagen2"></img>
             <div className="text">
                 <h2>Una página con mucho sabor: digitalizando Patita Oriental</h2>
                 <p>Aún sin página web, el equipo enfrentaba retos para conectar con más clientes. Nuestra solución fue
@@ -26,7 +26,7 @@ const About = () => {
             </div>
         </div>
       <div className="section">
-            <img srcSet="public\images\imgAbout\Platillo3.png" alt="imagen3"></img>
+            <img srcSet="/images/imgAbout/Platillo3.png" alt="imagen3"></img>
             <div className="text">
                 <h2>Más que delivery: control total del pedido. </h2>
                 <p>En plataformas como Uber Eats o Rappi, los precios subían demasiado. Por eso, la nueva página
@@ -35,7 +35,7 @@ const About = () => {
             </div>
         </div>
         <div className="section">
-            <img srcSet="public\images\imgAbout\Platillo4.png" alt="imagen4"></img>
+            <img srcSet="/images/imgAbout/Platillo4.png" alt="imagen4"></img>
             <div className="text">
                 <h2>Tecnología al sevicio </h2>
                 <p>Con esta web buscamos empoderar a Patita Oriental para que crezca digitalmente, evite comisiones
@@ -51,10 +51,10 @@ const About = () => {
 
 
                 <div className="nombre_developers">
-                    <img className="grafico-estrella-developers" src="public\images\imgAbout\grafico_estrellas_derecho.svg"
+                    <img className="grafico-estrella-developers" src="/images/imgAbout/grafico_estrellas_derecho.svg"
                         alt="elemento estrella"/>
                     <h2 className="subtitulos_para_seccion">Nancy Mayek intuitivasTorres Aguilar</h2>
-                    <img class="grafico-estrella-developers" src="public\images\imgAbout\grafico_estrellas_izquierdo.svg"
+                    <img class="grafico-estrella-developers" src="/images/imgAbout/grafico_estrellas_izquierdo.svg"
                         alt="elemento estrella"/>
                 </div>
 
@@ -71,18 +71,18 @@ const About = () => {
                     <div>
                         <div id="contactoTelyEmail">
                             <div className="contacto">
-                                <img className="icon-contactame" src="public\images\imgAbout\icono_telefono.svg"
+                                <img className="icon-contactame" src="/images/imgAbout/icono_telefono.svg"
                                     alt="icon telefono"/>
                                 <h4>(+52) 221-418-8737</h4>
                             </div>
                             <div className="contacto">
-                                <img className="icon-contactame" src="public\images\imgAbout\icono_email.svg" alt="icon email"/>
+                                <img className="icon-contactame" src="/images/imgAbout/icono_email.svg" alt="icon email"/>
                                 <h4>torresaguilarnancymayek@gmail.com</h4>
                             </div>
                         </div>
 
                         <div className="contacto">
-                            <img className="icon-contactame" src="public\images\imgAbout\icono_linkedn.svg" alt="icon linkedn"/>
+                            <img className="icon-contactame" src="/images/imgAbout/icono_linkedn.svg" alt="icon linkedn"/>
                             <a
                                 href="www.linkedin.com/in/nancy-mayek-torres-aguilar">www.linkedin.com/in/nancy-mayek-torres-aguilar</a>
                         </div>

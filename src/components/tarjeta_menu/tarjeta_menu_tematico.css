@@ -7,9 +7,9 @@
   border-radius: 26px;
   width: 100%;
   max-width: 500px;
-  height: 100%;
+  height: auto; /* 👈 deja que crezca según el contenido */
   box-sizing: border-box;
-  overflow: hidden; /* evita que el contenido sobresalga del borde redondeado */
+  overflow: hidden;
 }
 
 .contenido-tarjeta {
@@ -21,20 +21,22 @@
 
 .contenedor-producto {
   display: flex;
-  justify-content: center;
+  flex-direction: row; /* siempre imagen izquierda, texto derecha */
   align-items: center;
-  flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
+  flex: 1;
 }
+
 
 .contenedor-producto img {
   border-radius: 20px;
-  width: 200px;
-  height: 200px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
-  max-width: 100%;
+  flex-shrink: 0; /*para que no se encoja en layouts pequeños */
 }
+
 
 .titulo-comida {
   font-size: clamp(1rem, 2.5vw, 1.6rem);
@@ -46,12 +48,14 @@
 }
 
 .contenedor-info-producto {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding-left: 1rem;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  text-align: left;
 }
+
 
 .descripcion-comida {
   text-align: justify;
@@ -93,4 +97,16 @@
     height: 150px;
   }
 }
+@media (max-width: 600px) {
+  .contenedor-producto {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contenedor-info-producto {
+    text-align: center;
+  }
+}
+
 

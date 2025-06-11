@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: auto;
-  margin-top: 80px;
+  margin-top: 0;
   overflow: hidden;
 }
 
@@ -72,10 +72,9 @@
   }
 }
 
-/* Estilos de las tarjetas (sin cambios) */
 .contenedor-menu-tematico {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); /*  EXACTAMENTE 2 por fila */
   gap: 2rem;
   padding: 2rem;
   justify-items: center;
@@ -83,9 +82,10 @@
   align-items: stretch;
 }
 
+
 @media (max-width: 600px) {
   .contenedor-menu-tematico {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));;
     align-items: stretch;
   }
 }

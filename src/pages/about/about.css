@@ -22,9 +22,7 @@
 .about-root a {
   font-family: var(--fuente_principal);
 }
-/* body.about-root {
-  background-color: var(--color_morado_principal);
-} */
+
 
 .about-root .subtitulos_para_seccion {
   font-size: 140%;
@@ -188,7 +186,7 @@
   justify-content: center;
   gap: 20px;
   padding: 100px 20px 40px;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: auto;
 }
 
@@ -266,7 +264,7 @@
   }
 
   .about-root .section img {
-    width: 90%;
+    width: 70%;      /* Tamaño despues de ser reponsiva */ 
     margin-bottom: 20px;
   }
 
@@ -284,20 +282,16 @@
   }
   
 
-  .about-root .imagen_circular {
-    border-radius: 50% !important;
-    padding: 0;
-    margin-bottom: 15px;
-  }
-
-  .about-root .imagen_circular img {
-    width: 170px;
-    height: 170px;
-    object-fit: cover;
-  }
+ .about-root .imagen_circular img {
+  width: 270px;
+  height: auto;
+  border-radius: 100%;
+  object-fit: cover;
+}
 
   .about-root #info_developers {
     padding: 20px;
+    
   }
 
   .about-root .contacto {
@@ -319,14 +313,6 @@
   .about-root #contactoTelyEmail {
     flex-direction: column;
   }
-  @media (max-width: 600px) {
-  .about-root .section img {
-    display: none;
-  }
-}
-@media (max-width: 600px) {
-  .about-root .imagen_circular {
-    display: none;
-  }
-}
+  
+
 }
