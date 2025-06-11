@@ -20,6 +20,11 @@
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 360px) {
+  .contact-section {
+    padding: 20px;
+  }
+}
 
 
 
@@ -37,12 +42,19 @@
 
 
 
+
 .contact-title {
   color: #fff;
   font-weight: 700;
   font-size: 2.8rem;
   margin-top: 20px;
 }
+.contact-title {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
 
 .decorative-lines {
   display: flex;
@@ -155,15 +167,17 @@
     padding: 10px;
   }
 }
-@media (max-width: 1024px) { /* Para tablets */
+@media (max-width: 360px) { /* Para tablets */
   .contact-title {
-    font-size: 3.5rem;
+    font-size: 2.2rem;/*ajustado para evitar cortes*/
+  }
+
   }
   .btn-pink {
     width: 80%;
     margin: 0 auto;
   }
-}
+
 
 
 
