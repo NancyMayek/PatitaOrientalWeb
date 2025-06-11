@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Context } from '../../components/context/Contex';
 import './carrito.css';
 import { Link } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 
 const Carrito = () => {
 
@@ -46,7 +46,18 @@ const Carrito = () => {
         }
     });
 };
-    const handleFinalizarPedido = () => {
+   const handleFinalizarPedido = () => {
+    if (!metodoPago) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Método de pago requerido',
+            text: 'Por favor, selecciona un método de pago antes de finalizar tu pedido.',
+            confirmButtonText: 'OK'
+        });
+        return; // ❌ Evita continuar si no hay método de pago
+    }
+
+    // ✅ Si sí hay método de pago, continúa
     Swal.fire({
         title: '🎉 ¡Pedido realizado!',
         html: `
@@ -58,9 +69,9 @@ const Carrito = () => {
             </p>
         `,
         icon: 'success',
-        background: '#f0f8ff', 
+        background: '#f0f8ff',
         confirmButtonText: 'Aceptar',
-        confirmButtonColor: '#28a745', 
+        confirmButtonColor: '#28a745',
         customClass: {
             popup: 'swal2-rounded',
             title: 'swal2-title-custom',
@@ -75,8 +86,10 @@ const Carrito = () => {
         allowOutsideClick: false
     }).then(() => {
         setCart([]);
+        setMetodoPago(""); 
     });
 };
+
     const subtotal = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
     const envio = carrito.length > 0 ? 5.0 : 0;
     const total = subtotal + envio;
