@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Context } from '../../components/context/Contex';
 import './carrito.css';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Carrito = () => {
 
@@ -31,26 +32,63 @@ const Carrito = () => {
     };
 
     const vaciarCarrito = () => {
-        setCart([]);
-    };
-
+    Swal.fire({
+        title: '¿Vaciar carrito?',
+        text: 'Esta acción eliminará todos los productos del carrito.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, vaciar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            setCart([]);
+            Swal.fire('Carrito vaciado', '', 'success');
+        }
+    });
+};
     const handleFinalizarPedido = () => {
-        alert("Tu pedido ha sido generado, pronto tu conductor estará en camino.");
+    Swal.fire({
+        title: '🎉 ¡Pedido realizado!',
+        html: `
+            <p style="font-size:16px; margin-bottom:10px;">
+                Tu pedido ha sido generado exitosamente.
+            </p>
+            <p style="font-size:14px;">
+                🛵 Tu conductor estará en camino muy pronto.
+            </p>
+        `,
+        icon: 'success',
+        background: '#f0f8ff', 
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#28a745', 
+        customClass: {
+            popup: 'swal2-rounded',
+            title: 'swal2-title-custom',
+            confirmButton: 'swal2-button-custom'
+        },
+        showClass: {
+            popup: 'swal2-show swal2-animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'swal2-hide swal2-animate__fadeOutUp'
+        },
+        allowOutsideClick: false
+    }).then(() => {
         setCart([]);
-    };
-
+    });
+};
     const subtotal = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
     const envio = carrito.length > 0 ? 5.0 : 0;
     const total = subtotal + envio;
 
 
     return (
-        <div className="d-flex flex-wrap justify-content-center align-items-start carrito-container">
+        <div className="justify-content-center carrito-container">
 
-            <div className="container-fluid py-3 px-4">
+            <div className="container-fluid">
                 <h1 className="titulo-carrito">Carrito de compra</h1>
             </div>
-            <div className="carrito">
+            <div className="carrito ">
                 {carrito.length === 0 ? (
                     <div className="carrito-vacio ">
                         <img

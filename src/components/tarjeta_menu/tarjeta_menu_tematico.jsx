@@ -5,7 +5,7 @@ import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg'
 import './tarjeta_menu_tematico.css';
 
 const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart,id }) => {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
     const handleIncrement = (maxValue) => {
         if (count < maxValue) setCount(count + 1);
         console.log("valor de count:" + count);

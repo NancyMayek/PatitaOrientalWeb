@@ -1,10 +1,9 @@
 import Products from "../../components/tarjeta_menu/leerProductos";
-import "./menu.css"
+import "./menu.css";
 
 const Menu = () => {
   return (
     <main>
-
       <h2 className="menu-title">Conoce nuestro menú</h2>
       <ul className="filtros">
         <li><a className="filtro-btn" href="#comidas">Comida</a></li>
@@ -16,4 +15,4 @@ const Menu = () => {
   );
 };
 
-export {Menu};
+export { Menu };

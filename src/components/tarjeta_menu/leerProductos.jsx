@@ -1,82 +1,54 @@
-import { useState, useEffect, useContext } from "react"
-import TarjetaMenu from "./tarjeta_menu"
+import { useState, useEffect, useContext } from "react";
+import TarjetaMenu from "./tarjeta_menu";
 import { Context } from "../context/Contex";
-import './tarjeta_menu.css'; 
+import "./tarjeta_menu.css";
 
-const Products = ({url}) => {
+const Products = ({ url }) => {
+  const [menuData, setMenuData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { carrito, setCart } = useContext(Context);
 
-    const [menuData, setMenuData] = useState({}); // Alamacenará los datos completos del menú 
-    const [loading, setLoading] = useState(true); // loading Indica si los datos se están cargando
-    const [error,setError] = useState(null); // error Almacena cualquier mensaje de error que ocurra
-    
-    const {carrito, setCart} = useContext(Context);
-    
-    useEffect(() =>{
-      const fetchProducts = async () => {
-        try {
-          const response = await fetch(url);
-          if (!response.ok) {
-                    throw new Error(`Error: ${response.status}`);
-                  }
-                  const data = await response.json();
-                  setMenuData(data.menu); // Accedemos a data.menu
-                } catch (err) {
-                  setError(err.message);
-                } finally {
-                  setLoading(false); // El finally asegura que loading se cambie a false siempre
-            }
-        };
-        fetchProducts();
-    }, [url]);
-
-    const buyProducts = (product) => {
-      setCart([...carrito, product])
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`Error: ${res.status}`);
+        const data = await res.json();
+        setMenuData(data.menu);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
     }
+    fetchProducts();
+  }, [url]);
 
-    /*
-    Muestra mensajes según el estado de carga
-    Previene errores si los datos no están disponibles
-    */
-   
-   if (loading) return <div>Cargando productos...</div>;
-   if (error) return <div>Error: {error}</div>;
-   if (!menuData.comidas) return <div>No hay datos disponibles</div>;
-   
-   
-   /* 
-   Combina todos los productos de todas las categorías 
-   en un solo array
-   Usa || [] como fallback si alguna categoría no existe
-   */
-  
-  const allProducts = [
-    ...(menuData.comidas || []),
-    ...(menuData.bebidas || []),
-    ...(menuData.postres || [])
-  ];
-  
+  const buyProducts = (product) => setCart([...carrito, product]);
 
-  
+  if (loading) return <div>Cargando productos...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!menuData.comidas) return <div>No hay datos disponibles</div>;
+
   return (
     <div className="menu-contenedor">
       <h2 id="comidas" className="etiqueta-seccion">Comidas</h2>
       <div className="contenedor-productos">
-        {menuData.comidas?.map((product) => (
-          <TarjetaMenu key={product.id} {...product} onAddToCart ={ buyProducts}/>
+        {menuData.comidas.map((p) => (
+          <TarjetaMenu key={p.id} {...p} onAddToCart={buyProducts} />
         ))}
       </div>
-
       <h2 id="bebidas" className="etiqueta-seccion">Bebidas</h2>
       <div className="contenedor-productos">
-        {menuData.bebidas?.map((product) => (
-          <TarjetaMenu key={product.id} {...product} onAddToCart ={ buyProducts}/>
+        {menuData.bebidas.map((p) => (
+          <TarjetaMenu key={p.id} {...p} onAddToCart={buyProducts} />
         ))}
       </div>
-
       <h2 id="postres" className="etiqueta-seccion">Postres</h2>
       <div className="contenedor-productos">
-        {menuData.postres?.map((product) => (
-          <TarjetaMenu key={product.id} {...product} onAddToCart ={ buyProducts} />
+        {menuData.postres.map((p) => (
+          <TarjetaMenu key={p.id} {...p} onAddToCart={buyProducts} />
         ))}
       </div>
     </div>
