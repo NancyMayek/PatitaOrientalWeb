@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Context } from '../../components/context/Contex';
 import './carrito.css';
 import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
+
 
 const Carrito = () => {
 
