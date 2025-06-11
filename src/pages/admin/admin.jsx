@@ -9,7 +9,7 @@ const Admin = () => {
     precio: "",
     descripcion: "",
     imagen: "",
-    categoria: "",
+    categoria: "comida",
     contador: 0,
   });
 
@@ -54,7 +54,7 @@ const Admin = () => {
       return;
     }
 
-    const nuevoProducto = { ...producto, id: Date.now().toString() };
+    const nuevoProducto = { ...producto, id: `${producto.categoria}-${Date.now()}` };
     const productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
     productosGuardados.push(nuevoProducto);
     localStorage.setItem("productos", JSON.stringify(productosGuardados));
@@ -68,7 +68,7 @@ const Admin = () => {
       precio: "",
       descripcion: "",
       imagen: "",
-      categoria: "",
+      categoria: "comida",
       contador: 0,
     });
   };
@@ -126,15 +126,17 @@ const Admin = () => {
             />
           </div>
           <div className="mb-3">
-            <input
-              type="text"
+            <select
               name="categoria"
-              onChange={handleProductos}
               value={producto.categoria}
+              onChange={handleProductos}
               className="form-control"
-              placeholder="Categoría (comida, bebida o postre)"
               required
-            />
+            >
+              <option value="comida">Comida</option>
+              <option value="bebida">Bebida</option>
+              <option value="postre">Postre</option>
+            </select>
           </div>
 
           <button type="submit" className="btn btn-pink w-100 fw-bold">
