@@ -7,11 +7,27 @@ import iconoEditarFoto from "../../../public/images/iconos/icon-editar-foto.svg"
 import "./registro.css";
 
 const Registro = () => {
-  const { guardarInfoDeUsuarios, agregarUsuario, nuevoUsuario } = useAuth();
-  const { handleImageChange, uploading, uploadedUrl, setUploadedUrl } =
-    useImageUpload();
-  const defaultProfilePicture = "https://res.cloudinary.com/dkufsisvv/image/upload/v1749665101/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/hemsfcvyetspmc5d450i.svg";
-  //setUploadedUrl(defaultProfilePicture);
+  const {
+    guardarInfoDeUsuarios,
+    agregarUsuario,
+    nuevoUsuario,
+    getListaUsuarios,
+  } = useAuth();
+
+  const { handleImageChange, uploading, uploadedUrl } = useImageUpload();
+
+  const defaultProfilePicture =
+    "https://res.cloudinary.com/dkufsisvv/image/upload/v1749665101/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/hemsfcvyetspmc5d450i.svg";
+
+  const buscarUsuarioPorEmail = async (email) => {
+    try {
+      const usuarios = await getListaUsuarios();
+      return usuarios.some((usuario) => usuario.email === email.trim());
+    } catch (error) {
+      console.error("Error al buscar el usuario por email:", error);
+      return false; // En caso de error, asumimos que no se encontró
+    }
+  };
 
   //-------------------------------------Validaciones----------------
 
@@ -31,11 +47,10 @@ const Registro = () => {
   const esContrasenaValida = (contrasena) =>
     /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(contrasena.trim());
 
-  const sonContrasenasIguales = (pass1, pass2) => pass1 === pass2;
 
   //-----------------------------------------------------------------
 
-  const validarFormulario = () => {
+  const validarFormulario = async () => {
     let errores = [];
 
     if (
@@ -47,6 +62,11 @@ const Registro = () => {
 
     if (!esEmailValido(nuevoUsuario.email)) {
       errores.push("Correo electrónico inválido.");
+    } else {
+      const yaExiste = await buscarUsuarioPorEmail(nuevoUsuario.email);
+      if (yaExiste) {
+        errores.push("Ya existe un usuario registrado con este correo.");
+      }
     }
 
     if (!esDireccionValida(nuevoUsuario.direccion)) {
@@ -113,14 +133,10 @@ const Registro = () => {
             id="contactForm"
             onSubmit={async (e) => {
               e.preventDefault();
-              if (validarFormulario() === true) {
+              if (await validarFormulario() === true) {
                 try {
                   await agregarUsuario(); // Esperamos que termine bien
-                  Swal.fire(
-                    "Éxito",
-                    "Formulario válido, ¡datos enviados!",
-                    "success"
-                  );
+                  Swal.fire("Éxito", "¡Bienvenido!", "success");
                 } catch (error) {
                   Swal.fire(
                     "Error",
@@ -141,7 +157,7 @@ const Registro = () => {
                       role="status"
                     ></div>
                   </div>
-                ) : uploadedUrl ? ( //añadimos la url de la imagen (
+                ) : uploadedUrl ? ( //añadimos la url de la imagen
                   <div>
                     <img src={uploadedUrl} alt="Uploaded" />
                   </div>

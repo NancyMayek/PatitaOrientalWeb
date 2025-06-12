@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useImageUpload } from "./uploadImagesContext";
 import { createContext, useState, useContext, useEffect } from "react";
 
+
 /*
 creamos un nuevo contexto de autenticación que servirá como una "caja global"
 para guardar información como el usuario actual y si está logueado o no.
@@ -53,6 +54,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  
   const guardarLogInInput = (e) => {
     setLogInInput({
       ...logInInput,
@@ -93,8 +95,7 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
-  const agregarUsuario = async (e) => {
-    e.preventDefault(); // Previene el comportamiento por defecto del form
+  const agregarUsuario = async () => {
     const usuarioArr = await getListaUsuarios();
     nuevoUsuario.id = usuarioArr.length + 1; //añadimos el ID de usuario
     nuevoUsuario.imagen = uploadedUrl; //añadimos la url de la imagen
@@ -123,6 +124,7 @@ export const AuthProvider = ({ children }) => {
         contraseña: "",
       });
       navigate("/Profile"); // redirigir a la página de perfil
+      setUploadedUrl(""); //limpiar url de imagen
     } else {
       console.log("Hubo un error al registrar");
       return localStorage.setItem("isLoggedIn", "false");
@@ -144,12 +146,11 @@ export const AuthProvider = ({ children }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("User updated successfully!");
         setUsuario(data);
         console.log(data);
       })
       .catch((err) => {
-        console.error("Error updating user:", err);
+        console.error("Error actualizando usuario:", err);
       });
   };
 
