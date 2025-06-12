@@ -2,22 +2,24 @@ import './menu_tematico.css'
 import React, { useEffect, useState, useContext } from "react";
 import TarjetaMenuTematico from '../../components/tarjeta_menu/tarjeta_menu_tematico';
 import { Context } from '../../components/context/Contex';
-
+// Componente principal de la página de menú temátic
 const Menu_Tematico = () => {
-    const [paquetes, setPaquetes] = useState([]);
+    const [paquetes, setPaquetes] = useState([]); // Estado local para guardar los paquetes del menú temático cargados desde un JSON
     const [indiceBanner, setIndiceBanner] = useState(0);
 
+    // Acceso al contexto global del carrito de compras
     const {carrito, setCart} = useContext(Context);
 
+// Arreglo de imágenes que se mostrarán en el banner como carrusel
  const imagenesBanner = [
-    
+        
         {src: "https://live.staticflickr.com/65535/54573324737_455d6f7e9c_b.jpg", alt: "Opcion 2"},
         {src: "https://live.staticflickr.com/65535/54574421998_6239f1fa3d_b.jpg", alt: "Opcion 2"},
         {src: "https://live.staticflickr.com/65535/54574192601_d821823de6_b.jpg", alt: "Opcion 2"},
     ];
 
-
-     // Cargar los paquetes del menú temático
+     // useEffect que se ejecuta una vez al cargar el componente
+    // Carga los datos de los paquetes desde un archivo JSON ubicado en la carpeta /public/data/
   useEffect(() => {
     fetch('/data/menutematico.json')
       .then(response => response.json())
@@ -32,16 +34,16 @@ const Menu_Tematico = () => {
     }, 10000);
     return () => clearInterval(intervalo);
   }, [imagenesBanner.length]);
-
+// Función que se ejecuta al hacer clic en "Agregar al carrito"
     const buyProducts = (product) => {
       setCart([...carrito, product])
-      console.log(product);
+     
       
     }
    
     return (
         <>
-           
+           {/* Carrusel de banner con botones para cambiar de imagen */}
             <div className="banner-carrusel">
                 <div className="imagen-banner">
                     <img
@@ -60,7 +62,7 @@ const Menu_Tematico = () => {
                 </div>
             </div>
 
-
+        {/* Renderizado de las tarjetas del menú temático */}
             <div className="contenedor-menu-tematico">
                 {paquetes.map((item) => (
                     <TarjetaMenuTematico
@@ -79,5 +81,5 @@ const Menu_Tematico = () => {
     );
 };
 
-
+// Exportación del componente para que pueda ser utilizado en otras partes del proyecto
 export { Menu_Tematico };
