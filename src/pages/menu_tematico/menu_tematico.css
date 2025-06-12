@@ -1,28 +1,31 @@
+/*Banner carrusel principal */
 .banner-carrusel {
-  position: relative;
-  width: 100%;
+  position: relative; /* Posiciona los botones absolutamente dentro*/
+  width: 100%; /* Ocupa todo el ancho del contenedor*/
   height: auto;
   margin-top: 0;
-  overflow: hidden;
+  overflow: hidden; /*Oculta cualquier contenido desbordado */
 }
 
+/* Contenedor de la imagen del banner*/
 .imagen-banner {
   width: 100%;
   height: auto;
   position: relative;
   overflow: hidden;
 }
-
+/* Imagen del banner*/
 .imagen-banner img {
   width: 100%;
   height: auto;
-  max-height: 60vh;
-  object-fit: cover;
+  max-height: 60vh;/*Altura máxima en viewport height */
+  object-fit: cover; /*La imagen se recorta para cubrir sin deformarse */
   display: block;
   transition: opacity 1s ease-in-out; /* Transición suave */
   opacity: 1;
 }
 
+/* Contenedor de los botones del carrusel*/
 .botones-banner {
   position: absolute;
   bottom: 20px;
@@ -32,7 +35,7 @@
   gap: 10px;
   z-index: 2;
 }
-
+/* Botones circulos del carrusel*/
 .boton-banner {
   width: 14px;
   height: 14px;
@@ -44,21 +47,22 @@
   transition: background-color 0.3s, transform 0.2s;
 }
 
+/*Botón activo del carrusel */
 .boton-banner.activo {
   background-color: #f48fb1;
   transform: scale(1.2);
 }
 
-/* RESPONSIVE STYLES */
+/* Estilos responsivos del carrusel */
 @media (max-width: 768px) {
   .imagen-banner img {
-    max-height: 40vh;
+    max-height: 40vh; /* Reduce la altura de la imagen en pantallas medianas*/
   }
 }
 
 @media (max-width: 480px) {
   .imagen-banner img {
-    max-height: 30vh;
+    max-height: 30vh;/* Aún más pequeña en móviles*/
   }
 
   .botones-banner {
@@ -71,21 +75,30 @@
     height: 10px;
   }
 }
-
+/* =======Contenedor del Menú Temático=========*/
 .contenedor-menu-tematico {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /*  EXACTAMENTE 2 por fila */
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr); /*  EXACTAMENTE 3 por fila */
+  gap: 2rem; /* Espacio entre tarjetas*/
   padding: 2rem;
-  justify-items: center;
+  justify-items: center; /* Centra cada tarjeta horizontalmente*/
   background-color: #fdf8f9;
-  align-items: stretch;
+  align-items: stretch;/* Las tarjetas se llenan verticalmente*/
 }
 
-
+/* Responsive: cambia el grid a columnas automáticas en pantallas pequeñas*/
 @media (max-width: 600px) {
   .contenedor-menu-tematico {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));;
     align-items: stretch;
+  }
+}
+/*Responsive*/
+@media (min-width: 601px) and (max-width: 767px) {
+  .contenedor-menu-tematico {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+    justify-items: center;
   }
 }

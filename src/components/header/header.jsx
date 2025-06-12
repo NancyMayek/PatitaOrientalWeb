@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header>
       <div className="header-container">
-        <Link className="logo" to="/">
+        <Link className="logo" to="/" onClick={toggleMenu}>
           <img src={patitaLogoAzul} alt="Logo Patita Oriental" />
         </Link>
 

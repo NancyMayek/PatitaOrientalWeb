@@ -87,7 +87,7 @@ const Registro = () => {
             </div>
 
             <h4 className="text-white mb-3 fw-bold  fs-2  mb-1 form-title titulo-registrarse">
-              Regístrarse
+              Regístrate
             </h4>
 
             <div className="row">
