@@ -63,7 +63,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logInCheck = async (e) => {
-    e.preventDefault();
     const usuariosJson = await getListaUsuarios();
     const foundUser = usuariosJson.find(
       (usuarioJson) => usuarioJson.email === logInInput.inputEmail
@@ -80,11 +79,13 @@ export const AuthProvider = ({ children }) => {
           inputEmail: "",
           inputContraseña: "",
         });
+        return true;
       } else {
-        console.log("Contraseña incorrecta");
+        return "Contraseña incorrecta";
       }
     } else {
-      console.log("Usuario no encontrado");
+      return "Usuario no encontrado";
+      
     }
   };
 
