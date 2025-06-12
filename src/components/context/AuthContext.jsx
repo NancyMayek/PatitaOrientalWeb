@@ -129,32 +129,30 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  
-
   const uptadeUser = async (e) => {
     console.log(uploadedUrl);
-    if(uploadedUrl !== "") usuario.imagen = uploadedUrl; //añadimos la url de la imagen
+    if (uploadedUrl !== "") usuario.imagen = uploadedUrl; //añadimos la url de la imagen
     localStorage.setItem("usuario", JSON.stringify(usuario));
     console.log("usuario imagen es", usuario.imagen);
-    const usuarioGuardado= JSON.parse(localStorage.getItem("usuario"));
-     fetch(`http://localhost:3001/api/usuarios/${usuarioGuardado.id}`, {
-      method: 'PUT',
+    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
+    fetch(`http://localhost:3001/api/usuarios/${usuarioGuardado.id}`, {
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(usuarioGuardado),
     })
-      .then(res => res.json())
-      .then(data => {
-        alert('User updated successfully!');
+      .then((res) => res.json())
+      .then((data) => {
+        alert("User updated successfully!");
         setUsuario(data);
         console.log(data);
       })
-      .catch(err => {
-        console.error('Error updating user:', err);
+      .catch((err) => {
+        console.error("Error updating user:", err);
       });
-  }
- 
+  };
+
   //Este efecto se ejecuta una sola vez al cargar la app:
   useEffect(() => {
     const usuarioGuardado = JSON.parse(localStorage.getItem("usuario")); //Recupera los datos del usuario desde localStorage.
