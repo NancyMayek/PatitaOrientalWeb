@@ -32,43 +32,53 @@ const Contact = () => {
                 <h4 className="text-white mb-4 fw-bold mb-3 form-title">
                   Deja tu mensaje
                 </h4>
+
                 <div className="row">
                   <div className="col-md-6 mb-3">
+                    <label className="form-label text-white fw-semibold">Nombre</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Nombre"
+                      placeholder="Ingresa tu nombre"
                     />
                   </div>
                   <div className="col-md-6 mb-3">
+                    <label className="form-label text-white fw-semibold">Apellido</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Apellido"
+                      placeholder="Ingresa tu apellido"
                     />
                   </div>
                 </div>
+
                 <div className="mb-3">
+                  <label className="form-label text-white fw-semibold">Correo electrónico</label>
                   <input
                     type="email"
                     className="form-control"
-                    placeholder="Correo electrónico"
+                    placeholder="ejemplo@email.com"
                   />
                 </div>
+
                 <div className="mb-3">
+                  <label className="form-label text-white fw-semibold">Teléfono</label>
                   <input
                     type="tel"
                     className="form-control"
-                    placeholder="Teléfono"
+                    placeholder="(55) 1234 5678"
                   />
                 </div>
+
                 <div className="mb-3">
+                  <label className="form-label text-white fw-semibold">Mensaje</label>
                   <textarea
                     className="form-control"
                     rows="3"
-                    placeholder="Mensaje"
+                    placeholder="Escribe tu mensaje"
                   ></textarea>
                 </div>
+
                 <button type="submit" className="btn btn-pink w-100 fw-bold">
                   Enviar
                 </button>
