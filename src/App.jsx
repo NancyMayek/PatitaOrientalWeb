@@ -15,6 +15,7 @@ import { Registro } from "./pages/registro/registro";
 import { Inicio_de_sesion } from "./pages/inicio_de_sesion/inicio_de_sesion";
 import { Favoritos } from "./pages/favoritos/favoritos";
 import { Contact } from "./pages/contact/contact";
+import {Admin} from './pages/admin/admin'
 import "./App.css";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
               <Route path="/Inicio_de_sesion" element={<Inicio_de_sesion />} />
               <Route path="/Registro" element={<Registro />} />
               <Route path="/Favoritos" element={<Favoritos />} />
+              <Route path="/Admin" element={<Admin />} />
             </Routes>
             <Footer></Footer>
           </ContextProvider>

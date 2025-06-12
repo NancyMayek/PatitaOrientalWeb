@@ -1,5 +1,4 @@
 import './inicio.css'
-import TarjetaMenu from "../../components/tarjeta_menu/tarjeta_menu";
 import { Link } from 'react-router-dom';
 import { TopProducts } from '../../components/tarjeta_menu/filtrosProductos';
 
@@ -8,7 +7,7 @@ const Inicio = () => {
         <div>
               {/* Sección Banner */}
       <section className="p-5 banner-section d-flex align-items-left">
-        <div className="banner-text p-4 d-flex flex-column align-items-start ">
+        <div className="banner-text p-4  flex-column align-items-start">
           <h1 className="display-5 mb-3">
             La <span style={{ color: "#425184" }}>mejor</span> comida <span className='fw-bold'><span style={{ color: "#d579af"}}>Coreana</span> en México</span>
           </h1>
