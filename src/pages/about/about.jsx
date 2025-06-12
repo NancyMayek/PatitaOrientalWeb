@@ -54,7 +54,7 @@ const About = () => {
                     <img className="grafico-estrella-developers" src="/images/imgAbout/grafico_estrellas_derecho.svg"
                         alt="elemento estrella"/>
                     <h2 className="subtitulos_para_seccion">Nancy Mayek intuitivasTorres Aguilar</h2>
-                    <img class="grafico-estrella-developers" src="/images/imgAbout/grafico_estrellas_izquierdo.svg"
+                    <img className="grafico-estrella-developers" src="/images/imgAbout/grafico_estrellas_izquierdo.svg"
                         alt="elemento estrella"/>
                 </div>
 
@@ -137,7 +137,7 @@ const About = () => {
                             </div>
                         </div>
 
-                        <div class="contacto">
+                        <div className="contacto">
                             <img className="icon-contactame" srcSet="public\images\imgAbout\icono_linkedn.svg" alt="icon linkedn"/>
                             <a
                                 href="www.linkedin.com/in/america-yazmin-rodriguez-rodriguez/">www.linkedin.com/in/america-yazmin-rodriguez-rodriguez/</a>
@@ -173,7 +173,7 @@ const About = () => {
                     <h3> Contáctame </h3>
                     <div>
                         <div id="contactoTelyEmail">
-                            <div class="contacto">
+                            <div className="contacto">
                                 <img className="icon-contactame" srcSet="public\images\imgAbout\icono_telefono.svg"
                                     alt="icon telefono"/>
                                 <h4>(+52) 3311137876</h4>
@@ -192,7 +192,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <div class="imagen_circular">
+            <div className="imagen_circular">
                 <img src="public\images\imgAbout\francisco-caldera.png" alt="foto de developer"/>
             </div>
         </div>
@@ -217,7 +217,7 @@ const About = () => {
                         alt="elemento estrella"/>
                 </div>
 
-                <p class="parrafos">
+                <p className="parrafos">
                     Soy Ingeniera en Tecnologías de la Información y Comunicaciones. Me apasiona el diseño de páginas
                     web, y por eso decidí adentrarme mas el mundo del desarrollo web para entenderlo a profundidad. Me
                     encanta explorar nuevas tecnologias y estoy motivada por seguir creciendo y desarrollandome
@@ -298,7 +298,7 @@ const About = () => {
 
             </div>
 
-            <div class="imagen_circular">
+            <div className="imagen_circular">
                 <img srcSet="public\images\imgAbout\shelder-tatiana.png" alt="foto de developer"/>
             </div>
         </div>
@@ -308,7 +308,7 @@ const About = () => {
                 <img srcSet="public\images\imgAbout\grafico_lineas_rectas_izquierda.svg" alt="línea recta decorativa" />
             </div>
         </div>
-        <div class="developerCards izquierda">
+        <div className="developerCards izquierda">
             <div className="imagen_circular">
                 <img srcSet="public\images\imgAbout\abigail-alexandra-galvez.jpg" alt="foto de developer"/>
             </div>
@@ -316,7 +316,7 @@ const About = () => {
             <div id="info_developers">
 
 
-                <div class="nombre_developers">
+                <div className="nombre_developers">
                     <img className="grafico-estrella-developers" srcSet="public\images\imgAbout\grafico_estrellas_derecho.svg"
                         alt="elemento estrella"/>
                     <h2 className="subtitulos_para_seccion">Abigail Alexandra Galvez Cortés</h2>
@@ -347,7 +347,7 @@ const About = () => {
                             </div>
                         </div>
 
-                        <div class="contacto">
+                        <div className="contacto">
                             <img className="icon-contactame" src="public\images\imgAbout\icono_linkedn.svg" alt="icon linkedn"/>
                             <a
                                 href="www.linkedin.com/in/abigail-alexandra-galvez-cortés">www.linkedin.com/in/abigail-alexandra-galvez-cortés</a>
@@ -465,8 +465,8 @@ const About = () => {
         </div>
 
         
-        <div class="container">
-            <div class="lineasRectas-decoration-derecha">
+        <div className="container">
+            <div className="lineasRectas-decoration-derecha">
                 <img src="public\images\imgAbout\grafico_lineas_rectas_derecha.svg" alt="línea recta decorativa" />
             </div>
         </div>

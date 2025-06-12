@@ -27,38 +27,38 @@ const Header = () => {
         <nav className={`nav-menu ${menuAbierto ? "activo" : ""}`}>
           <ul className="navegacion">
             <li>
-              <Link to="/Menu">Menú</Link>
+              <Link onClick={toggleMenu} to="/Menu">Menú</Link>
             </li>
             <li>
-              <Link to="/Menu_tematico">Menú Temático</Link>
+              <Link onClick={toggleMenu} to="/Menu_tematico">Menú Temático</Link>
             </li>
             <li>
-              <Link to="/Contact">Contacto</Link>
+              <Link onClick={toggleMenu} to="/Contact">Contacto</Link>
             </li>
             <li>
-              <Link to="/About">Sobre Nosotros</Link>
+              <Link onClick={toggleMenu} to="/About">Sobre Nosotros</Link>
             </li>
           </ul>
 
           <div className="iconos-movil">
             {isLoggedIn && usuario?.imagen ? (
               <Link to="/Profile">
-                <img src={usuario.imagen} alt="Perfil" />
+                <img onClick={toggleMenu} src={usuario.imagen} alt="Perfil" />
               </Link>
             ) : (
               <Link to="/Inicio_de_sesion">
-                <img src={iconoDeUsuario} alt="Registro" />
+                <img onClick={toggleMenu} src={iconoDeUsuario} alt="Registro" />
               </Link>
             )}
 
-            <Link to="/Favoritos">
+            <Link onClick={toggleMenu} to="/Favoritos">
               <img
                 className="icono-corazon"
                 src={iconoDeCorazon}
                 alt="Favoritos"
               />
             </Link>
-            <Link to="/Carrito">
+            <Link onClick={toggleMenu} to="/Carrito">
               <img src={iconoDeCarrito} alt="Carrito" />
             </Link>
           </div>
@@ -66,7 +66,7 @@ const Header = () => {
 
         <div className="iconos">
           {isLoggedIn && usuario?.imagen ? (
-            <Link to="/Profile">
+            <Link onClick={toggleMenu} to="/Profile">
               <img
                 className="imagen-Usuario-header"
                 src={usuario.imagen}
@@ -74,7 +74,7 @@ const Header = () => {
               />
             </Link>
           ) : (
-            <Link to="/Inicio_de_sesion">
+            <Link onClick={toggleMenu} to="/Inicio_de_sesion">
               <img
                 className="imagen-Usuario-header"
                 src={iconoDeUsuario}
@@ -82,14 +82,14 @@ const Header = () => {
               />
             </Link>
           )}
-          <Link to="/Favoritos">
+          <Link onClick={toggleMenu} to="/Favoritos">
             <img
               className="icono-corazon"
               src={iconoDeCorazon}
               alt="Favoritos"
             />
           </Link>
-          <Link to="/Carrito">
+          <Link onClick={toggleMenu} to="/Carrito">
             <img src={iconoDeCarrito} alt="Carrito" />
           </Link>
         </div>
