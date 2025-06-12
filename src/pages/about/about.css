@@ -1,318 +1,418 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
-
-/* Declaración de variables para reutilizar colores y estilos */
-.about-root {
-  --color_fondo: white;
-  --color_texto_menú: #405084;
-  --color_botones: #d679af;
-  --color_acento: #405084;
-  --fuente_principal: "Poppins", sans-serif;
-  --padding_tarjetas: 5px;
-  --color_texto: #000;
-  --color_morado_principal: #405084;
+:root {
+  --color-principal: #405084;
+  --color-acento: #d679af;
+  --color-blanco: #ffffff;
+  --color-texto: #000000;
+  --fuente-principal: 'Poppins', sans-serif;
 }
 
-.about-root h1,
-.about-root h2,
-.about-root h3,
-.about-root h4,
-.about-root h5,
-.about-root h6,
-.about-root p,
-.about-root a {
-  font-family: var(--fuente_principal);
-}
-
-
-.about-root .subtitulos_para_seccion {
-  font-size: 140%;
-  font-weight: bold;
-}
-
-#sobreDevelopers {
-  background-color: #425184 !important; /* Forzar el fondo morado */
-  min-height: 100vh;
-  width: 100%;
-}
-
-.about-root .developerCards {
-  display: flex;
-  margin-top: 2rem;
-  height: 350px;
-}
-
-.about-root .imagen_circular {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white !important;
-  height: 100%;
-}
-
-
-.about-root .derecha {
-  margin-right: 30%;
-}
-
-.about-root .derecha .imagen_circular {
-  border-radius: 0px 1000px 1000px 0px;
-}
-
-.about-root .derecha .imagen_circular img {
-  padding-right: 5%;
-}
-
-
-.about-root .izquierda {
-  margin-left: 30%;
-  border-radius: 1000px 0px 0px 1000px;
-}
-
-.about-root .izquierda .imagen_circular {
-  border-radius: 1000px 0px 0px 1000px;
-}
-
-.about-root .izquierda .imagen_circular img {
-  padding-left: 5%;
-}
-
-.about-root .nombre_developers {
-  color: #d579af !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-root .grafico-estrella-developers {
-  width: 4%;
-  height: auto;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.about-root #info_developers {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;  
-  padding: 5% 5%;
-  background-color: white !important;
-}
-
-.about-root .contactame-developer h3 {
-  font-size: 120%;
-}
-
-.about-root .contactame-developer h4 {
-  font-size: 100%;
-}
-
-.about-root #contactoTelyEmail {
-  display: flex;
-  justify-content: center;
-}
-
-.about-root .contacto {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.about-root .icon-contactame {
-  width: 20px;
-  margin: 2%;
-}
-
-.about-root .imagen_circular img {
-  height: 90%;
-  border-radius: 100%;
-  object-fit: cover;
-}
-
-.about-root .parrafos {
-  font-size: 100%;
-  text-align: justify;
-}
-
-/* Resetear estilos del navegador */
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  box-sizing: border-box;
-}
-
-
-.about-root .header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.about-section {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0px;
 }
 
-/* Logo */
-.about-root .logo img {
-  height: 40px;
-}
-
-/* Navegación */
-.about-root .navegacion {
-  list-style: none;
+/* --- Sección Historia --- */
+.history-timeline {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 60px;
+  background-color: var(--color-blanco);
+  padding: 40px 20px;
 }
 
-.about-root .navegacion a {
-  text-decoration: none;
-  color: var(--color_texto_menú);
-  font-family: var(--fuente_principal);
-  font-weight: 500;
+.history-item {
+  width: 100%;
 }
 
-/* Iconos */
-.about-root .iconos a img {
-  height: 30px;
-  margin-left: 10px;
-}
-
-/* SECCIONES EN ZIGZAG */
-.about-root .section {
+.history-content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 100px 20px 40px;
-  max-width: 1500px;
-  margin: auto;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.about-root .section:nth-child(even) {
+.history-content.left {
+  flex-direction: row;
+}
+
+.history-content.right {
   flex-direction: row-reverse;
 }
 
-.about-root .section img {
-  width: 25%;
-  border-radius: 20px; /* Bordes ovalados */
+.history-image img {
+  width: 400px;
+  border-radius: 20px;
   object-fit: cover;
+  box-shadow: 0 8px 15px rgb(64 80 132 / 0.3);
 }
 
-.about-root .text {
-  width: 50%;
-  font-family: var(--fuente_principal);
-  color: var(--color_texto);
+.history-timeline h2 {
+  font-size: 40px;
+  color: var(--color-principal);
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* TIPOGRAFÍAS */
-.about-root h1 {
-    font-family: var(--fuente_principal);
-    font-size: 54px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: var(--color_texto_menú);
+.history-text {
+  max-width: 700px;
+  text-align: justify;
 }
 
-.about-root h2 {
-  font-family: var(--fuente_principal);
-  font-size: 44px;
+.history-text h3 {
+  font-size: 50px;
+  color: var(--color-principal);
   margin-bottom: 10px;
+  text-align: center;
 }
 
-.about-root p {
-  font-family: var(--fuente_principal);
-  font-size: 26px;
-  line-height: 1.4;
+.history-text p {
+  font-size: 30px;
+  color: var(--color-texto);
+  line-height: 1.6;
+  text-align: justify;
 }
 
-/* Decoraciones */
-.about-root .container {
-  width: 100%; /* o el ancho que necesites */
-  height: 100px; /* o el alto que necesites */
+/* --- Sección Carrusel Desarrolladores --- */
+.carousel-section {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  padding: 40px 0;
+  background-color: var(--color-principal);
 }
 
-.about-root .lineasRectas-decoration-derecha {
-  position: absolute;
-  right: 0;
-  z-index: 0;
+.carousel-section {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-principal);
+  padding: 50px 20px;
+  text-align: center; 
 }
-.about-root .lineasRectas-decoration {
-  position: absolute;
-  left: 0;
-  z-index: 0;
+
+.carousel-title {
+  font-size: 42px;
+  color: var(--color-blanco);
+  border-bottom: 6px solid var(--color-acento);
+  width: fit-content;
+  border-radius: 10%;
+  display: inline-block;
+  padding-bottom: 8px;
+  margin-bottom: 30px;
+  margin-left: 2rem;
+  font-weight: 700;
+  font-family: var(--fuente-principal);
 }
-@media (max-width: 768px) {
-  .about-root h1 {
-    font-size: 32px;
-    margin: 20px 10px;
-  }
 
-  .about-root h2 {
-    font-size: 24px;
-  }
+.carousel-container {
+  width: 95%;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  background: var(--color-blanco);
+  border-radius: 25px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 10px 24px rgba(64, 80, 132, 0.3);
+  text-align: center;
+  user-select: none;
+}
 
-  .about-root p {
-    font-size: 16px;
-    text-align: justify;
-  }
+.carousel-container h3 {
+  font-size: 38px;
+  color: var(--color-principal);
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-family: var(--fuente-principal);
+}
 
-  .about-root .section {
-    flex-direction: column !important;
-    padding: 40px 20px;
-  }
+.carousel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .about-root .section img {
-    width: 70%;      /* Tamaño despues de ser reponsiva */ 
-    margin-bottom: 20px;
-  }
-
-  .about-root .text {
-    width: 100%;
-    text-align: center;
-  }
-
-  .about-root .developerCards {
-    flex-direction: column !important;
-    height: auto;
-    margin: 2rem 0;
-    padding: 0 10px;
-    text-align: center;
-  }
-  
-
- .about-root .imagen_circular img {
-  width: 270px;
-  height: auto;
-  border-radius: 100%;
+.dev-image {
+  width: 400px;
+  height: 400px;
+  border-radius: 80%;
   object-fit: cover;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 5px 12px rgba(11, 3, 8, 0.8);
+  transition: transform 0.3s ease;
 }
 
-  .about-root #info_developers {
-    padding: 20px;
-    
+.dev-image:hover {
+  transform: scale(1.05);
+}
+
+.carousel-card h3 {
+  font-weight: 800;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-acento);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.35);
+  font-family: var(--fuente-principal);
+}
+
+.carousel-card p {
+  font-size: 1.6rem;
+  margin: 0.3rem 0;
+  line-height: 1.5;
+  color: var(--color-principal);
+  max-width: 90%;
+  font-family: var(--fuente-principal);
+  text-align: justify;
+}
+
+.linkedin-link {
+  margin-top: 1rem;
+  color: var(--color-acento);
+  font-weight: 800;         
+  text-decoration: none;
+  font-size: 1.4rem;        
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.linkedin-link:hover,
+.linkedin-link:focus {
+  color: var(--color-principal);
+  border-color: var(--color-principal);
+  outline: none;
+}
+
+.carousel-controls {
+  margin-top: 1.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.dot,
+.active-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid var(--color-acento);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background-color: var(--color-acento);
+  transform: scale(1.2);
+}
+
+.active-dot {
+  background-color: var(--color-acento);
+  box-shadow: 0 0 10px var(--color-acento);
+  transform: scale(1.3);
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%; 
+  max-width: 1000px; 
+  margin: 0 auto;
+  padding: 0 20px; 
+}
+
+.carousel-arrow {
+  background: transparent;
+  border: none;
+  font-size: 6rem;
+  color: var(--color-acento);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.carousel-arrow:hover,
+.carousel-arrow:focus {
+  color: var(--color-blanco);
+  outline: none;
+}
+
+/* --- Responsive para historia --- */
+
+/* Tabletas y pantallas medianas */
+@media (max-width: 1024px) {
+  .history-content {
+    gap: 25px;
+  }
+  .history-image img {
+    width: 300px;
+  }
+  .history-text h3 {
+    font-size: 36px;
+  }
+  .history-text p {
+    font-size: 20px;
+  }
+  .history-timeline h2 {
+    font-size: 32px;
   }
 
-  .about-root .contacto {
-    flex-direction: column;
+  /* Ajustes para el carrusel */
+  .carousel-container {
+    max-width: 95vw;
+    padding: 2rem 1.5rem;
+  }
+
+  .dev-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .carousel-title {
+    font-size: 32px;
+    margin-left: 1rem;
+  }
+
+  .carousel-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .carousel-card p {
+    font-size: 1.1rem;
+  }
+
+  .dot,
+  .active-dot {
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+  }
+}
+
+/* Móviles (hasta 768px) */
+@media (max-width: 768px) {
+  .history-content {
+    flex-direction: column !important;
     align-items: center;
+    gap: 20px;
   }
 
-  .about-root .grafico-estrella-developers {
-    width: 10%;
-    margin: 0 5px;
+  .history-image img {
+    width: 90vw;
+    max-width: 280px;
+    height: auto;
   }
 
-  .about-root .container,
-  .about-root .lineasRectas-decoration,
-  .about-root .lineasRectas-decoration-derecha {
-    display: none;
+  .history-text {
+    max-width: 95vw;
   }
 
-  .about-root #contactoTelyEmail {
-    flex-direction: column;
+  .history-text h3 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .history-text p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .history-timeline h2 {
+    font-size: 28px;
+  }
+
+  /* Carrusel ajustes móviles */
+  .carousel-container {
+    max-width: 90vw;
+    padding: 1.5rem 1rem;
+  }
+
+  .dev-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .carousel-title {
+    font-size: 26px;
+    margin-left: 0.5rem;
+  }
+
+  .carousel-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .carousel-card p {
+    font-size: 0.8rem;
   }
   
+ .linkedin-link {
+    font-size: 1.3rem;
+  }
+  .dot,
+  .active-dot {
+    width: 14px;
+    height: 14px;
+    border-width: 2.5px;
+  }
+}
 
+/* Pantallas muy pequeñas (hasta 480px) */
+@media (max-width: 480px) {
+  .history-image img {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .history-text h3 {
+    font-size: 26px;
+  }
+
+  .history-text p {
+    font-size: 16px;
+  }
+
+  .history-timeline {
+    padding: 20px 10px;
+  }
+
+  /* Carrusel ajustes muy pequeños */
+  .carousel-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .dev-image {
+    width: 110px;
+    height: 110px;
+  }
+
+  .carousel-title {
+    font-size: 20px;
+    margin-left: 0.3rem;
+  }
+
+  .carousel-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .carousel-card p {
+    font-size: 0.80rem;
+  }
+
+  .dot,
+  .active-dot {
+    width: 12px;
+    height: 12px;
+    border-width: 2px;
+  }
+
+  .carousel-arrow {
+    font-size: 1.5rem;
+  }
+  .linkedin-link {
+    font-size: 1rem;
+  }
 }
