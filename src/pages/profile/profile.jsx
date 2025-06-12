@@ -204,7 +204,7 @@ const Profile = () => {
             if ((await validarFormulario()) === true) {
               try {
                 await uptadeUser(); // Esperamos que termine bien
-                Swal.fire("Éxito", "¡Bienvenido!", "success");
+                Swal.fire("Éxito", "¡Datos actualizados correctamente!", "success");
               } catch (error) {
                 Swal.fire(
                   "Error",

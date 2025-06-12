@@ -148,6 +148,7 @@ export const AuthProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => {
         setUsuario(data);
+        setUploadedUrl(""); //limpiar url de imagen
         console.log(data);
       })
       .catch((err) => {
