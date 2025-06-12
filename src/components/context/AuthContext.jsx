@@ -15,7 +15,7 @@ Es donde se define qué valores estarán disponibles globalmente.
 */
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  const apiurl = "http://localhost:3001/api/usuarios"; //Aqui cambias la variable de la url de la api
+  const apiurl = "https://patitaorientalweb.onrender.com/api/usuarios"; //Aqui cambias la variable de la url de la api
   const { uploadedUrl, setUploadedUrl } = useImageUpload();
   const [isLoggedIn, setIsLoggedIn] = useState(false); // crea un estado isLoggedIn que indica si el usuario está logueado (por defecto, false).
   const [usuario, setUsuario] = useState(() => {
@@ -138,7 +138,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("usuario", JSON.stringify(usuario));
     console.log("usuario imagen es", usuario.imagen);
     const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
-    fetch(`http://localhost:3001/api/usuarios/${usuarioGuardado.id}`, {
+    fetch(`https://patitaorientalweb.onrender.com/api/usuarios/${usuarioGuardado.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
