@@ -15,7 +15,7 @@ const alertaAgregarAlCarrito = (producto) =>{
         icon: "success",
         background: '#f0f8ff',
         confirmButtonText: 'Aceptar',
-        confirmButtonColor: '#28a745'
+        confirmButtonColor: '#d679af'
     });
 }
 
