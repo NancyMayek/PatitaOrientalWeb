@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import TarjetaMenu from "./tarjeta_menu";
 import { Context } from "../context/Contex";
+import { alertaAgregarAlCarrito } from "./alertaAgregarAlCarrito";
 import "./tarjeta_menu.css";
 
 const Products = ({ url }) => {
@@ -57,6 +58,14 @@ const Products = ({ url }) => {
     setCart([...carrito, product]);
   };
 
+  
+
+  const handleAddToCart = (product) => {
+  buyProducts(product);
+  alertaAgregarAlCarrito(product);
+};
+
+
   /*
     Muestra mensajes según el estado de carga
     Previene errores si los datos no están disponibles
@@ -88,7 +97,7 @@ const Products = ({ url }) => {
           <TarjetaMenu
             key={product.id}
             {...product}
-            onAddToCart={buyProducts}
+            onAddToCart={handleAddToCart}
           />
         ))}
       </div>
@@ -101,7 +110,7 @@ const Products = ({ url }) => {
           <TarjetaMenu
             key={product.id}
             {...product}
-            onAddToCart={buyProducts}
+            onAddToCart={handleAddToCart}
           />
         ))}
       </div>
@@ -114,7 +123,7 @@ const Products = ({ url }) => {
           <TarjetaMenu
             key={product.id}
             {...product}
-            onAddToCart={buyProducts}
+            onAddToCart={handleAddToCart}
           />
         ))}
       </div>
