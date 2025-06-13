@@ -1,0 +1,92 @@
+:root {
+  --color-principal: #405084;
+  --color-acento: #d679af;
+  --color-blanco: #ffffff;
+  --color-texto: #000000;
+  --fuente-principal: 'Poppins', sans-serif;
+}
+
+.favoritos-container {
+  padding: 1.5rem;
+  font-family: var(--fuente-principal);
+  background-color: var(--color-blanco);
+  color: var(--color-texto);
+  min-height: 100vh;
+}
+.titulo-favoritos{
+    text-align: left;
+  color: #405084;
+  border-bottom: 6px solid #d679af;
+  padding-bottom: 0;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 0.03em;
+  margin-top: 0.3rem;
+  margin-bottom: 0;
+}
+.favoritos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.favorito-card {
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-principal);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(64, 80, 132, 0.15);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.favorito-card:hover {
+  box-shadow: 0 6px 14px rgba(64, 80, 132, 0.35);
+}
+
+.favorito-card img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  height: 140px;
+  width: 100%;
+}
+
+.favorito-card h3 {
+  color: var(--color-principal);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.favorito-card p {
+  font-size: 0.9rem;
+  color: var(--color-texto);
+  margin-bottom: 1rem;
+}
+
+.favorito-card button {
+  background-color: var(--color-acento);
+  color: var(--color-blanco);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.favorito-card button:hover {
+  background-color: #b85c8c; /* tono un poco más oscuro del color-acento */
+}
+
+@media (max-width: 600px) {
+  .favoritos-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -4,7 +4,7 @@ import "./contact.css";
 const Contact = () => {
   return (
     <>
-      <section className="contact-section">
+      <section className="contact-section" id="contact-page">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6 mb-4 alinear">

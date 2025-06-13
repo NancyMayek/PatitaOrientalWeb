@@ -2,12 +2,9 @@
   --primary-color: #425184;
   --secondary-color: #D579AF;
 }
-
-/* body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-} */
+#contact-page{
+  height: 100vh;
+}
 
 .contact-section {
   background-color: var(--primary-color);
@@ -39,8 +36,6 @@
     margin: 0 auto;
   }
 }
-
-
 
 
 .contact-title {

@@ -54,10 +54,10 @@ const Carrito = () => {
             text: 'Por favor, selecciona un método de pago antes de finalizar tu pedido.',
             confirmButtonText: 'OK'
         });
-        return; // ❌ Evita continuar si no hay método de pago
+        return; 
     }
 
-    // ✅ Si sí hay método de pago, continúa
+    
     Swal.fire({
         title: '🎉 ¡Pedido realizado!',
         html: `
