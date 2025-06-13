@@ -117,3 +117,18 @@
     padding: 5px 12px;
   }
 }
+
+.icono-suma:hover {
+  background-color: white;
+  box-shadow: white;
+  border-radius: 100%;
+}
+.icono-resta:hover {
+  background-color: white;
+  box-shadow: white;
+  border-radius: 100%;
+}
+
+.añadir-comida:hover{
+  color: var(--color-morado);
+}
