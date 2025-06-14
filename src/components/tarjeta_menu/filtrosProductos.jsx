@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import TarjetaMenu from "./tarjeta_menu";
+import TarjetaMenu from "./tarjetaMenu";
 import { Context } from "../context/Contex";
 
 const TopProducts = ({url}) => {

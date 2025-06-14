@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from "react";
-import TarjetaMenu from "./tarjeta_menu";
+import TarjetaMenu from "./tarjetaMenu";
 import { Context } from "../context/Contex";
 import { alertaAgregarAlCarrito } from "./alertaAgregarAlCarrito";
 import "./tarjeta_menu.css";
+import { contextFavoritos } from "../context/contextFavoritos";
 
 const Products = ({ url }) => {
   const [menuData, setMenuData] = useState({}); // Alamacenará los datos completos del menú
@@ -10,7 +11,8 @@ const Products = ({ url }) => {
   const [error, setError] = useState(null); // error Almacena cualquier mensaje de error que ocurra
 
   const { carrito, setCart } = useContext(Context);
-
+  const { favorito, setFavorite } = useContext(contextFavoritos);
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -65,6 +67,10 @@ const Products = ({ url }) => {
   alertaAgregarAlCarrito(product);
 };
 
+  const favoriteProducts = (product) => {
+    setFavorite([...favorito, product]);
+    console.log(product);
+  };
 
   /*
     Muestra mensajes según el estado de carga
@@ -98,6 +104,7 @@ const Products = ({ url }) => {
             key={product.id}
             {...product}
             onAddToCart={handleAddToCart}
+            onAddToFavorites={favoriteProducts}
           />
         ))}
       </div>
@@ -111,6 +118,7 @@ const Products = ({ url }) => {
             key={product.id}
             {...product}
             onAddToCart={handleAddToCart}
+            onAddToFavorites={favoriteProducts}
           />
         ))}
       </div>
@@ -124,6 +132,7 @@ const Products = ({ url }) => {
             key={product.id}
             {...product}
             onAddToCart={handleAddToCart}
+            onAddToFavorites={favoriteProducts}
           />
         ))}
       </div>

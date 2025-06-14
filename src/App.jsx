@@ -17,6 +17,7 @@ import { Favoritos } from "./pages/favoritos/favoritos";
 import { Contact } from "./pages/contact/contact";
 import {Admin} from './pages/admin/admin'
 import "./App.css";
+import ContextProviderFavoriteProduct from "./components/context/contextFavoritos.jsx";
 
 function App() {
   return (
@@ -24,21 +25,26 @@ function App() {
       <ImageUploadProvider>
         <AuthProvider>
           <ContextProvider>
-            <Header></Header>
-            <Routes>
-              <Route path="/" element={<Inicio />} />
-              <Route path="/Menu" element={<Menu />} />
-              <Route path="/Menu_tematico" element={<Menu_Tematico />} />
-              <Route path="/Carrito" element={<Carrito />} />
-              <Route path="/Contact" element={<Contact />} />
-              <Route path="/About" element={<About />} />
-              <Route path="/Profile" element={<Profile />} />
-              <Route path="/Inicio_de_sesion" element={<Inicio_de_sesion />} />
-              <Route path="/Registro" element={<Registro />} />
-              <Route path="/Favoritos" element={<Favoritos />} />
-              <Route path="/Admin" element={<Admin />} />
-            </Routes>
-            <Footer></Footer>
+            <ContextProviderFavoriteProduct>
+              <Header></Header>
+              <Routes>
+                <Route path="/" element={<Inicio />} />
+                <Route path="/Menu" element={<Menu />} />
+                <Route path="/Menu_tematico" element={<Menu_Tematico />} />
+                <Route path="/Carrito" element={<Carrito />} />
+                <Route path="/Contact" element={<Contact />} />
+                <Route path="/About" element={<About />} />
+                <Route path="/Profile" element={<Profile />} />
+                <Route
+                  path="/Inicio_de_sesion"
+                  element={<Inicio_de_sesion />}
+                />
+                <Route path="/Registro" element={<Registro />} />
+                <Route path="/Favoritos" element={<Favoritos />} />
+                <Route path="/Admin" element={<Admin />} />
+              </Routes>
+              <Footer></Footer>
+            </ContextProviderFavoriteProduct>
           </ContextProvider>
         </AuthProvider>
       </ImageUploadProvider>
