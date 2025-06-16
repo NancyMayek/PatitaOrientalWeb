@@ -1,8 +1,14 @@
-import { createContext, useState, useContext, useEffect, Children } from "react";
+import {
+  createContext,
+  useState,
+  useContext,
+  useEffect,
+  Children,
+} from "react";
 
 const ImagenContext = createContext();
 
-export const ImageUploadProvider = ({children}) => {
+export const ImageUploadProvider = ({ children }) => {
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [uploadedUrl, setUploadedUrl] = useState("");
@@ -13,7 +19,6 @@ export const ImageUploadProvider = ({children}) => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setImage(file);
-
     if (file) {
       handleUpload(file); // Call upload directly
     }
@@ -42,21 +47,36 @@ export const ImageUploadProvider = ({children}) => {
       if (data.secure_url) {
         setUploadedUrl(data.secure_url);
       } else {
-        console.error("Upload failed:", data);
+        Swal.fire(
+          "Error",
+          "Hubo un problema al guardar la imagen de perfil",
+          "error"
+        );
       }
     } catch (error) {
-      console.error("Upload error:", error);
+      Swal.fire(
+          "Error",
+          "Hubo un problema al guardar la imagen de perfil",
+          "error"
+        );
     } finally {
       setUploading(false);
     }
   };
 
   return (
-  <ImagenContext.Provider value={{ handleImageChange, handleUpload, uploading, uploadedUrl,setUploadedUrl}}>
-    {children}
-  </ImagenContext.Provider>
+    <ImagenContext.Provider
+      value={{
+        handleImageChange,
+        handleUpload,
+        uploading,
+        uploadedUrl,
+        setUploadedUrl,
+      }}
+    >
+      {children}
+    </ImagenContext.Provider>
   );
-
 };
 
 export const useImageUpload = () => useContext(ImagenContext);

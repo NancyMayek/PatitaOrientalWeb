@@ -2,12 +2,9 @@
   --primary-color: #425184;
   --secondary-color: #D579AF;
 }
-
-/* body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-} */
+#contact-page{
+  height: 100vh;
+}
 
 .contact-section {
   background-color: var(--primary-color);
@@ -41,13 +38,12 @@
 }
 
 
-
-
 .contact-title {
   color: #fff;
   font-weight: 700;
   font-size: 2.8rem;
-  margin-top: 20px;
+  margin-top: 40px;
+  text-align: center;
 }
 .contact-title {
   overflow-wrap: break-word;
@@ -109,6 +105,15 @@
   border-radius: 8px;
   padding: 10px 15px;
   border: 1px solid #ddd;
+.contact-form {
+  margin-bottom: 10px; /* Reducimos el margen para acercar el botón */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos */
+  min-height: 300px;/* Garantiza que el formulario tenga suficiente espacio*/
+  
+}
+
 }
 @media (max-width: 768px) {
   .contact-form {
@@ -126,8 +131,12 @@
 
 .form-title {
   text-align: center;
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 2.8rem;
+  margin-bottom: 30px;/* Aumenta espacio debajo del titulo*/
+  padding-top: 20px;/*Agrega espacio arriba para que no se corte*/
+  line-height: 1.2;/*Ajusta la altura de linea para mejor legibilidad*/
+
+
 }
 
 .btn-pink {
@@ -136,6 +145,16 @@
   border: none;
   border-radius: 8px;
   padding: 10px;
+  .btn-pink {
+  width: 100%; /* Ocupe toda la sección de formulario */
+  padding: 12px;
+  .btn-pink {
+  width: 80%;
+  font-size: 1rem;
+  margin-top: 15px; /* Espacio arriba para evitar que se quede pegado */
+}
+
+}
 }
 @media (max-width: 768px) {
   .btn-pink {
@@ -169,7 +188,9 @@
 }
 @media (max-width: 360px) { /* Para tablets */
   .contact-title {
-    font-size: 2.2rem;/*ajustado para evitar cortes*/
+    font-size: 2.5rem;/*ajustado para evitar cortes*/
+    text-align: center;
+    margin-top: 40px;/*Aumentamos el margen superior*/
   }
 
   }

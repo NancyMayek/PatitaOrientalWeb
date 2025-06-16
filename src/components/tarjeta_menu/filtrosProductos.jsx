@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
-import TarjetaMenu from "./tarjeta_menu";
-import { Context } from "../context/Contex";
+import TarjetaMenu from "./tarjetaMenu";
+import {useCartActions} from "../utils/botonDeAgregar"
+
 
 const TopProducts = ({url}) => {
 
@@ -8,7 +9,8 @@ const TopProducts = ({url}) => {
     const [loading, setLoading] = useState(true);
     const [error,setError] = useState(null);
 
-    const {carrito, setCart} = useContext(Context); 
+    const {handleAddToCart} = useCartActions();
+
 
     const getTopThreeGlobal = () => {
         if (!menuData.comidas || !menuData.bebidas || !menuData.postres) return [];
@@ -46,9 +48,6 @@ const TopProducts = ({url}) => {
         fetchProducts();
     }, [url]);
 
-    const buyProducts = (product) => {
-      setCart([...carrito, product])
-    };
 
 
     const topThreeGlobal = getTopThreeGlobal();
@@ -61,7 +60,7 @@ const TopProducts = ({url}) => {
             <TarjetaMenu
               key={product.id}
               {...product}
-              onAddToCart={buyProducts}
+              onAddToCart={handleAddToCart}
             />
           ))}
         </div>

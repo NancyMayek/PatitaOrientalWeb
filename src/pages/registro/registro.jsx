@@ -1,14 +1,102 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../components/context/AuthContext";
 import { useImageUpload } from "../../components/context/uploadImagesContext";
-import defaultProfilePicture from "../../../public/images/iconos/LogoUsr.svg";
+import Swal from "sweetalert2";
 import gatitoConCorazones from "../../../public/images/logo-patita-oriental/gatitoConCorazones.png";
 import iconoEditarFoto from "../../../public/images/iconos/icon-editar-foto.svg";
 import "./registro.css";
 
 const Registro = () => {
-  const { guardarInfoDeUsuarios, agregarUsuario, nuevoUsuario } = useAuth();
+  const {
+    guardarInfoDeUsuarios,
+    agregarUsuario,
+    nuevoUsuario,
+    getListaUsuarios,
+  } = useAuth();
+
   const { handleImageChange, uploading, uploadedUrl } = useImageUpload();
+
+  const defaultProfilePicture =
+    "https://res.cloudinary.com/dkufsisvv/image/upload/v1749665101/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/hemsfcvyetspmc5d450i.svg";
+
+  const buscarUsuarioPorEmail = async (email) => {
+    try {
+      const usuarios = await getListaUsuarios();
+      return usuarios.some((usuario) => usuario.email === email.trim());
+    } catch (error) {
+      console.error("Error al buscar el usuario por email:", error);
+      return false; // En caso de error, asumimos que no se encontró
+    }
+  };
+
+  //-------------------------------------Validaciones----------------
+
+  const esNombreValido = (nombre) =>
+    /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(nombre.trim());
+
+  const esEmailValido = (email) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+
+  const esDireccionValida = (direccion) =>
+    /^[a-zA-Z0-9\s#\-.,]{5,}$/.test(direccion.trim());
+
+  const esTelefonoValido = (tel) => /^\d{10}$/.test(tel.trim());
+
+  const esCodigoPostalValido = (cp) => /^\d{5}$/.test(cp.trim());
+
+  const esContrasenaValida = (contrasena) =>
+    /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(contrasena.trim());
+
+
+  //-----------------------------------------------------------------
+
+  const validarFormulario = async () => {
+    let errores = [];
+
+    if (
+      !esNombreValido(nuevoUsuario.nombre) ||
+      !esNombreValido(nuevoUsuario.apellido)
+    ) {
+      errores.push("Nombre y apellido inválidos.");
+    }
+
+    if (!esEmailValido(nuevoUsuario.email)) {
+      errores.push("Correo electrónico inválido.");
+    } else {
+      const yaExiste = await buscarUsuarioPorEmail(nuevoUsuario.email);
+      if (yaExiste) {
+        errores.push("Ya existe un usuario registrado con este correo.");
+      }
+    }
+
+    if (!esDireccionValida(nuevoUsuario.direccion)) {
+      errores.push("Dirección inválida.");
+    }
+
+    if (!esCodigoPostalValido(nuevoUsuario.CP)) {
+      errores.push("Código postal inválido.");
+    }
+
+    if (!esTelefonoValido(nuevoUsuario.telefono)) {
+      errores.push("Teléfono inválido.");
+    }
+
+    if (!esContrasenaValida(nuevoUsuario.contraseña)) {
+      errores.push(
+        "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número."
+      );
+    }
+
+    if (errores.length > 0) {
+      return Swal.fire({
+        icon: "error",
+        title: "Errores en el formulario",
+        html: errores.map((e) => `<li>${e}</li>`).join(""),
+      });
+    }
+
+    return true; // Todo está validado correctamente
+  };
 
   return (
     <>
@@ -43,7 +131,22 @@ const Registro = () => {
           <form
             className="contact-form"
             id="contactForm"
-            onSubmit={agregarUsuario}
+            onSubmit={async (e) => {
+              e.preventDefault();
+              if (await validarFormulario() === true) {
+                try {
+                  await agregarUsuario(); // Esperamos que termine bien
+                  Swal.fire("Éxito", "¡Bienvenido!", "success");
+                } catch (error) {
+                  Swal.fire(
+                    "Error",
+                    "Hubo un problema al guardar el usuario",
+                    "error"
+                  );
+                  console.error("Error al agregar usuario:", error);
+                }
+              }
+            }}
           >
             <div className="profile-picture-container mx-auto">
               <div className="profile-picture ">
@@ -54,7 +157,7 @@ const Registro = () => {
                       role="status"
                     ></div>
                   </div>
-                ) : uploadedUrl ? (
+                ) : uploadedUrl ? ( //añadimos la url de la imagen
                   <div>
                     <img src={uploadedUrl} alt="Uploaded" />
                   </div>
@@ -72,7 +175,7 @@ const Registro = () => {
                   id="fileInput"
                   onChange={handleImageChange}
                   accept="image/*"
-                  style={{ display: "none" }} // Hide the real file input
+                  style={{ display: "none" }}
                 />
 
                 <label htmlFor="fileInput">
@@ -80,14 +183,14 @@ const Registro = () => {
                     className="icono-editar-foto"
                     src={iconoEditarFoto}
                     alt="icono de editar foto"
-                    style={{ cursor: "pointer" }} // Make it look clickable
+                    style={{ cursor: "pointer" }}
                   />
                 </label>
               </div>
             </div>
 
             <h4 className="text-white mb-3 fw-bold  fs-2  mb-1 form-title titulo-registrarse">
-              Regístrarse
+              Regístrate
             </h4>
 
             <div className="row">
@@ -156,7 +259,7 @@ const Registro = () => {
               />
             </div>
             <div className="row">
-              <div className="col-md-6 mb-3">
+              <div className="mb-3">
                 <input
                   type="password"
                   name="contraseña"
@@ -164,13 +267,6 @@ const Registro = () => {
                   placeholder="Contraseña"
                   value={nuevoUsuario.contraseña}
                   onChange={guardarInfoDeUsuarios}
-                />
-              </div>
-              <div className=" col-md-6 mb-3">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Confirmar Contraseña"
                 />
               </div>
             </div>

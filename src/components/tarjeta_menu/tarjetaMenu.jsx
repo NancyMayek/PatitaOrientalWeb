@@ -4,7 +4,7 @@ import iconoMas from '../../../public/images/iconos/icono-mas.svg';
 import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg';
 import { useState } from 'react';
 
-const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id }) => {
+const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id, onAddToFavorites }) => {
   const [count, setCount] = useState(1);
 
   const handleIncrement = (maxValue) => {
@@ -21,7 +21,7 @@ const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id }) =
         <img src={imagen} alt={`imagen de ${nombre}`} />
         <div className="contenedor-info-producto">
           <h1 className="titulo-comida">{nombre}</h1>
-          <h3 className="precio-comida">${precio}.00</h3>
+          <h3 className="precio-comida">${precio}.00 MXN</h3>
           <p className="descripcion-comida">{descripcion}</p>
         </div>
       </div>
@@ -36,7 +36,7 @@ const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id }) =
         <button onClick={() => onAddToCart({ imagen, nombre, precio, descripcion, cantidad: count, id })}>
           <h3 className="añadir-comida">Añadir</h3>
         </button>
-        <button>
+        <button onClick={() => onAddToFavorites({ imagen, nombre, precio, descripcion, id })}>
           <img className="icono-corazon-rojo" srcSet={iconoCorazon} alt="icono corazón" />
         </button>
       </div>

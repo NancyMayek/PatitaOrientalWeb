@@ -1,13 +1,38 @@
 import { Link } from "react-router-dom";
 import gatitoConCorazones from "../../../public/images/logo-patita-oriental/gatitoConCorazones.png";
 import { useAuth } from "../../components/context/AuthContext";
+import Swal from "sweetalert2";
 import { createContext, useState, useContext, useEffect } from "react";
 
 import "./inicio_de_sesion.css";
 
 const Inicio_de_sesion = () => {
-  const {  logInInput, guardarLogInInput, logInCheck, setLogInInput } = useAuth();
+  const { logInInput, guardarLogInInput, logInCheck, setLogInInput } =
+    useAuth();
+  //-------------------------------------Validaciones----------------
 
+  const esEmailValido = (email) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+
+  //-----------------------------------------------------------------
+
+  const validarFormulario = async () => {
+    let errores = [];
+
+    if (!esEmailValido(logInInput.inputEmail)) {
+      errores.push("Correo electrónico inválido.");
+    }
+
+    if (errores.length > 0) {
+      return Swal.fire({
+        icon: "error",
+        title: "Errores en el formulario",
+        html: errores.map((e) => `<li>${e}</li>`).join(""),
+      });
+    }
+
+    return true; // Todo está validado correctamente
+  };
 
   return (
     <>
@@ -19,7 +44,7 @@ const Inicio_de_sesion = () => {
             className="imagen-gato"
           />
           <h2 className="registro-login-title mb-3">¡Hola de nuevo!</h2>
-          <h3 className="text-white"  id="cambioDeRegistro-InicioSesion">
+          <h3 className="text-white" id="cambioDeRegistro-InicioSesion">
             ¿Aún no tienes una cuenta?{" "}
             <Link className="link-to-logIn" to="/Registro">
               Regístrate
@@ -39,7 +64,20 @@ const Inicio_de_sesion = () => {
         </div>
 
         <div className="col-md-6 registrarse-container">
-          <form className="contact-form" id="contactForm" autoComplete="off" onSubmit={logInCheck}>
+          <form
+            className="contact-form"
+            id="contactForm"
+            autoComplete="off"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              if ((await validarFormulario()) === true) {
+                const mensaje = await logInCheck(); // Esperamos que termine bien
+                mensaje === true
+                  ? Swal.fire("Éxito", "¡Bienvenido!", "success")
+                  : Swal.fire("Error", mensaje, "error");
+              }
+            }}
+          >
             <h4 className="text-white mb-3 fw-bold  fs-1  mb-1 form-title titulo-registrarse">
               Inicia Sesión
             </h4>
@@ -52,6 +90,7 @@ const Inicio_de_sesion = () => {
                 placeholder="Correo electrónico"
                 value={logInInput.inputEmail}
                 onChange={guardarLogInInput}
+                required
               />
             </div>
 
@@ -63,6 +102,7 @@ const Inicio_de_sesion = () => {
                 placeholder="Contraseña"
                 value={logInInput.inputContraseña}
                 onChange={guardarLogInInput}
+                required
               />
             </div>
 
@@ -74,9 +114,9 @@ const Inicio_de_sesion = () => {
               id="cambioDeRegistro-InicioSesion-mobile"
             >
               ¿No tienes una cuenta?{" "}
-            <Link className="link-to-logIn" to="/Registro">
-              Regístrate
-            </Link>
+              <Link className="link-to-logIn" to="/Registro">
+                Regístrate
+              </Link>
             </h3>
           </form>
         </div>

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useImageUpload } from "./uploadImagesContext";
 import { createContext, useState, useContext, useEffect } from "react";
 
+
 /*
 creamos un nuevo contexto de autenticación que servirá como una "caja global"
 para guardar información como el usuario actual y si está logueado o no.
@@ -14,7 +15,7 @@ Es donde se define qué valores estarán disponibles globalmente.
 */
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  const apiurl = "http://localhost:3001/api/usuarios"; //Aqui cambias la variable de la url de la api
+  const apiurl = "https://patitaorientalweb.onrender.com/api/usuarios"; //Aqui cambias la variable de la url de la api
   const { uploadedUrl, setUploadedUrl } = useImageUpload();
   const [isLoggedIn, setIsLoggedIn] = useState(false); // crea un estado isLoggedIn que indica si el usuario está logueado (por defecto, false).
   const [usuario, setUsuario] = useState(() => {
@@ -53,6 +54,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  
   const guardarLogInInput = (e) => {
     setLogInInput({
       ...logInInput,
@@ -61,7 +63,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logInCheck = async (e) => {
-    e.preventDefault();
     const usuariosJson = await getListaUsuarios();
     const foundUser = usuariosJson.find(
       (usuarioJson) => usuarioJson.email === logInInput.inputEmail
@@ -78,11 +79,13 @@ export const AuthProvider = ({ children }) => {
           inputEmail: "",
           inputContraseña: "",
         });
+        return true;
       } else {
-        console.log("Contraseña incorrecta");
+        return "Contraseña incorrecta";
       }
     } else {
-      console.log("Usuario no encontrado");
+      return "Usuario no encontrado";
+      
     }
   };
 
@@ -93,8 +96,7 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
-  const agregarUsuario = async (e) => {
-    e.preventDefault(); // Previene el comportamiento por defecto del form
+  const agregarUsuario = async () => {
     const usuarioArr = await getListaUsuarios();
     nuevoUsuario.id = usuarioArr.length + 1; //añadimos el ID de usuario
     nuevoUsuario.imagen = uploadedUrl; //añadimos la url de la imagen
@@ -122,39 +124,38 @@ export const AuthProvider = ({ children }) => {
         telefono: "",
         contraseña: "",
       });
-      setUploadedUrl(
-        "https://res.cloudinary.com/dkufsisvv/image/upload/v1749313416/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/mod5xozkfukeuc8laqyg.svg"
-      ); //agrego la imagen pre-determinada
       navigate("/Profile"); // redirigir a la página de perfil
+      setUploadedUrl(""); //limpiar url de imagen
     } else {
       console.log("Hubo un error al registrar");
       return localStorage.setItem("isLoggedIn", "false");
     }
   };
 
-  
-
-  const uptadeUser = async(e) => {
-    e.preventDefault();
-    const usuarioGuardado= JSON.parse(localStorage.getItem("usuario"));
-     fetch(`http://localhost:3001/api/usuarios/${usuarioGuardado.id}`, {
-      method: 'PUT',
+  const uptadeUser = async (e) => {
+    console.log(uploadedUrl);
+    if (uploadedUrl !== "") usuario.imagen = uploadedUrl; //añadimos la url de la imagen
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+    console.log("usuario imagen es", usuario.imagen);
+    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
+    fetch(`https://patitaorientalweb.onrender.com/api/usuarios/${usuarioGuardado.id}`, {
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(usuarioGuardado),
     })
-      .then(res => res.json())
-      .then(data => {
-        alert('User updated successfully!');
+      .then((res) => res.json())
+      .then((data) => {
         setUsuario(data);
+        setUploadedUrl(""); //limpiar url de imagen
         console.log(data);
       })
-      .catch(err => {
-        console.error('Error updating user:', err);
+      .catch((err) => {
+        console.error("Error actualizando usuario:", err);
       });
-  }
- 
+  };
+
   //Este efecto se ejecuta una sola vez al cargar la app:
   useEffect(() => {
     const usuarioGuardado = JSON.parse(localStorage.getItem("usuario")); //Recupera los datos del usuario desde localStorage.

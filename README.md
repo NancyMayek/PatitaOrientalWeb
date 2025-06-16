@@ -1,12 +1,110 @@
-# PATITA ORIENTAL PAGINA WEB
+# ✨ Patita Oriental ✨
 
-## REGLAS:
-- No mover los siguientes componentes 
-    - Footer
-    - Header
-- No mover las paginas que estan en la carpeta Pages ni en rutas
+**Patita Oriental** es una tienda de comida coreana en Jalisco. Cada plato está diseñado con amor, creatividad y mucha onda coreana para que disfrutes una experiencia completa y deliciosa.
 
-## COMO CORRER EL PROYECTO
-1. Despues de clonar el repositorio corre estos comandos:
-  -  ~/PatitaOrientalWeb (main) $ npm install
-  - ~/PatitaOrientalWeb (main) $ npm run dev -- --open
+Este proyecto busca construir un **e-commerce atractivo e intuitivo** que permita a los usuarios explorar, seleccionar y comprar sus platillos favoritos de forma rápida y amigable desde cualquier dispositivo. La tienda combina lo mejor del diseño moderno con una estructura funcional basada en componentes reutilizables. Utilizando tecnologías modernas como **React**, **JavaScript**, **HTML**, **CSS** y **Bootstrap**. Este proyecto fue creado con el objetivo de brindar una interfaz limpia y amigable para usuarios que navegan por nuestras distintas secciones.
+
+---
+
+## 🚀 Tecnologías utilizadas
+
+- ⚛️ **React** – Para la construcción de componentes reutilizables y navegación por rutas.
+- 🧠 **JavaScript** – Lógica de la aplicación.
+- 🎨 **HTML y CSS** – Estructura y estilos personalizados.
+- 💠 **Bootstrap** – Estilos y diseño responsive de forma rápida.
+
+---
+
+## 🗂️ Estructura del proyecto
+
+El proyecto está organizado de forma clara y modular para facilitar su mantenimiento y escalabilidad:
+
+```plaintext
+Patita-oriental/ 
+├── public/ # Recursos estáticos accesibles globalmente
+│ └── images/ # Imágenes utilizadas en el sitio (banners, íconos, etc.)
+│
+├── src/
+│ ├── assets/ 
+│ ├── components/ # Componentes reutilizables
+│ │ ├── footer/ # Contiene Footer.jsx y Footer.css
+│ │ ├── header/ # Contiene Header.jsx y Header.css
+│ │ └── tarjeta_menu/ # Contiene TarjetaMenu.jsx y TarjetaMenu.css
+│ │
+│ ├── pages/ # Páginas principales, cada una con su JSX y CSS
+│ │ ├── about/ # About.jsx + About.css
+│ │ ├── carrito/ # Carrito.jsx + Carrito.css
+│ │ ├── contact/ # Contact.jsx + Contact.css
+│ │ ├── favoritos/ # Favoritos.jsx + Favoritos.css
+│ │ ├── inicio/ # Inicio.jsx + Inicio.css
+│ │ ├── inicio_de_sesion/ # InicioDeSesion.jsx + InicioDeSesion.css
+│ │ ├── menu/ # Menu.jsx + Menu.css
+│ │ ├── menu_tematico/ # MenuTematico.jsx + MenuTematico.css
+│ │ ├── profile/ # Profile.jsx + Profile.css
+│ │ └── registro/ # Registro.jsx + Registro.css
+│ │
+│ ├── App.jsx # Enrutamiento de todas las páginas
+│ ├── App.css # Estilos globales del proyecto
+│ ├── index.css # Estilos base del index.html
+│ └── main.jsx # Punto de entrada de React
+│
+├── package.json # Dependencias y scripts del proyecto
+└── README.md # Documentación del proyecto
+```
+---
+
+## 🌐 Ruteo
+El archivo App.jsx es el encargado de definir y administrar las rutas entre las diferentes páginas de la aplicación usando react-router-dom.
+
+## ⚙️ Instalación y ejecución
+
+1. Clona el repositorio:
+```bash
+git clone git@github.com:NancyMayek/PatitaOrientalWeb.git
+```
+
+2. Instala las dependencias:
+```bash
+npm install
+```
+3. Inicia el servidor de desarrollo:
+```bash
+npm run dev 
+```
+
+4. Abre tu navegador en:
+```bash
+http://localhost:5173/
+```
+### 🛠 Uso Temporal de Backend con Node.js y Express
+
+Durante el desarrollo inicial del proyecto, estamos utilizando un backend temporal basado en **Node.js** y **Express**. Este backend simula el flujo de datos necesario para funcionalidades clave como:
+
+- Registro de usuario (`/api/usuarios`)
+- Inicio de sesión 
+- edición de perfil de usuario
+
+Los datos actualmente se almacenan en un archivo local `usuarios.json`, lo que permite realizar pruebas de forma rápida y sencilla sin necesidad de una base de datos o servidor de backend completo.
+
+ver en: https://github.com/NancyMayek/backTemporalPatitaOriental
+
+#### ⚠️ Nota importante
+Este backend **es temporal**
+
+---
+
+### 🔄 Migración futura a Spring Boot
+
+Una vez validadas las funcionalidades y flujo de usuario, el backend actual será reemplazado por una implementación más robusta utilizando **Spring Boot**
+
+## Desarrolladores
+-	Desarrollador: Nancy Mayek Torres Aguilar
+LinkedIn: www.linkedin.com/in/nancy-mayek-torres-aguilar
+-	Desarrollador: América Yazmín Rodríguez Rodríguez
+LinkedIn: www.linkedin.com/in/america-yazmin-rodriguez-rodriguez/
+-	Desarrollador: Francisco Javier Caldera Castro
+LinkedIn: https://www.linkedin.com/in/francisco-javier-caldera/
+-	Desarrollador: Cecilia Guadalupe Gutierrez Urbano
+LinkedIn: www.linkedin.com/in/cecilia-guadalupe-gutierrez-urbano-09139255
+-	Desarrollador: Shelder Tatiana Flores Du
+

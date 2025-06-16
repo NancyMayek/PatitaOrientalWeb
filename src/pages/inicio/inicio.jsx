@@ -1,5 +1,4 @@
 import './inicio.css'
-import TarjetaMenu from "../../components/tarjeta_menu/tarjeta_menu";
 import { Link } from 'react-router-dom';
 import { TopProducts } from '../../components/tarjeta_menu/filtrosProductos';
 
@@ -8,24 +7,24 @@ const Inicio = () => {
         <div>
               {/* Sección Banner */}
       <section className="p-5 banner-section d-flex align-items-left">
-        <div className="banner-text p-4 d-flex flex-column align-items-start ">
+        <div className="banner-text p-4  flex-column align-items-start">
           <h1 className="display-5 mb-3">
             La <span style={{ color: "#425184" }}>mejor</span> comida <span className='fw-bold'><span style={{ color: "#d579af"}}>Coreana</span> en México</span>
           </h1>
           <Link to = "/Menu"className = "btn btn-pink"> Pedir ahora</Link>
         </div>
       </section>
-      <section class="decorative-lines-inicio">
-        <div class="line-group-inicio justify-content-center">
-          <span class="line-inicio short-inicio blue"></span>
-          <span class="line-inicio medium-inicio blue"></span>
-          <span class="line-inicio extra-long-inicio blue"></span>
+      <section className="decorative-lines-inicio">
+        <div className="line-group-inicio justify-content-center">
+          <span className="line-inicio short-inicio blue"></span>
+          <span className="line-inicio medium-inicio blue"></span>
+          <span className="line-inicio extra-long-inicio blue"></span>
         </div>
-        <div class="line-group-inicio justify-content-center">
-          <span class="line-inicio long-inicio blue"></span>
-          <span class="line-inicio short-inicio blue"></span>
-          <span class="line-inicio space-inicio"></span>
-          <span class="line-inicio long-inicio pink"></span>
+        <div className="line-group-inicio justify-content-center">
+          <span className="line-inicio long-inicio blue"></span>
+          <span className="line-inicio short-inicio blue"></span>
+          <span className="line-inicio space-inicio"></span>
+          <span className="line-inicio long-inicio pink"></span>
         </div>
       </section>
 
