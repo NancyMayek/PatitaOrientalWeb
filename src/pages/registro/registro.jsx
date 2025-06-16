@@ -4,6 +4,7 @@ import { useImageUpload } from "../../components/context/uploadImagesContext";
 import Swal from "sweetalert2";
 import gatitoConCorazones from "../../../public/images/logo-patita-oriental/gatitoConCorazones.png";
 import iconoEditarFoto from "../../../public/images/iconos/icon-editar-foto.svg";
+import { createContext, useState, useContext, useEffect } from "react";
 import "./registro.css";
 
 const Registro = () => {
@@ -46,7 +47,6 @@ const Registro = () => {
 
   const esContrasenaValida = (contrasena) =>
     /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(contrasena.trim());
-
 
   //-----------------------------------------------------------------
 
@@ -98,6 +98,7 @@ const Registro = () => {
     return true; // Todo está validado correctamente
   };
 
+  const [mostrarContrasena, setMostrarContrasena] = useState(false);
   return (
     <>
       <section className="registro-section">
@@ -133,7 +134,7 @@ const Registro = () => {
             id="contactForm"
             onSubmit={async (e) => {
               e.preventDefault();
-              if (await validarFormulario() === true) {
+              if ((await validarFormulario()) === true) {
                 try {
                   await agregarUsuario(); // Esperamos que termine bien
                   Swal.fire("Éxito", "¡Bienvenido!", "success");
@@ -259,15 +260,26 @@ const Registro = () => {
               />
             </div>
             <div className="row">
-              <div className="mb-3">
+              <div className="mb-3 input-group">
                 <input
-                  type="password"
+                  type={mostrarContrasena ? "text" : "password"}
                   name="contraseña"
                   className="form-control"
                   placeholder="Contraseña"
                   value={nuevoUsuario.contraseña}
                   onChange={guardarInfoDeUsuarios}
                 />
+                <button
+                  type="button"
+                  className="btn btn-outline-light"
+                  onClick={() => setMostrarContrasena(!mostrarContrasena)}
+                >
+                  <i
+                    className={`bi ${
+                      mostrarContrasena ? "bi-eye-slash" : "bi-eye"
+                    }`}
+                  ></i>
+                </button>
               </div>
             </div>
             <button type="submit" className="btn btn-pink w-100 fw-bold">
