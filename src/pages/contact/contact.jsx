@@ -1,83 +1,89 @@
 import gatitoLlamando from '../../../public/images/logo-patita-oriental/gatito-llamando.png';
 import "./contact.css";
+import { useState } from "react";
+import "./contact.css";
 
 const Contact = () => {
+  // Estado para manejar los valores del formulario
+  const [formData, setFormData] = useState({
+    nombre: "",
+    apellido: "",
+    email: "",
+    telefono: "",
+    mensaje: "",
+  });
+
+  // Estado para manejar los errores
+  const [errors, setErrors] = useState({});
+
+  // Manejo de cambios en los inputs
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Función de validación
+  const validate = () => {
+    let newErrors = {};
+    if (!formData.nombre.trim()) newErrors.nombre = "El nombre es obligatorio";
+    if (!formData.apellido.trim()) newErrors.apellido = "El apellido es obligatorio";
+    if (!formData.email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) newErrors.email = "Correo inválido";
+    if (!formData.telefono.match(/^\d{10}$/)) newErrors.telefono = "Debe contener 10 dígitos";
+    if (!formData.mensaje.trim()) newErrors.mensaje = "El mensaje es obligatorio";
+    return newErrors;
+  };
+
+  // Manejo del envío del formulario
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = validate();
+    if (Object.keys(newErrors).length === 0) {
+      alert("Formulario enviado correctamente");
+    } else {
+      setErrors(newErrors);
+    }
+  };
+
   return (
     <>
       <section className="contact-section" id="contact-page">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6 mb-4 alinear">
-              <img
-                src={gatitoLlamando}
-                alt="Gatito llamando"
-                className="img-fluid cat-img"
-              />
               <h2 className="contact-title mb-3">¡Contáctanos!</h2>
-              <div className="row row-1">
-                <div className="line short white"></div>
-                <div className="line medium white"></div>
-                <div className="line extra-long white"></div>
-              </div>
-              <div className="row row-2">
-                <div className="line long white"></div>
-                <div className="line short white"></div>
-                <div className="line space"></div>
-                <div className="line long pink"></div>
-              </div>
             </div>
 
             <div className="col-md-6">
-              <form className="contact-form" id="contactForm">
-                <h4 className="text-white mb-4 fw-bold mb-3 form-title">
-                  Deja tu mensaje
-                </h4>
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <h4 className="text-white mb-4 fw-bold mb-3 form-title">Deja tu mensaje</h4>
 
-                <div className="row">
-                  <div className="col-md-6 mb-3">
-                    <label className="form-label text-white fw-semibold">Nombre</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Ingresa tu nombre"
-                    />
+                {/* Inputs con validaciones */}
+                {["nombre", "apellido", "email", "telefono", "mensaje"].map((field) => (
+                  <div key={field} className="mb-3">
+                    <label className="form-label text-white fw-semibold">
+                      {field.charAt(0).toUpperCase() + field.slice(1)}
+                    </label>
+                    {field !== "mensaje" ? (
+                      <input
+                        type={field === "email" ? "email" : field === "telefono" ? "tel" : "text"}
+                        name={field}
+                        className="form-control"
+                        placeholder={`Ingresa tu ${field}`}
+                        value={formData[field]}
+                        onChange={handleChange}
+                      />
+                    ) : (
+                      <textarea
+                        name={field}
+                        className="form-control"
+                        rows="3"
+                        placeholder="Escribe tu mensaje"
+                        value={formData[field]}
+                        onChange={handleChange}
+                      ></textarea>
+                    )}
+                    {errors[field] && <small className="text-danger">{errors[field]}</small>}
                   </div>
-                  <div className="col-md-6 mb-3">
-                    <label className="form-label text-white fw-semibold">Apellido</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Ingresa tu apellido"
-                    />
-                  </div>
-                </div>
-
-                <div className="mb-3">
-                  <label className="form-label text-white fw-semibold">Correo electrónico</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="ejemplo@email.com"
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label className="form-label text-white fw-semibold">Teléfono</label>
-                  <input
-                    type="tel"
-                    className="form-control"
-                    placeholder="(55) 1234 5678"
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label className="form-label text-white fw-semibold">Mensaje</label>
-                  <textarea
-                    className="form-control"
-                    rows="3"
-                    placeholder="Escribe tu mensaje"
-                  ></textarea>
-                </div>
+                ))}
 
                 <button type="submit" className="btn btn-pink w-100 fw-bold">
                   Enviar
@@ -90,6 +96,5 @@ const Contact = () => {
     </>
   );
 };
-
 
 export { Contact };
