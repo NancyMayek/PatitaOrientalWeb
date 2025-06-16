@@ -11,8 +11,8 @@ const Products = ({ url }) => {
   const [error, setError] = useState(null); // error Almacena cualquier mensaje de error que ocurra
 
 
-  const {handleAddToCart} = useCartActions();
-  const {favoriteProducts} = useFavorito();
+  const {handleAddToCart} = useCartActions(); // Se llama la función de handleAddToCart de useCarActions 
+  const {favoriteProducts} = useFavorito(); // Se manda a llamar la función de favoriteProducts de useFavorito
   
   useEffect(() => {
     const fetchProducts = async () => {
