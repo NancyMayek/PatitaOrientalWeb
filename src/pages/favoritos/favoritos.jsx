@@ -1,16 +1,13 @@
 import React, { useState,useContext } from 'react';
 import { contextFavoritos } from '../../components/context/contextFavoritos';
+import TarjetaMenu from "../../components/tarjeta_menu/tarjetaMenu";
+import { useCartActions } from '../../components/utils/botonDeAgregar';
 import './favoritos.css';
 
 const Favoritos = () => {
-  // Estado simulado con algunos productos favoritos
-/*   const [favoritos, setFavoritos] = useState([
-    { id: 1, nombre: 'Producto 1', descripcion: 'Descripción del producto 1', imagen: '/ruta/imagen1.jpg' },
-    { id: 2, nombre: 'Producto 2', descripcion: 'Descripción del producto 2', imagen: '/ruta/imagen2.jpg' },
-    // Agrega más si quieres
-  ]); */
 
   const { favorito, setFavorite } = useContext(contextFavoritos);
+    const {handleAddToCart} = useCartActions();
 
   // Función para eliminar un favorito
   const eliminarFavorito = (id) => {
@@ -28,12 +25,11 @@ const Favoritos = () => {
       ) : (
         <div className="favoritos-grid">
           {favorito.map(product => (
-            <div className="favorito-card" key={product.id}>
-              <img src={product.imagen} alt={product.nombre} />
-              <h3>{product.nombre}</h3>
-              <p>{product.descripcion}</p>
-              <button onClick={() => eliminarFavorito(product.id)}>Eliminar</button>
-            </div>
+             <TarjetaMenu
+            key={product.id}
+            {...product}
+            onAddToCart={handleAddToCart}
+          />
           ))}
         </div>
       )}
