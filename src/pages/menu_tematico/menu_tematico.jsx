@@ -2,6 +2,11 @@ import './menu_tematico.css'
 import React, { useEffect, useState, useContext } from "react";
 import TarjetaMenuTematico from '../../components/tarjeta_menu/tarjeta_menu_tematico';
 import { Context } from '../../components/context/Contex';
+import { useCartActions } from '../../components/utils/botonDeAgregar';
+import { useFavorito } from '../../components/utils/agregarAFavoritos';
+
+
+
 // Componente principal de la página de menú temátic
 const Menu_Tematico = () => {
     const [paquetes, setPaquetes] = useState([]); // Estado local para guardar los paquetes del menú temático cargados desde un JSON
@@ -10,6 +15,9 @@ const Menu_Tematico = () => {
     // Acceso al contexto global del carrito de compras
     const {carrito, setCart} = useContext(Context);
 
+
+    const {handleAddToCart} = useCartActions(); // Se llama la función de handleAddToCart de useCarActions 
+    const { favoriteProducts} = useFavorito(); // Se manda a llamar la función de favoriteProducts de useFavorito
 // Arreglo de imágenes que se mostrarán en el banner como carrusel
  const imagenesBanner = [
         
@@ -72,7 +80,8 @@ const Menu_Tematico = () => {
                         precio={item.Precio}
                         descripcion={item.Descripción}
                         imagen={item.Imagen}
-                        onAddToCart ={ buyProducts}
+                        onAddToCart ={ handleAddToCart}
+                        onAddToFavorites = {favoriteProducts}
                     />
                 ))}
             </div>

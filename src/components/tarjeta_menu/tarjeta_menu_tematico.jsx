@@ -5,7 +5,7 @@ import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg'
 import './tarjeta_menu_tematico.css';
 
 // Componente que representa una tarjeta individual del menú temático
-const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart,id }) => {
+const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart,id, onAddToFavorites }) => {
     const [count, setCount] = useState(1);    // Estado local para controlar la cantidad seleccionada del producto
     const handleIncrement = (maxValue) => {    // Función para aumentar la cantidad, hasta un máximo definido (10 en este caso)
         if (count < maxValue) setCount(count + 1);
@@ -47,8 +47,10 @@ const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart,
                 <button onClick={() => onAddToCart({imagen, nombre, precio, descripcion, cantidad: count, id})} >
                     <h3 className='añadir-comida'>Añadir</h3>
                 </button>
-                   {/* Icono de corazón decorativo (puedes agregar lógica para favoritos si quieres) */}
+                {/* Botón para agregar a favoritos */}
+                   <button onClick={()=> onAddToFavorites({imagen, nombre, precio, descripcion, id})}>
                     <img className='icono-corazon-rojo' srcSet={iconoCorazon} alt="icono corazón" />
+                </button>
                 </div>
             </div>
         </>

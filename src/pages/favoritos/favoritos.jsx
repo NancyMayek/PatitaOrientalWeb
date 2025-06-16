@@ -12,6 +12,7 @@ const Favoritos = () => {
   // Función para eliminar un favorito
   const eliminarFavorito = (id) => {
     setFavorite(favorito.filter(product => product.id !== id));
+    alert("Si funciona")
   };
 
   return (
@@ -29,6 +30,7 @@ const Favoritos = () => {
             key={product.id}
             {...product}
             onAddToCart={handleAddToCart}
+            onAddToFavorites={eliminarFavorito}
           />
           ))}
         </div>
