@@ -1,17 +1,18 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import TarjetaMenu from "./tarjetaMenu";
-import { Context } from "../context/Contex";
-import { alertaAgregarAlCarrito } from "./alertaAgregarAlCarrito";
 import "./tarjeta_menu.css";
-import { contextFavoritos } from "../context/contextFavoritos";
+import {useCartActions} from "../utils/botonDeAgregar";
+import { useFavorito } from "../utils/agregarAFavoritos";
+
 
 const Products = ({ url }) => {
   const [menuData, setMenuData] = useState({}); // Alamacenará los datos completos del menú
   const [loading, setLoading] = useState(true); // loading Indica si los datos se están cargando
   const [error, setError] = useState(null); // error Almacena cualquier mensaje de error que ocurra
 
-  const { carrito, setCart } = useContext(Context);
-  const { favorito, setFavorite } = useContext(contextFavoritos);
+
+  const {handleAddToCart} = useCartActions();
+  const {favoriteProducts} = useFavorito();
   
   useEffect(() => {
     const fetchProducts = async () => {
@@ -56,21 +57,6 @@ const Products = ({ url }) => {
     fetchProducts();
   }, [url]);
 
-  const buyProducts = (product) => {
-    setCart([...carrito, product]);
-  };
-
-  
-
-  const handleAddToCart = (product) => {
-  buyProducts(product);
-  alertaAgregarAlCarrito(product);
-};
-
-  const favoriteProducts = (product) => {
-    setFavorite([...favorito, product]);
-    console.log(product);
-  };
 
   /*
     Muestra mensajes según el estado de carga
