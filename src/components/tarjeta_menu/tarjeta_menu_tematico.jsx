@@ -27,7 +27,7 @@ const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart,
                         <img src={imagen} alt={`Imagen del paquete ${nombre}`} />
                         <div className="contenedor-info-producto">
                             <h1 className="titulo-comida">{nombre}</h1>
-                            <h3 className="precio-comida">${precio}</h3>
+                            <h3 className="precio-comida">${precio}.00 MXN</h3>
                             <p className="descripcion-comida">{descripcion}</p>
                         </div>
                     </div>
