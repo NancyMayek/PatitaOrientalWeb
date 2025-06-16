@@ -21,7 +21,7 @@ const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id, onA
         <img src={imagen} alt={`imagen de ${nombre}`} />
         <div className="contenedor-info-producto">
           <h1 className="titulo-comida">{nombre}</h1>
-          <h3 className="precio-comida">${precio}.00</h3>
+          <h3 className="precio-comida">${precio}.00 Mx</h3>
           <p className="descripcion-comida">{descripcion}</p>
         </div>
       </div>
