@@ -14,9 +14,26 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
-  padding: 0;
+  margin: 0 auto 2rem;      
+  padding: 12px 8rem;       
   list-style: none;
+  position: sticky;
+  top: 60px;
+  z-index: 8;
+  transition: top 0.3s ease-in-out;
+}
+
+
+.filtros.oculto {
+  top: -100px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filtros.visible {
+  top: 60px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .filtro-btn {
@@ -87,6 +104,7 @@
     gap: 0.5rem;
     padding: 0 1rem;
   }
+  
 
   .filtro-btn {
     flex: 1 1 auto;
