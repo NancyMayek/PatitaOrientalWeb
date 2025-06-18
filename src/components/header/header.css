@@ -9,9 +9,10 @@ body {
   margin: 0;
   font-family: var(--fuente-principal);
   background-color: white;
+  padding-top: 60px; 
 }
 
-/* HEADER ESTÁTICO Y PEQUEÑO */
+
 header {
   position: relative;
   top: 0;
@@ -20,6 +21,9 @@ header {
   z-index: 10;
   padding: 10px 20px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  height: 60px; 
+  display: flex;
+  align-items: center;
 }
 
 .header-container {
@@ -28,6 +32,19 @@ header {
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+}
+
+header.visible {
+  position: fixed;
+  top: 0;
+  transition: top 0.3s ease-in-out;
+}
+
+header.oculto {
+  position: fixed;
+  top: -60px; /* ocultar exactamente la altura del header */
+  transition: top 0.3s ease-in-out;
 }
 
 .imagen-Usuario-header{
@@ -87,6 +104,7 @@ header {
 .iconos{
   margin-right: 2rem;
 }
+
 /* Íconos escritorio */
 .iconos a img {
   height: 28px;

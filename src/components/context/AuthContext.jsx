@@ -2,34 +2,24 @@ import { useNavigate } from "react-router-dom";
 import { useImageUpload } from "./uploadImagesContext";
 import { createContext, useState, useContext, useEffect } from "react";
 
-
-/*
-creamos un nuevo contexto de autenticación que servirá como una "caja global"
-para guardar información como el usuario actual y si está logueado o no.
-*/
 const AuthContext = createContext();
 
-/*
-Este componente envuelve la aplicación en el contexto de autenticación. 
-Es donde se define qué valores estarán disponibles globalmente.
-*/
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  const apiurl = "https://patitaorientalweb.onrender.com/api/usuarios"; //Aqui cambias la variable de la url de la api
   const { uploadedUrl, setUploadedUrl } = useImageUpload();
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // crea un estado isLoggedIn que indica si el usuario está logueado (por defecto, false).
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [usuario, setUsuario] = useState(() => {
-    //estado usuario almacena los datos del usuario (nombre, email, etc.) desde el localStorage. Si hay un usuario guardado, lo carga automáticamente al iniciar.
     const storedUser = localStorage.getItem("usuario");
     return storedUser ? JSON.parse(storedUser) : null;
   });
+
   const [logInInput, setLogInInput] = useState({
-    //para el inicio de sesion de formulario
     inputEmail: "",
     inputContraseña: "",
   });
+
   const [nuevoUsuario, setNuevoUsuario] = useState({
-    //para el registro de usuarioformulario
     id: "",
     nombre: "",
     apellido: "",
@@ -42,19 +32,14 @@ export const AuthProvider = ({ children }) => {
   });
 
   const getListaUsuarios = async () => {
-    const res = await fetch(apiurl, {
-      method: "GET", //  GET es default
-    });
-    if (res.ok) {
-      const data = await res.json(); // API responde con los datos del usuario
-
-      return data;
-    } else {
-      console.log("Hubo un error al GET JSON DE USUARIOS");
-    }
+    const lista = localStorage.getItem("listaUsuarios");
+    return lista ? JSON.parse(lista) : [];
   };
 
-  
+  const guardarListaUsuarios = async (usuarios) => {
+    localStorage.setItem("listaUsuarios", JSON.stringify(usuarios));
+  };
+
   const guardarLogInInput = (e) => {
     setLogInInput({
       ...logInInput,
@@ -69,13 +54,11 @@ export const AuthProvider = ({ children }) => {
     );
     if (foundUser) {
       if (foundUser.contraseña === logInInput.inputContraseña) {
-        console.log("USUARIO ACEPTADO");
-        localStorage.setItem("usuario", JSON.stringify(foundUser)); // guardar usuario encontrado en local storage
+        localStorage.setItem("usuario", JSON.stringify(foundUser));
         setIsLoggedIn(true);
-        setUsuario(foundUser); // Aquí actualizas el contexto inmediatamente
-        navigate("/Profile"); // redirigir a la página de perfil
+        setUsuario(foundUser);
+        navigate("/Profile");
         setLogInInput({
-          //Limpiar el forms de inicio
           inputEmail: "",
           inputContraseña: "",
         });
@@ -85,91 +68,65 @@ export const AuthProvider = ({ children }) => {
       }
     } else {
       return "Usuario no encontrado";
-      
     }
   };
 
   const guardarInfoDeUsuarios = (e) => {
     setNuevoUsuario({
-      ...nuevoUsuario, //trae toda la infomacion de el usuario que ya esta escrita
-      [e.target.name]: e.target.value, // solo cambia la que le pide el input
+      ...nuevoUsuario,
+      [e.target.name]: e.target.value,
     });
   };
 
   const agregarUsuario = async () => {
-    const usuarioArr = await getListaUsuarios();
-    nuevoUsuario.id = usuarioArr.length + 1; //añadimos el ID de usuario
-    nuevoUsuario.imagen = uploadedUrl; //añadimos la url de la imagen
-
-    const res = await fetch(apiurl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(nuevoUsuario),
+    const usuarios = await getListaUsuarios();
+    const nuevoId = usuarios.length > 0 ? usuarios[usuarios.length - 1].id + 1 : 1;
+    const nuevo = {
+      ...nuevoUsuario,
+      id: nuevoId,
+      imagen: uploadedUrl,
+    };
+    const nuevaLista = [...usuarios, nuevo];
+    await guardarListaUsuarios(nuevaLista);
+    localStorage.setItem("usuario", JSON.stringify(nuevo));
+    setIsLoggedIn(true);
+    setUsuario(nuevo);
+    setNuevoUsuario({
+      id: "",
+      nombre: "",
+      apellido: "",
+      email: "",
+      direccion: "",
+      CP: "",
+      imagen: "",
+      telefono: "",
+      contraseña: "",
     });
-
-    if (res.ok) {
-      const data = await res.json(); // API responde con los datos del usuario
-      localStorage.setItem("usuario", JSON.stringify(data)); // guardar usuario en local storage
-      setIsLoggedIn(true);
-      setUsuario(data); // Aquí actualizas el contexto inmediatamente
-      setNuevoUsuario({
-        //Limpiar el forms de registro
-        id: "",
-        nombre: "",
-        apellido: "",
-        email: "",
-        direccion: "",
-        CP: "",
-        imagen: "",
-        telefono: "",
-        contraseña: "",
-      });
-      navigate("/Profile"); // redirigir a la página de perfil
-      setUploadedUrl(""); //limpiar url de imagen
-    } else {
-      console.log("Hubo un error al registrar");
-      return localStorage.setItem("isLoggedIn", "false");
-    }
+    setUploadedUrl("");
+    navigate("/Profile");
   };
 
   const uptadeUser = async (e) => {
-    console.log(uploadedUrl);
-    if (uploadedUrl !== "") usuario.imagen = uploadedUrl; //añadimos la url de la imagen
+    if (uploadedUrl !== "") usuario.imagen = uploadedUrl;
+    const usuarios = await getListaUsuarios();
+    const usuariosActualizados = usuarios.map((u) =>
+      u.id === usuario.id ? usuario : u
+    );
+    await guardarListaUsuarios(usuariosActualizados);
     localStorage.setItem("usuario", JSON.stringify(usuario));
-    console.log("usuario imagen es", usuario.imagen);
-    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
-    fetch(`https://patitaorientalweb.onrender.com/api/usuarios/${usuarioGuardado.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(usuarioGuardado),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setUsuario(data);
-        setUploadedUrl(""); //limpiar url de imagen
-        console.log(data);
-      })
-      .catch((err) => {
-        console.error("Error actualizando usuario:", err);
-      });
+    setUsuario(usuario);
+    setUploadedUrl("");
   };
 
-  //Este efecto se ejecuta una sola vez al cargar la app:
   useEffect(() => {
-    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario")); //Recupera los datos del usuario desde localStorage.
+    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
     const estadoLogin = localStorage.getItem("isLoggedIn") === "true";
-
     if (usuarioGuardado && estadoLogin) {
-      //Si encuentra que isLoggedIn es "true" y hay un usuario, los pone en los estados (setIsLoggedIn y setUsuario).
       setIsLoggedIn(true);
       setUsuario(usuarioGuardado);
     }
   }, []);
 
-  /*Aquí se entregan los valores (isLoggedIn, usuario, y sus funciones para actualizar) 
-  a cualquier componente que consuma este contexto. */
   return (
     <AuthContext.Provider
       value={{
@@ -193,12 +150,5 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-/*
-Este hook personalizado (useAuth) permite que en cualquier parte de la aplicación se pueda escribir:
-
-const { usuario, isLoggedIn, setUsuario } = useAuth();
-
-y así acceder al estado global de autenticación fácilmente.
-*/
-
 export const useAuth = () => useContext(AuthContext);
+
