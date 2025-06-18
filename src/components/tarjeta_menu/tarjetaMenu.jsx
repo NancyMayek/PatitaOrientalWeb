@@ -2,17 +2,21 @@ import './tarjeta_menu.css';
 import iconoResta from '../../../public/images/iconos/icono-menos.svg';
 import iconoMas from '../../../public/images/iconos/icono-mas.svg';
 import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg';
+import iconoCorazonRojo from '../../../public/images/iconos/icono-corazon-rojo.svg';
 import { useState } from 'react';
+import { useFavorito } from '../utils/agregarAFavoritos';
 
-const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id, onAddToFavorites }) => {
+const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id }) => {
   const [count, setCount] = useState(1);
+  const { toggleFavorite, isFavorito } = useFavorito();
+  const esFavorito = isFavorito(id);
 
-  const handleIncrement = (maxValue) => {
-    if (count < maxValue) setCount(count + 1);
+  const handleIncrement = () => {
+    if (count < 10) setCount(count + 1);
   };
 
-  const handleDecrement = (minValue) => {
-    if (count > minValue) setCount(count - 1);
+  const handleDecrement = () => {
+    if (count > 1) setCount(count - 1);
   };
 
   return (
@@ -26,18 +30,21 @@ const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id, onA
         </div>
       </div>
       <div className="contenedor-botones-menu">
-        <button onClick={() => handleDecrement(1)}>
-          <img className="icono-resta" srcSet={iconoResta} alt="icono menos" />
+        <button onClick={handleDecrement}>
+          <img className="icono-resta" src={iconoResta} alt="icono menos" />
         </button>
         <p className="cantidad-articulos">{count}</p>
-        <button onClick={() => handleIncrement(10)}>
-          <img className="icono-suma" srcSet={iconoMas} alt="icono más" />
+        <button onClick={handleIncrement}>
+          <img className="icono-suma" src={iconoMas} alt="icono más" />
         </button>
         <button onClick={() => onAddToCart({ imagen, nombre, precio, descripcion, cantidad: count, id })}>
           <h3 className="añadir-comida">Añadir</h3>
         </button>
-        <button onClick={() => onAddToFavorites({ imagen, nombre, precio, descripcion, id })}>
-          <img className="icono-corazon-rojo" srcSet={iconoCorazon} alt="icono corazón" />
+        <button onClick={() => toggleFavorite({ id, imagen, nombre, precio, descripcion })}>
+          <img
+            src={esFavorito ? iconoCorazonRojo : iconoCorazon}
+            alt="Favorito"
+          />
         </button>
       </div>
     </div>
