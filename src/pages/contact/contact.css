@@ -2,204 +2,85 @@
   --primary-color: #425184;
   --secondary-color: #D579AF;
 }
-#contact-page{
-  height: 100vh;
-}
 
 .contact-section {
   background-color: var(--primary-color);
-  padding: 1rem 0;
-  
-}
-.contact-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-@media (max-width: 360px) {
-  .contact-section {
-    padding: 20px;
-  }
+  padding: 2rem 0;
 }
 
-
+.image-container {
+  text-align: left;
+}
 
 .cat-img {
-  max-width: 70%;
+  width: 8cm;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
 }
-@media (max-width: 768px) {
-  .cat-img {
-    max-width: 80%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-}
-
 
 .contact-title {
   color: #fff;
-  font-weight: 700;
-  font-size: 2.8rem;
-  margin-top: 40px;
-  text-align: center;
-}
-.contact-title {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  white-space: normal;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-
-.decorative-lines {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.decorative-lines .row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
+/* Líneas decorativas */
 .line {
   height: 12px;
   border-radius: 8px;
   margin: 10px;
 }
+.short { width: 50px; }
+.medium { width: 110px; }
+.long { width: 160px; }
+.extra-long { width: 300px; }
+.space { width: 70px; }
+.white { background-color: white; }
+.pink { background-color: var(--secondary-color); }
 
-.white {
-  background-color: white;
+/* Formulario */
+.contact-form {
+  text-align: left;
+  padding: 1rem;
+  max-width: 100%;
 }
 
-.pink {
-  background-color: var(--secondary-color);
-}
-
-/* Tamaños personalizados */
-.short {
-  width: 50px;
-}
-
-.medium {
-  width: 110px;
-}
-
-.long {
-  width: 160px;
-}
-
-.extra-long {
-  width: 300px;
-}
-
-.space {
-  width: 70px;
+.form-title {
+  font-size: 2rem;
+  color: white;
 }
 
 .contact-form .form-control {
   border-radius: 8px;
   padding: 10px 15px;
   border: 1px solid #ddd;
-.contact-form {
-  margin-bottom: 10px; /* Reducimos el margen para acercar el botón */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra los elementos */
-  min-height: 300px;/* Garantiza que el formulario tenga suficiente espacio*/
-  
-}
-
-}
-@media (max-width: 768px) {
-  .contact-form {
-    width: 90%;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  .form-control {
-    font-size: 1rem;
-    padding: 8px;
-  }
-}
-
-
-
-.form-title {
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 30px;/* Aumenta espacio debajo del titulo*/
-  padding-top: 20px;/*Agrega espacio arriba para que no se corte*/
-  line-height: 1.2;/*Ajusta la altura de linea para mejor legibilidad*/
-
-
 }
 
 .btn-pink {
-  background-color:  var(--secondary-color);
+  background-color: var(--secondary-color);
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 10px;
-  .btn-pink {
-  width: 100%; /* Ocupe toda la sección de formulario */
   padding: 12px;
-  .btn-pink {
-  width: 80%;
   font-size: 1rem;
-  margin-top: 15px; /* Espacio arriba para evitar que se quede pegado */
+  margin-top: 10px;
+  width: 100%;
 }
-
-}
-}
-@media (max-width: 768px) {
-  .btn-pink {
-    width: 80%;
-    font-size: 1rem;
-  }
-}
-
-
 
 .btn-pink:hover {
-  background-color:  var(--secondary-color);
+  background-color: #c46298;
+  transition: background-color 0.3s ease;
 }
-@media (max-width: 768px) { /* Para celulares */
-  .contact-section {
-    padding: 30px;
-  }
-  .contact-title {
-    font-size: 2.5rem;
-    text-align: center;
-  }
+
+/* Responsive */
+@media (max-width: 768px) {
   .cat-img {
-    max-width: 80%;
-    height: 80%;
-    display: block;
-    margin: 0 auto;
+    width: 80%;
   }
-  .contact-form {
-    padding: 10px;
+
+  .row.align-items-center {
+    flex-direction: column;
+    align-items: center !important;
   }
 }
-@media (max-width: 360px) { /* Para tablets */
-  .contact-title {
-    font-size: 2.5rem;/*ajustado para evitar cortes*/
-    text-align: center;
-    margin-top: 40px;/*Aumentamos el margen superior*/
-  }
-
-  }
-  .btn-pink {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-
-
-
-
