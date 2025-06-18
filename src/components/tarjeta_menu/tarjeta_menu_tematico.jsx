@@ -2,19 +2,25 @@ import { useState } from 'react';
 import iconoResta from '../../../public/images/iconos/icono-menos.svg'
 import iconoMas from '../../../public/images/iconos/icono-mas.svg'
 import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg'
+import iconoCorazonRojo from '../../../public/images/iconos/icono-corazon-rojo.svg';
 import './tarjeta_menu_tematico.css';
+import { useFavorito } from '../utils/agregarAFavoritos';
+
 
 // Componente que representa una tarjeta individual del menú temático
-const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart,id, onAddToFavorites }) => {
+const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart, id }) => {
     const [count, setCount] = useState(1);    // Estado local para controlar la cantidad seleccionada del producto
+    const { toggleFavorite, isFavorito } = useFavorito();
+    const esFavorito = isFavorito(id);
+
     const handleIncrement = (maxValue) => {    // Función para aumentar la cantidad, hasta un máximo definido (10 en este caso)
         if (count < maxValue) setCount(count + 1);
-       
+
     }
 
- // Función para disminuir la cantidad, sin bajar del mínimo (0 en este caso)
-    const handleDecrement =(minValue) =>{
-        if(count > minValue) setCount(count-1);
+    // Función para disminuir la cantidad, sin bajar del mínimo (0 en este caso)
+    const handleDecrement = (minValue) => {
+        if (count > minValue) setCount(count - 1);
     }
 
 
@@ -35,22 +41,23 @@ const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart,
                 {/* Sección de botones: cantidad, añadir al carrito y corazón */}
                 <div className="contenedor-botones-menu">
                     <button>
-                    <img className='icono-resta' srcSet={iconoResta} alt="icono menos"  onClick={()=> handleDecrement(0)} />
+                        <img className='icono-resta' srcSet={iconoResta} alt="icono menos" onClick={() => handleDecrement(0)} />
                     </button>
                     {/* Muestra la cantidad seleccionada */}
                     <p className='cantidad-de-paquete' >{count}</p>
                     <button> {/* Botón para aumentar la cantidad */}
-                         <img className='icono-suma' srcSet={iconoMas} alt="icono más" onClick={()=> handleIncrement(10)} />
+                        <img className='icono-suma' srcSet={iconoMas} alt="icono más" onClick={() => handleIncrement(10)} />
                     </button>
 
-                 {/* Botón para añadir el producto al carrito con la cantidad seleccionada */}
-                <button onClick={() => onAddToCart({imagen, nombre, precio, descripcion, cantidad: count, id})} >
-                    <h3 className='añadir-comida'>Añadir</h3>
-                </button>
-                {/* Botón para agregar a favoritos */}
-                   <button onClick={()=> onAddToFavorites({imagen, nombre, precio, descripcion, id})}>
-                    <img className='icono-corazon-rojo' srcSet={iconoCorazon} alt="icono corazón" />
-                </button>
+                    {/* Botón para añadir el producto al carrito con la cantidad seleccionada */}
+                    <button onClick={() => onAddToCart({ imagen, nombre, precio, descripcion, cantidad: count, id })} >
+                        <h3 className='añadir-comida'>Añadir</h3>
+                    </button>
+                    {/* Botón para agregar a favoritos */}
+                    <button onClick={() => toggleFavorite({ imagen, nombre, precio, descripcion, id })}>
+                        <img src={esFavorito ? iconoCorazonRojo : iconoCorazon}
+                            alt="Favorito" />
+                    </button>
                 </div>
             </div>
         </>

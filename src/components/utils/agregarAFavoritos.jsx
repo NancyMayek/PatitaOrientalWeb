@@ -10,12 +10,29 @@ export const useFavorito = () => {
       const exists = prev.some((item) => item.id === product.id);
 
       if (exists) {
-        Swal.fire("Platillo eliminado de favoritos");
-        return prev.filter((item) => item.id !== product.id);
-      } else {
-        Swal.fire("Platillo agregado a favoritos");
-        return [...prev, product];
-      }
+  Swal.fire({
+    title: '¡Eliminado!',
+    text: 'Platillo eliminado de favoritos 🖤',
+    icon: 'success',
+    confirmButtonText: 'Aceptar',
+    confirmButtonColor: '#d679af',
+    background: '#f0f8ff',
+    color: '#333',
+  });
+  return prev.filter((item) => item.id !== product.id);
+} else {
+  Swal.fire({
+    title: '¡Agregado!',
+    text: 'Platillo agregado a favoritos 💖',
+    icon: 'success',
+    confirmButtonText: 'Aceptar',
+    confirmButtonColor: '#d679af',
+    background: '#f0f8ff',
+    color: '#333',
+  });
+  return [...prev, product];
+}
+
     });
   };
 
