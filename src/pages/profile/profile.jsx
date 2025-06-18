@@ -11,13 +11,14 @@ const Profile = () => {
   const defaultProfilePicture =
     "https://res.cloudinary.com/dkufsisvv/image/upload/v1749665101/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/hemsfcvyetspmc5d450i.svg";
 
-  const { isLoggedIn, setIsLoggedIn, usuario, setUsuario, uptadeUser, getListaUsuarios } =
-    useAuth(); //de el contexto solo obtenemos si hay un usuario
-  const { handleImageChange, uploading, uploadedUrl } = useImageUpload();
+  const { isLoggedIn, setIsLoggedIn, usuario, setUsuario, uptadeUser, getListaUsuarios } = useAuth(); //de el contexto solo obtenemos si hay un usuario
+  const { handleImageChange, uploading, uploadedUrl, setUploadedUrl} = useImageUpload();
+ 
 
   const cerrarSesionUsuario = () => {
     localStorage.removeItem("usuario");
     setIsLoggedIn(false);
+    setUploadedUrl("");
     navigate("/Inicio_de_sesion");
   };
 
