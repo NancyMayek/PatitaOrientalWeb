@@ -102,6 +102,8 @@ Una vez validadas las funcionalidades y flujo de usuario, el backend actual ser�
 LinkedIn: www.linkedin.com/in/nancy-mayek-torres-aguilar
 -	Desarrollador: América Yazmín Rodríguez Rodríguez
 LinkedIn: www.linkedin.com/in/america-yazmin-rodriguez-rodriguez/
+Desarrollador: Abigail Alexandra Galvez Cortés
+LinkedIn: www.linkedin.com/in/abigail-alexandra-galvez-cortés
 -	Desarrollador: Francisco Javier Caldera Castro
 LinkedIn: https://www.linkedin.com/in/francisco-javier-caldera/
 -	Desarrollador: Cecilia Guadalupe Gutierrez Urbano
