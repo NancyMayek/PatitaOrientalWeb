@@ -1,5 +1,5 @@
 import { useCart } from "./agregarAlCarrito";
-import {alertaAgregarAlCarrito} from "../tarjeta_menu/alertaAgregarAlCarrito"
+import {alertaAgregarAlCarrito} from "../tarjetaMenu/alertaAgregarAlCarrito";
 
 export const useCartActions = () => {
     const { buyProducts } = useCart(); // Importamos la funcion de buyProducts

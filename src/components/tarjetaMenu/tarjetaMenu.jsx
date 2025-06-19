@@ -1,4 +1,4 @@
-import './tarjeta_menu.css';
+import './tarjetaMenu.css';
 import iconoResta from '../../../public/images/iconos/icono-menos.svg';
 import iconoMas from '../../../public/images/iconos/icono-mas.svg';
 import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg';

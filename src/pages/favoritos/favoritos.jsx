@@ -1,6 +1,6 @@
 import React, { useState,useContext } from 'react';
 import { contextFavoritos } from '../../components/context/contextFavoritos';
-import TarjetaMenu from "../../components/tarjeta_menu/tarjetaMenu";
+import TarjetaMenu from "../../components/tarjetaMenu/tarjetaMenu";
 import { useCartActions } from '../../components/utils/botonDeAgregar';
 import './favoritos.css';
 

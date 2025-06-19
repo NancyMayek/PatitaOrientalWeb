@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import TarjetaMenu from "./tarjetaMenu";
-import "./tarjeta_menu.css";
+import "./tarjetaMenu.css";
 import {useCartActions} from "../utils/botonDeAgregar";
 import { useFavorito } from "../utils/agregarAFavoritos";
 
