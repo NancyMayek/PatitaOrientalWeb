@@ -19,7 +19,7 @@ const Profile = () => {
     localStorage.removeItem("usuario");
     setIsLoggedIn(false);
     setUploadedUrl("");
-    navigate("/Inicio_de_sesion");
+    navigate("/InicioDeSesion");
   };
 
   const favoritosSesionUsuario = () => {

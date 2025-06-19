@@ -37,9 +37,9 @@ Patita-oriental/
 │ │ ├── contact/ # Contact.jsx + Contact.css
 │ │ ├── favoritos/ # Favoritos.jsx + Favoritos.css
 │ │ ├── inicio/ # Inicio.jsx + Inicio.css
-│ │ ├── inicio_de_sesion/ # InicioDeSesion.jsx + InicioDeSesion.css
+│ │ ├── inicioDeSesion/ # InicioDeSesion.jsx + InicioDeSesion.css
 │ │ ├── menu/ # Menu.jsx + Menu.css
-│ │ ├── menu_tematico/ # MenuTematico.jsx + MenuTematico.css
+│ │ ├── menuTematico/ # MenuTematico.jsx + MenuTematico.css
 │ │ ├── profile/ # Profile.jsx + Profile.css
 │ │ └── registro/ # Registro.jsx + Registro.css
 │ │

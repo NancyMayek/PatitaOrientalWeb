@@ -101,7 +101,7 @@ const Inicio = () => {
       {/* Sección Temática */}
       <section className="p-5 tematica-section mb-0 d-flex align-items-center">
         <div className="tematica-text p-4 d-flex flex-column align-items-end">
-          <Link to = "/Menu_tematico" className='Linkto' >
+          <Link to = "/MenuTematico" className='Linkto' >
             <h3 className="display-6 fw-bold mb-3 text-end" style={{ color: "#425184" }}>
                 Descubre nuestros <br /><span style={{ fontSize: "3.5rem" }}>Platillos <span style={{ color: "#d579af" }}>Temáticos</span></span>
             </h3>

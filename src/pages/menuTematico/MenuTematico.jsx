@@ -29,7 +29,7 @@ const MenuTematico = () => {
      // useEffect que se ejecuta una vez al cargar el componente
     // Carga los datos de los paquetes desde un archivo JSON ubicado en la carpeta /public/data/
   useEffect(() => {
-    fetch('/data/menutematico.json')
+    fetch('/data/menuTematico.json')
       .then(response => response.json())
       .then(data => setPaquetes(data))
       .catch(error => console.error('Error al cargar los datos del menú temático', error));

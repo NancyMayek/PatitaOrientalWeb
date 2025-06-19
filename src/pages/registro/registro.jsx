@@ -111,7 +111,7 @@ const Registro = () => {
           <h2 className="registro-login-title mb-3">¡Bienvenido!</h2>
           <h3 className="text-white" id="cambioDeRegistro-InicioSesion">
             ¿Ya tienes una cuenta?{" "}
-            <Link className="link-to-logIn" to="/Inicio_de_sesion">
+            <Link className="link-to-logIn" to="/InicioDeSesion">
               Inicia Sesión
             </Link>
           </h3>
@@ -290,7 +290,7 @@ const Registro = () => {
               id="cambioDeRegistro-InicioSesion-mobile"
             >
               ¿Ya tienes una cuenta?{" "}
-              <Link className="link-to-logIn" to="/Inicio_de_sesion">
+              <Link className="link-to-logIn" to="/InicioDeSesion">
                 Inicia Sesión
               </Link>
             </h3>

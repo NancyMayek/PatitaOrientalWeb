@@ -44,7 +44,7 @@ const Header = () => {
         <nav className={`nav-menu ${menuAbierto ? "activo" : ""}`}>
           <ul className="navegacion">
             <li><Link onClick={toggleMenu} to="/Menu">Menú</Link></li>
-            <li><Link onClick={toggleMenu} to="/Menu_tematico">Menú Temático</Link></li>
+            <li><Link onClick={toggleMenu} to="/MenuTematico">Menú Temático</Link></li>
             <li><Link onClick={toggleMenu} to="/Contact">Contacto</Link></li>
             <li><Link onClick={toggleMenu} to="/About">Sobre Nosotros</Link></li>
           </ul>
@@ -55,7 +55,7 @@ const Header = () => {
                 <img onClick={toggleMenu} src={usuario.imagen} alt="Perfil" />
               </Link>
             ) : (
-              <Link to="/Inicio_de_sesion">
+              <Link to="/InicioDeSesion">
                 <img onClick={toggleMenu} src={iconoDeUsuario} alt="Registro" />
               </Link>
             )}
@@ -75,7 +75,7 @@ const Header = () => {
               <img className="imagen-Usuario-header" src={usuario.imagen} alt="Perfil" />
             </Link>
           ) : (
-            <Link onClick={toggleMenu} to="/Inicio_de_sesion">
+            <Link onClick={toggleMenu} to="/InicioDeSesion">
               <img className="imagen-Usuario-header" src={iconoDeUsuario} alt="Registro" />
             </Link>
           )}
