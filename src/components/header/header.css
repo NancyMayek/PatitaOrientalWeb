@@ -12,7 +12,6 @@ body {
   padding-top: 60px; 
 }
 
-
 header {
   position: relative;
   top: 0;
@@ -43,7 +42,7 @@ header.visible {
 
 header.oculto {
   position: fixed;
-  top: -60px; /* ocultar exactamente la altura del header */
+  top: -60px;
   transition: top 0.3s ease-in-out;
 }
 
@@ -124,24 +123,22 @@ header.oculto {
 
   .nav-menu {
     position: absolute;
-    top: 70px;
+    top: 60px;
     left: 0;
     right: 0;
     background-color: white;
+    z-index: 1000;
     flex-direction: column;
     align-items: center;
-    display: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding-bottom: 20px;
   }
 
-  .nav-menu.activo {
-    display: flex;
+  .nav-menu:not(.activo) {
+    display: none;
   }
 
   .navegacion {
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     padding: 20px 0;
   }
 
@@ -151,11 +148,7 @@ header.oculto {
 
   .iconos-movil {
     display: flex;
-    gap: 20px;
-    margin-top: 10px;
-  }
-
-  .iconos-movil a img {
-    height: 26px;
+    justify-content: center;
+    margin-top: 15px;
   }
 }
