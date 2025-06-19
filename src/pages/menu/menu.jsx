@@ -1,5 +1,6 @@
+
 import { useState, useEffect, useRef } from "react";
-import Products from "../../components/tarjeta_menu/leerProductos";
+import Products from "../../components/tarjetaMenu/leerProductos";
 import "./menu.css";
 
 const Menu = () => {

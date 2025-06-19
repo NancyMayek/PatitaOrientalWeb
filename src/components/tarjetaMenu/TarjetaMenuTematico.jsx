@@ -3,9 +3,8 @@ import iconoResta from '../../../public/images/iconos/icono-menos.svg'
 import iconoMas from '../../../public/images/iconos/icono-mas.svg'
 import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg'
 import iconoCorazonRojo from '../../../public/images/iconos/icono-corazon-rojo.svg';
-import './tarjeta_menu_tematico.css';
 import { useFavorito } from '../utils/agregarAFavoritos';
-
+import './tarjetaMenuTematico.css';
 
 // Componente que representa una tarjeta individual del menú temático
 const TarjetaMenuTematico = ({ nombre, precio, descripcion, imagen, onAddToCart, id }) => {

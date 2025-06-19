@@ -4,9 +4,9 @@ import { useAuth } from "../../components/context/AuthContext";
 import Swal from "sweetalert2";
 import { createContext, useState, useContext, useEffect } from "react";
 
-import "./inicio_de_sesion.css";
+import "./inicioDeSesion.css";
 
-const Inicio_de_sesion = () => {
+const InicioDeSesion = () => {
   const { logInInput, guardarLogInInput, logInCheck, setLogInInput } =
     useAuth();
   //-------------------------------------Validaciones----------------
@@ -138,4 +138,4 @@ const Inicio_de_sesion = () => {
   );
 };
 
-export { Inicio_de_sesion };
+export { InicioDeSesion };

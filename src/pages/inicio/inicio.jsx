@@ -1,6 +1,6 @@
 import './inicio.css'
 import { Link } from 'react-router-dom';
-import { TopProducts } from '../../components/tarjeta_menu/filtrosProductos';
+import { TopProducts } from '../../components/tarjetaMenu/filtrosProductos';
 
 const Inicio = () => {
     return(

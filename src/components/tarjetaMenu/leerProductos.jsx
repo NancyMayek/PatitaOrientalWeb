@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import TarjetaMenu from "./tarjetaMenu";
-import "./tarjeta_menu.css";
 import { useCartActions } from "../utils/botonDeAgregar";
+import "./tarjetaMenu.css";
+import {useCartActions} from "../utils/botonDeAgregar";
+import { useFavorito } from "../utils/agregarAFavoritos";
 
 const Products = ({ url }) => {
   const [menuData, setMenuData] = useState({});

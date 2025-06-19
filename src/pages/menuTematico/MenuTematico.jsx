@@ -1,6 +1,6 @@
-import './menu_tematico.css'
+import './menuTematico.css'
 import React, { useEffect, useState, useContext } from "react";
-import TarjetaMenuTematico from '../../components/tarjeta_menu/tarjeta_menu_tematico';
+import TarjetaMenuTematico from '../../components/tarjetaMenu/TarjetaMenuTematico';
 import { Context } from '../../components/context/Contex';
 import { useCartActions } from '../../components/utils/botonDeAgregar';
 import { useFavorito } from '../../components/utils/agregarAFavoritos';
@@ -8,7 +8,7 @@ import { useFavorito } from '../../components/utils/agregarAFavoritos';
 
 
 // Componente principal de la página de menú temátic
-const Menu_Tematico = () => {
+const MenuTematico = () => {
     const [paquetes, setPaquetes] = useState([]); // Estado local para guardar los paquetes del menú temático cargados desde un JSON
     const [indiceBanner, setIndiceBanner] = useState(0);
 
@@ -91,4 +91,4 @@ const Menu_Tematico = () => {
 };
 
 // Exportación del componente para que pueda ser utilizado en otras partes del proyecto
-export { Menu_Tematico };
+export { MenuTematico };
