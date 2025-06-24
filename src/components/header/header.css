@@ -115,6 +115,7 @@ header.oculto {
   display: none;
 }
 
+
 /* Responsive: menú hamburguesa en móvil */
 @media (max-width: 768px) {
   .hamburguesa {
@@ -146,9 +147,19 @@ header.oculto {
     display: none;
   }
 
+  .icono-carrito-movil{
+  width: 2rem;
+  }
+
+
   .iconos-movil {
     display: flex;
-    justify-content: center;
-    margin-top: 15px;
+    justify-content:center;
+    align-items: center;
+    img{
+      margin: .5rem;
+      margin-bottom: 1rem;
+    }
+
   }
 }

@@ -8,6 +8,12 @@
   height: 100vh;
 }
 
+.registroInicioSesion-form {
+    text-align: center;
+    padding: 1rem;
+    max-width: 100%;
+}
+
 .registro-login-title {
   color: white;
   font-size: 4rem;

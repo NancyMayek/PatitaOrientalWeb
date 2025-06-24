@@ -67,7 +67,7 @@ const InicioDeSesion = () => {
 
         <div className="col-md-6 registrarse-container">
           <form
-            className="contact-form"
+            className="registroInicioSesion-form"
             id="contactForm"
             autoComplete="off"
             onSubmit={async (e) => {
@@ -119,7 +119,7 @@ const InicioDeSesion = () => {
               </button>
             </div>
 
-            <button type="submit" className="btn btn-pink w-100 fw-bold">
+            <button type="submit" className="btn btn-pink w-100 fw-bold mx-auto d-block">
               Ingresar
             </button>
             <h3

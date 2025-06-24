@@ -130,7 +130,7 @@ const Registro = () => {
 
         <div className="col-md-6 registrarse-container">
           <form
-            className="contact-form"
+            className="registroInicioSesion-form"
             id="contactForm"
             onSubmit={async (e) => {
               e.preventDefault();
@@ -282,9 +282,11 @@ const Registro = () => {
                 </button>
               </div>
             </div>
-            <button type="submit" className="btn btn-pink w-100 fw-bold">
+             
+            <button type="submit" className="btn btn-pink w-100 fw-bold mx-auto d-block">
               Enviar
             </button>
+           
             <h3
               className="text-white"
               id="cambioDeRegistro-InicioSesion-mobile"

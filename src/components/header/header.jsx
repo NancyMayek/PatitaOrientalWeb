@@ -50,21 +50,21 @@ const Header = () => {
           </ul>
 
           <div className="iconos-movil">
-            {isLoggedIn && usuario?.imagen ? (
-              <Link to="/Profile">
-                <img onClick={toggleMenu} src={usuario.imagen} alt="Perfil" />
-              </Link>
-            ) : (
-              <Link to="/InicioDeSesion">
-                <img onClick={toggleMenu} src={iconoDeUsuario} alt="Registro" />
-              </Link>
-            )}
+             {isLoggedIn && usuario?.imagen ? (
+            <Link onClick={toggleMenu} to="/Profile">
+              <img className="imagen-Usuario-header" src={usuario.imagen} alt="Perfil" />
+            </Link>
+          ) : (
+            <Link onClick={toggleMenu} to="/InicioDeSesion">
+              <img className="imagen-Usuario-header" src={iconoDeUsuario} alt="Registro" />
+            </Link>
+          )}
 
             <Link onClick={toggleMenu} to="/Favoritos">
               <img className="icono-corazon" src={iconoDeCorazon} alt="Favoritos" />
             </Link>
             <Link onClick={toggleMenu} to="/Carrito">
-              <img src={iconoDeCarrito} alt="Carrito" />
+              <img className="icono-carrito-movil" src={iconoDeCarrito} alt="Carrito" />
             </Link>
           </div>
         </nav>
