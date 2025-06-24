@@ -1,5 +1,7 @@
 # ✨ Patita Oriental ✨
 
+### Deploy actual: https://patitaorientalmex.netlify.app
+
 **Patita Oriental** es una tienda de comida coreana en Jalisco. Cada plato está diseñado con amor, creatividad y mucha onda coreana para que disfrutes una experiencia completa y deliciosa.
 
 Este proyecto busca construir un **e-commerce atractivo e intuitivo** que permita a los usuarios explorar, seleccionar y comprar sus platillos favoritos de forma rápida y amigable desde cualquier dispositivo. La tienda combina lo mejor del diseño moderno con una estructura funcional basada en componentes reutilizables. Utilizando tecnologías modernas como **React**, **JavaScript**, **HTML**, **CSS** y **Bootstrap**. Este proyecto fue creado con el objetivo de brindar una interfaz limpia y amigable para usuarios que navegan por nuestras distintas secciones.
@@ -76,26 +78,10 @@ npm run dev
 ```bash
 http://localhost:5173/
 ```
-### 🛠 Uso Temporal de Backend con Node.js y Express
-
-Durante el desarrollo inicial del proyecto, estamos utilizando un backend temporal basado en **Node.js** y **Express**. Este backend simula el flujo de datos necesario para funcionalidades clave como:
-
-- Registro de usuario (`/api/usuarios`)
-- Inicio de sesión 
-- edición de perfil de usuario
-
-Los datos actualmente se almacenan en un archivo local `usuarios.json`, lo que permite realizar pruebas de forma rápida y sencilla sin necesidad de una base de datos o servidor de backend completo.
-
-ver en: https://github.com/NancyMayek/backTemporalPatitaOriental
-
-#### ⚠️ Nota importante
-Este backend **es temporal**
-
----
 
 ### 🔄 Migración futura a Spring Boot
 
-Una vez validadas las funcionalidades y flujo de usuario, el backend actual será reemplazado por una implementación más robusta utilizando **Spring Boot**
+Una vez validadas las funcionalidades y flujo de usuario, la simulacion de LocalStorage de el backend actual será reemplazado por una implementación más robusta utilizando **Spring Boot**
 
 ## Desarrolladores
 -	Desarrollador: Nancy Mayek Torres Aguilar
