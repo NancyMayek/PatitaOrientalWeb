@@ -78,7 +78,7 @@ const Contact = () => {
             <form className="contact-form" onSubmit={handleSubmit}>
               <h4 className="text-white mb-4 fw-bold mb-3 form-title">Deja tu mensaje</h4>
 
-              {["nombre", "apellido", "email", "telefono", "mensaje"].map((field) => (
+              {["nombre", "apellido", "email", "teléfono", "mensaje"].map((field) => (
                 <div key={field} className="mb-3">
                   <label htmlFor={field} className="form-label text-white fw-semibold">
                     {field.charAt(0).toUpperCase() + field.slice(1)}
@@ -86,7 +86,7 @@ const Contact = () => {
                   {field !== "mensaje" ? (
                     <input
                       id={field}
-                      type={field === "email" ? "email" : field === "telefono" ? "text" : "text"}
+                      type={field === "email" ? "email" : field === "teléfono" ? "text" : "text"}
                       name={field}
                       className="form-control"
                       placeholder={`Ingresa tu ${field}`}
