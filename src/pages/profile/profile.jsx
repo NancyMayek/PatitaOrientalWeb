@@ -1,5 +1,6 @@
 import "./profile.css";
 import iconoEditarFoto from "../../../public/images/iconos/icon-editar-foto.svg";
+import iconoDireccion from "../../../public/images/iconos/icon-direccion.svg";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../components/context/AuthContext";
@@ -174,7 +175,7 @@ const Profile = () => {
             </h1>
             <div className="direccion">
               <img
-                src="../../../public/images/iconos/icon-direccion.svg"
+                src= {iconoDireccion}
                 alt="icono de casa"
               />
               <h2>{usuario.direccion}</h2>
