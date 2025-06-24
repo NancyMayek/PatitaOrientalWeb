@@ -94,5 +94,8 @@ LinkedIn: www.linkedin.com/in/abigail-alexandra-galvez-cortés
 LinkedIn: https://www.linkedin.com/in/francisco-javier-caldera/
 -	Desarrollador: Cecilia Guadalupe Gutierrez Urbano
 LinkedIn: www.linkedin.com/in/cecilia-guadalupe-gutierrez-urbano-09139255
--	Desarrollador: Shelder Tatiana Flores Du
+-	Desarrollador: Shelder Tatiana Flores Durán
+LinkedIn: https://www.linkedin.com/in/shelder-tatiana-flores-duran/
+-	Desarrollador: César Daniel Godínez Caudillo
+LinkedIn: https://www.linkedin.com/in/cesar-godinez-caudillo/
 
