@@ -2,42 +2,58 @@ import { useNavigate } from "react-router-dom";
 import { useImageUpload } from "./uploadImagesContext";
 import { createContext, useState, useContext, useEffect } from "react";
 
+/*
+creamos un nuevo contexto de autenticación que servirá como una "caja global"
+para guardar información como el usuario actual y si está logueado o no.
+*/
 const AuthContext = createContext();
 
+/*
+Este componente envuelve la aplicación en el contexto de autenticación. 
+Es donde se define qué valores estarán disponibles globalmente.
+*/
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
+  const apiurl = "http://localhost:8080/api/v1/users"; //Aqui cambias la variable de la url de la api
   const { uploadedUrl, setUploadedUrl } = useImageUpload();
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // crea un estado isLoggedIn que indica si el usuario está logueado (por defecto, false).
   const [usuario, setUsuario] = useState(() => {
+    //estado usuario almacena los datos del usuario (nombre, email, etc.) desde el localStorage. Si hay un usuario guardado, lo carga automáticamente al iniciar.
     const storedUser = localStorage.getItem("usuario");
     return storedUser ? JSON.parse(storedUser) : null;
   });
-
   const [logInInput, setLogInInput] = useState({
+    //para el inicio de sesion de formulario
     inputEmail: "",
     inputContraseña: "",
   });
-
   const [nuevoUsuario, setNuevoUsuario] = useState({
-    id: "",
-    nombre: "",
-    apellido: "",
+    //para el registro de usuarioformulario
+    name: "",
+    lastName: "",
     email: "",
-    direccion: "",
-    CP: "",
-    imagen: "",
-    telefono: "",
-    contraseña: "",
+    phoneNumber: "",
+    address: "",
+    postalCode: "",
+    password: "",
+    imageUrl: "",
+    // añadimos role constante para todos
+    role: { id: 2, name: "CUSTOMER" },
+    favorites: [],
+    active: true,
   });
 
   const getListaUsuarios = async () => {
-    const lista = localStorage.getItem("listaUsuarios");
-    return lista ? JSON.parse(lista) : [];
-  };
+    const res = await fetch(apiurl, {
+      method: "GET", //  GET es default
+    });
+    if (res.ok) {
+      const data = await res.json(); // API responde con los datos del usuario
 
-  const guardarListaUsuarios = async (usuarios) => {
-    localStorage.setItem("listaUsuarios", JSON.stringify(usuarios));
+      return data;
+    } else {
+      console.log("Hubo un error al GET JSON DE USUARIOS");
+    }
   };
 
   const guardarLogInInput = (e) => {
@@ -53,12 +69,14 @@ export const AuthProvider = ({ children }) => {
       (usuarioJson) => usuarioJson.email === logInInput.inputEmail
     );
     if (foundUser) {
-      if (foundUser.contraseña === logInInput.inputContraseña) {
-        localStorage.setItem("usuario", JSON.stringify(foundUser));
+      if (foundUser.password === logInInput.inputContraseña) {
+        console.log("USUARIO ACEPTADO");
+        localStorage.setItem("usuario", JSON.stringify(foundUser)); // guardar usuario encontrado en local storage
         setIsLoggedIn(true);
-        setUsuario(foundUser);
-        navigate("/Profile");
+        setUsuario(foundUser); // Aquí actualizas el contexto inmediatamente
+        navigate("/Profile"); // redirigir a la página de perfil
         setLogInInput({
+          //Limpiar el forms de inicio
           inputEmail: "",
           inputContraseña: "",
         });
@@ -73,60 +91,99 @@ export const AuthProvider = ({ children }) => {
 
   const guardarInfoDeUsuarios = (e) => {
     setNuevoUsuario({
-      ...nuevoUsuario,
-      [e.target.name]: e.target.value,
+      ...nuevoUsuario, //trae toda la infomacion de el usuario que ya esta escrita
+      [e.target.name]: e.target.value, // solo cambia la que le pide el input
     });
   };
 
   const agregarUsuario = async () => {
-    const usuarios = await getListaUsuarios();
-    const nuevoId = usuarios.length > 0 ? usuarios[usuarios.length - 1].id + 1 : 1;
-    const nuevo = {
-      ...nuevoUsuario,
-      id: nuevoId,
-      imagen: uploadedUrl,
-    };
-    const nuevaLista = [...usuarios, nuevo];
-    await guardarListaUsuarios(nuevaLista);
-    localStorage.setItem("usuario", JSON.stringify(nuevo));
-    setIsLoggedIn(true);
-    setUsuario(nuevo);
-    setNuevoUsuario({
-      id: "",
-      nombre: "",
-      apellido: "",
-      email: "",
-      direccion: "",
-      CP: "",
-      imagen: "",
-      telefono: "",
-      contraseña: "",
+    const usuarioArr = await getListaUsuarios();
+    nuevoUsuario.imageUrl = uploadedUrl; //añadimos la url de la imagen
+
+    const res = await fetch(apiurl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(nuevoUsuario),
     });
-    setUploadedUrl("");
-    navigate("/Profile");
+
+    if (res.ok) {
+      const data = await res.json(); // API responde con los datos del usuario
+      localStorage.setItem("usuario", JSON.stringify(data)); // guardar usuario en local storage
+      setIsLoggedIn(true);
+      setUsuario(data); // Aquí actualizas el contexto inmediatamente
+      setNuevoUsuario({
+        //para el registro de usuarioformulario
+        name: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        address: "",
+        postalCode: "",
+        password: "",
+        imageUrl: "",
+        // añadimos role constante para todos
+        role: { id: 2, name: "CUSTOMER" },
+        favorites: [],
+        active: true,
+      });
+      navigate("/Profile"); // redirigir a la página de perfil
+      setUploadedUrl(""); //limpiar url de imagen
+    } else {
+      console.log("Hubo un error al registrar");
+      return localStorage.setItem("isLoggedIn", "false");
+    }
   };
 
-  const uptadeUser = async (e) => {
-    if (uploadedUrl !== "") usuario.imagen = uploadedUrl;
-    const usuarios = await getListaUsuarios();
-    const usuariosActualizados = usuarios.map((u) =>
-      u.id === usuario.id ? usuario : u
-    );
-    await guardarListaUsuarios(usuariosActualizados);
-    localStorage.setItem("usuario", JSON.stringify(usuario));
-    setUsuario(usuario);
-    setUploadedUrl("");
+  const uptadeUser = async () => {
+    // Clonar el usuario actual
+    const usuarioActualizado = { ...usuario };
+
+    // Si hay nueva imagen, reemplazarla
+    if (uploadedUrl !== "") {
+      usuarioActualizado.imageUrl = uploadedUrl;
+    }
+
+    try {
+      const response = await fetch(
+        `http://localhost:8080/api/v1/users/${usuarioActualizado.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(usuarioActualizado),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Error en la petición: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setUsuario(data);
+      localStorage.setItem("usuario", JSON.stringify(data));
+      setUploadedUrl(""); // limpiar la imagen subida
+
+      console.log("Usuario actualizado con éxito:", data);
+    } catch (error) {
+      console.error("Error actualizando usuario:", error);
+    }
   };
 
+  //Este efecto se ejecuta una sola vez al cargar la app:
   useEffect(() => {
-    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
+    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario")); //Recupera los datos del usuario desde localStorage.
     const estadoLogin = localStorage.getItem("isLoggedIn") === "true";
+
     if (usuarioGuardado && estadoLogin) {
+      //Si encuentra que isLoggedIn es "true" y hay un usuario, los pone en los estados (setIsLoggedIn y setUsuario).
       setIsLoggedIn(true);
       setUsuario(usuarioGuardado);
     }
   }, []);
 
+  /*Aquí se entregan los valores (isLoggedIn, usuario, y sus funciones para actualizar) 
+  a cualquier componente que consuma este contexto. */
   return (
     <AuthContext.Provider
       value={{
@@ -150,5 +207,10 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const useAuth = () => useContext(AuthContext);
+/*
+Este hook personalizado (useAuth) permite que en cualquier parte de la aplicación se pueda escribir:
+const { usuario, isLoggedIn, setUsuario } = useAuth();
+y así acceder al estado global de autenticación fácilmente.
+*/
 
+export const useAuth = () => useContext(AuthContext);

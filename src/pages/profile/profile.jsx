@@ -27,7 +27,7 @@ const Profile = () => {
     navigate("/Favoritos");
   };
 
-  const buscarUsuarioPorEmailYId = async (email, id) => {
+    const buscarUsuarioPorEmailYId = async (email, id) => {
     try {
       const usuarios = await getListaUsuarios();
       return usuarios.some((usuario) => usuario.id !== id && usuario.email === email.trim() );//Si el usuario diferente id que el usuario actual y el usuario tiene el mismo email
@@ -36,6 +36,7 @@ const Profile = () => {
       return false; // En caso de error, asumimos que no se encontró
     }
   };
+
 
   //-------------------------------------Validaciones----------------
 
@@ -60,8 +61,8 @@ const Profile = () => {
     let errores = [];
 
     if (
-      !esNombreValido(usuario.nombre) ||
-      !esNombreValido(usuario.apellido)
+      !esNombreValido(usuario.name) ||
+      !esNombreValido(usuario.lastName)
     ) {
       errores.push("Nombre y apellido inválidos.");
     }
@@ -75,15 +76,15 @@ const Profile = () => {
       }
     }
 
-    if (!esDireccionValida(usuario.direccion)) {
+    if (!esDireccionValida(usuario.address)) {
       errores.push("Dirección inválida.");
     }
 
-    if (!esCodigoPostalValido(usuario.CP)) {
+    if (!esCodigoPostalValido(usuario.postalCode)) {
       errores.push("Código postal inválido.");
     }
 
-    if (!esTelefonoValido(usuario.telefono)) {
+    if (!esTelefonoValido(usuario.phoneNumber)) {
       errores.push("Teléfono inválido.");
     }
 
@@ -144,7 +145,7 @@ const Profile = () => {
                   src={
                     usuario.imagen === ""
                       ? defaultProfilePicture
-                      : usuario.imagen
+                      : usuario.imageUrl
                   } //Si el usuario no puso foto de perfil que se muestre la imagen for defecto
                   alt="foto de perfil"
                 />
@@ -171,14 +172,14 @@ const Profile = () => {
           </div>
           <div className="usuario-informacion-principal">
             <h1 className="title-profile" id="nombre-usuario ">
-              {usuario.nombre} {usuario.apellido}
+              {usuario.name} {usuario.lastName}
             </h1>
             <div className="direccion">
               <img
                 src= {iconoDireccion}
                 alt="icono de casa"
               />
-              <h2>{usuario.direccion}</h2>
+              <h2>{usuario.address}</h2>
             </div>
             <div className="usuario-nav-botones-movile ">
               <button
@@ -225,9 +226,9 @@ const Profile = () => {
                 <input
                   type="text"
                   id="nombre"
-                  name="nombre"
+                  name="name"
                   value={usuario.name}
-                  defaultValue={usuario.nombre}
+                  defaultValue={usuario.name}
                   onChange={handleGuardarNuevaInformacion}
                   required
                 />
@@ -239,9 +240,9 @@ const Profile = () => {
                 <input
                   type="text"
                   id="apellido"
-                  name="apellido"
-                  defaultValue={usuario.apellido}
-                  value={usuario.apellido}
+                  name="lastName"
+                  defaultValue={usuario.lastName}
+                  value={usuario.lastName}
                   onChange={handleGuardarNuevaInformacion}
                   required
                 />
@@ -269,9 +270,9 @@ const Profile = () => {
                 <input
                   type="number"
                   id="telefono"
-                  name="telefono"
-                  value={usuario.telefono}
-                  defaultValue={usuario.telefono}
+                  name="phoneNumber"
+                  value={usuario.phoneNumber}
+                  defaultValue={usuario.phoneNumber}
                   onChange={handleGuardarNuevaInformacion}
                   required
                 />
@@ -285,9 +286,9 @@ const Profile = () => {
                 <input
                   type="text"
                   id="direccion"
-                  name="direccion"
-                  value={usuario.direccion}
-                  defaultValue={usuario.direccion}
+                  name="address"
+                  value={usuario.address}
+                  defaultValue={usuario.address}
                   onChange={handleGuardarNuevaInformacion}
                   required
                 />
@@ -299,9 +300,9 @@ const Profile = () => {
                 <input
                   type="number"
                   id="CP"
-                  name="CP"
-                  value={usuario.CP}
-                  defaultValue={usuario.CP}
+                  name="postalCode"
+                  value={usuario.postalCode}
+                  defaultValue={usuario.postalCode}
                   onChange={handleGuardarNuevaInformacion}
                   required
                 />

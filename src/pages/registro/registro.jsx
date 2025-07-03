@@ -54,8 +54,8 @@ const Registro = () => {
     let errores = [];
 
     if (
-      !esNombreValido(nuevoUsuario.nombre) ||
-      !esNombreValido(nuevoUsuario.apellido)
+      !esNombreValido(nuevoUsuario.name) ||
+      !esNombreValido(nuevoUsuario.lastName)
     ) {
       errores.push("Nombre y apellido inválidos.");
     }
@@ -69,19 +69,19 @@ const Registro = () => {
       }
     }
 
-    if (!esDireccionValida(nuevoUsuario.direccion)) {
+    if (!esDireccionValida(nuevoUsuario.address)) {
       errores.push("Dirección inválida.");
     }
 
-    if (!esCodigoPostalValido(nuevoUsuario.CP)) {
+    if (!esCodigoPostalValido(nuevoUsuario.postalCode)) {
       errores.push("Código postal inválido.");
     }
 
-    if (!esTelefonoValido(nuevoUsuario.telefono)) {
+    if (!esTelefonoValido(nuevoUsuario.phoneNumber)) {
       errores.push("Teléfono inválido.");
     }
 
-    if (!esContrasenaValida(nuevoUsuario.contraseña)) {
+    if (!esContrasenaValida(nuevoUsuario.password)) {
       errores.push(
         "La contraseña debe tener al menos 8 caracteres, una mayúscula y un número."
       );
@@ -198,20 +198,20 @@ const Registro = () => {
               <div className="col-md-6 mb-2">
                 <input
                   type="text"
-                  name="nombre"
+                  name="name"
                   className="form-control"
                   placeholder="Nombre"
-                  value={nuevoUsuario.nombre}
+                  value={nuevoUsuario.name}
                   onChange={guardarInfoDeUsuarios}
                 />
               </div>
               <div className="col-md-6 mb-2">
                 <input
                   type="text"
-                  name="apellido"
+                  name="lastName"
                   className="form-control"
                   placeholder="Apellido"
-                  value={nuevoUsuario.apellido}
+                  value={nuevoUsuario.lastName}
                   onChange={guardarInfoDeUsuarios}
                 />
               </div>
@@ -231,20 +231,20 @@ const Registro = () => {
               <div className="col-md-6 mb-2">
                 <input
                   type="text"
-                  name="direccion"
+                  name="address"
                   className="form-control"
                   placeholder="Dirección"
-                  value={nuevoUsuario.direccion}
+                  value={nuevoUsuario.address}
                   onChange={guardarInfoDeUsuarios}
                 />
               </div>
               <div className="col-md-6 mb-2">
                 <input
                   type="text"
-                  name="CP"
+                  name="postalCode"
                   className="form-control"
                   placeholder="Código Postal"
-                  value={nuevoUsuario.CP}
+                  value={nuevoUsuario.postalCode}
                   onChange={guardarInfoDeUsuarios}
                 />
               </div>
@@ -252,10 +252,10 @@ const Registro = () => {
             <div className="mb-2">
               <input
                 type="tel"
-                name="telefono"
+                name="phoneNumber"
                 className="form-control"
                 placeholder="Teléfono"
-                value={nuevoUsuario.telefono}
+                value={nuevoUsuario.phoneNumber}
                 onChange={guardarInfoDeUsuarios}
               />
             </div>
@@ -263,10 +263,10 @@ const Registro = () => {
               <div className="mb-3 input-group">
                 <input
                   type={mostrarContrasena ? "text" : "password"}
-                  name="contraseña"
+                  name="password"
                   className="form-control"
                   placeholder="Contraseña"
-                  value={nuevoUsuario.contraseña}
+                  value={nuevoUsuario.password}
                   onChange={guardarInfoDeUsuarios}
                 />
                 <button
