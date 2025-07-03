@@ -40,7 +40,7 @@ const TarjetaMenu = ({ imagenUrl, name, priceProduct, description, onAddToCart, 
         <button onClick={() => onAddToCart({ imagenUrl, name, priceProduct, description, cantidad: count, id })}>
           <h3 className="añadir-comida">Añadir</h3>
         </button>
-        <button onClick={() => onAddToFavorites({ imagenUrl, name, priceProduct, description, id })}>
+        <button onClick={() => toggleFavorite({ imagenUrl, name, priceProduct, description, id })}>
           <img className="icono-corazon-rojo" srcSet={iconoCorazon} alt="icono corazón" />
         </button>
       </div>
