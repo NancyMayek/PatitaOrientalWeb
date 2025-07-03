@@ -12,9 +12,17 @@ const Profile = () => {
   const defaultProfilePicture =
     "https://res.cloudinary.com/dkufsisvv/image/upload/v1749665101/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/hemsfcvyetspmc5d450i.svg";
 
-  const { isLoggedIn, setIsLoggedIn, usuario, setUsuario, uptadeUser, getListaUsuarios } = useAuth(); //de el contexto solo obtenemos si hay un usuario
-  const { handleImageChange, uploading, uploadedUrl, setUploadedUrl} = useImageUpload();
- 
+  const {
+    isLoggedIn,
+    setIsLoggedIn,
+    usuario,
+    setUsuario,
+    uptadeUser,
+    getListaUsuarios,
+    deleteUser,
+  } = useAuth(); //de el contexto solo obtenemos si hay un usuario
+  const { handleImageChange, uploading, uploadedUrl, setUploadedUrl } =
+    useImageUpload();
 
   const cerrarSesionUsuario = () => {
     localStorage.removeItem("usuario");
@@ -27,16 +35,17 @@ const Profile = () => {
     navigate("/Favoritos");
   };
 
-    const buscarUsuarioPorEmailYId = async (email, id) => {
+  const buscarUsuarioPorEmailYId = async (email, id) => {
     try {
       const usuarios = await getListaUsuarios();
-      return usuarios.some((usuario) => usuario.id !== id && usuario.email === email.trim() );//Si el usuario diferente id que el usuario actual y el usuario tiene el mismo email
+      return usuarios.some(
+        (usuario) => usuario.id !== id && usuario.email === email.trim()
+      ); //Si el usuario diferente id que el usuario actual y el usuario tiene el mismo email
     } catch (error) {
       console.error("Error al buscar el usuario por email y Id:", error);
       return false; // En caso de error, asumimos que no se encontró
     }
   };
-
 
   //-------------------------------------Validaciones----------------
 
@@ -53,24 +62,22 @@ const Profile = () => {
 
   const esCodigoPostalValido = (cp) => /^\d{5}$/.test(cp.trim());
 
-
-
   //-----------------------------------------------------------------
 
   const validarFormulario = async () => {
     let errores = [];
 
-    if (
-      !esNombreValido(usuario.name) ||
-      !esNombreValido(usuario.lastName)
-    ) {
+    if (!esNombreValido(usuario.name) || !esNombreValido(usuario.lastName)) {
       errores.push("Nombre y apellido inválidos.");
     }
 
     if (!esEmailValido(usuario.email)) {
       errores.push("Correo electrónico inválido.");
     } else {
-      const yaExiste = await buscarUsuarioPorEmailYId (usuario.email, usuario.id);
+      const yaExiste = await buscarUsuarioPorEmailYId(
+        usuario.email,
+        usuario.id
+      );
       if (yaExiste) {
         errores.push("Ya existe un usuario registrado con este correo.");
       }
@@ -175,10 +182,7 @@ const Profile = () => {
               {usuario.name} {usuario.lastName}
             </h1>
             <div className="direccion">
-              <img
-                src= {iconoDireccion}
-                alt="icono de casa"
-              />
+              <img src={iconoDireccion} alt="icono de casa" />
               <h2>{usuario.address}</h2>
             </div>
             <div className="usuario-nav-botones-movile ">
@@ -207,7 +211,11 @@ const Profile = () => {
             if ((await validarFormulario()) === true) {
               try {
                 await uptadeUser(); // Esperamos que termine bien
-                Swal.fire("Éxito", "¡Datos actualizados correctamente!", "success");
+                Swal.fire(
+                  "Éxito",
+                  "¡Datos actualizados correctamente!",
+                  "success"
+                );
               } catch (error) {
                 Swal.fire(
                   "Error",
@@ -320,6 +328,11 @@ const Profile = () => {
               className="btn-cancelar-cambios"
             >
               Cancelar
+            </button>
+          </div>
+          <div className="btn-borrar-Cuenta">
+            <button type="button" onClick={deleteUser}>
+              Borrar Cuenta
             </button>
           </div>
         </form>

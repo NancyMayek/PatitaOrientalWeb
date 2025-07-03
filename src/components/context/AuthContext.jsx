@@ -145,7 +145,7 @@ export const AuthProvider = ({ children }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/v1/users/${usuarioActualizado.id}`,
+        `${apiurl}/${usuarioActualizado.id}`,
         {
           method: "PUT",
           headers: {
@@ -169,6 +169,32 @@ export const AuthProvider = ({ children }) => {
       console.error("Error actualizando usuario:", error);
     }
   };
+
+  const deleteUser = async () => {
+  try {
+    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
+    const response = await fetch(`${apiurl}/${usuarioGuardado.id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Error al borrar el usuario");
+    }
+
+    // Limpiar el estado y el localStorage
+    localStorage.removeItem("usuario");
+    localStorage.setItem("isLoggedIn", "false");
+    setUsuario(null);
+    setIsLoggedIn(false);
+
+    // Redirigir al home o login
+    navigate("/InicioDeSesion");
+
+    console.log("Usuario eliminado correctamente");
+  } catch (error) {
+    console.error("Error al eliminar usuario:", error);
+  }
+};
 
   //Este efecto se ejecuta una sola vez al cargar la app:
   useEffect(() => {
@@ -200,6 +226,7 @@ export const AuthProvider = ({ children }) => {
         guardarLogInInput,
         logInCheck,
         uptadeUser,
+        deleteUser,
       }}
     >
       {children}
