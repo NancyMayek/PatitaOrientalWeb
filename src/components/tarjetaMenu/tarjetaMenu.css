@@ -1,13 +1,14 @@
 .contenedor-tarjeta-menu {
-  background-color: white;
-  border: 2px solid #323d6b;
-  border-radius: 16px;
-  overflow: hidden;
-  max-width: 400px;
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  cursor: pointer;
+  flex-direction: column; 
+  justify-content: space-between; 
+  background-color: white;
+  border: 5px solid var(--color-morado);
+  border-radius: 26px; 
+  max-width: 500px;
+  height: auto; 
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .contenedor-producto {
@@ -16,29 +17,31 @@
 }
 
 .contenedor-producto img {
-  width: 100%;
-  height: 200px;
+  width: 170px;
+  height: 190px;
   object-fit: cover;
+  padding-left: 0.3rem;
 }
 
-.contenedor-info-producto {
-  padding: 16px;
-}
 
-.titulo-comida {
-  font-size: 1rem;
-  font-weight: bold;
+
+.titulo-comida h1 {
+  font-size: 0.8rem;
   margin: 0;
+}
+.titulo-comida{
+  font-weight: 800;
+  
 }
 
 .precio-comida {
-  font-size: 0.9rem;
+  font-size: 0.6rem;
   font-weight: bold;
-  margin: 0.5rem 0;
+  margin: 0.1rem 0;
 }
 
 .descripcion-comida {
-  font-size: 0.85rem;
+  font-size: 0.90rem;
   color: #444;
   margin: 0;
 }

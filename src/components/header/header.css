@@ -9,9 +9,9 @@ body {
   margin: 0;
   font-family: var(--fuente-principal);
   background-color: white;
+  padding-top: 60px; 
 }
 
-/* HEADER ESTÁTICO Y PEQUEÑO */
 header {
   position: relative;
   top: 0;
@@ -20,6 +20,9 @@ header {
   z-index: 10;
   padding: 10px 20px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  height: 60px; 
+  display: flex;
+  align-items: center;
 }
 
 .header-container {
@@ -28,6 +31,19 @@ header {
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+}
+
+header.visible {
+  position: fixed;
+  top: 0;
+  transition: top 0.3s ease-in-out;
+}
+
+header.oculto {
+  position: fixed;
+  top: -60px;
+  transition: top 0.3s ease-in-out;
 }
 
 .imagen-Usuario-header{
@@ -87,6 +103,7 @@ header {
 .iconos{
   margin-right: 2rem;
 }
+
 /* Íconos escritorio */
 .iconos a img {
   height: 28px;
@@ -98,6 +115,7 @@ header {
   display: none;
 }
 
+
 /* Responsive: menú hamburguesa en móvil */
 @media (max-width: 768px) {
   .hamburguesa {
@@ -106,24 +124,22 @@ header {
 
   .nav-menu {
     position: absolute;
-    top: 70px;
+    top: 60px;
     left: 0;
     right: 0;
     background-color: white;
+    z-index: 1000;
     flex-direction: column;
     align-items: center;
-    display: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding-bottom: 20px;
   }
 
-  .nav-menu.activo {
-    display: flex;
+  .nav-menu:not(.activo) {
+    display: none;
   }
 
   .navegacion {
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     padding: 20px 0;
   }
 
@@ -131,13 +147,19 @@ header {
     display: none;
   }
 
-  .iconos-movil {
-    display: flex;
-    gap: 20px;
-    margin-top: 10px;
+  .icono-carrito-movil{
+  width: 2rem;
   }
 
-  .iconos-movil a img {
-    height: 26px;
+
+  .iconos-movil {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    img{
+      margin: .5rem;
+      margin-bottom: 1rem;
+    }
+
   }
 }

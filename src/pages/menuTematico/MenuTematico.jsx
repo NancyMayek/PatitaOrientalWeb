@@ -1,15 +1,23 @@
-import './menu_tematico.css'
+import './menuTematico.css'
 import React, { useEffect, useState, useContext } from "react";
-import TarjetaMenuTematico from '../../components/tarjeta_menu/tarjeta_menu_tematico';
+import TarjetaMenuTematico from '../../components/tarjetaMenu/TarjetaMenuTematico';
 import { Context } from '../../components/context/Contex';
+import { useCartActions } from '../../components/utils/botonDeAgregar';
+import { useFavorito } from '../../components/utils/agregarAFavoritos';
+
+
+
 // Componente principal de la página de menú temátic
-const Menu_Tematico = () => {
+const MenuTematico = () => {
     const [paquetes, setPaquetes] = useState([]); // Estado local para guardar los paquetes del menú temático cargados desde un JSON
     const [indiceBanner, setIndiceBanner] = useState(0);
 
     // Acceso al contexto global del carrito de compras
     const {carrito, setCart} = useContext(Context);
 
+
+    const {handleAddToCart} = useCartActions(); // Se llama la función de handleAddToCart de useCarActions 
+    const { favoriteProducts} = useFavorito(); // Se manda a llamar la función de favoriteProducts de useFavorito
 // Arreglo de imágenes que se mostrarán en el banner como carrusel
  const imagenesBanner = [
         
@@ -20,6 +28,7 @@ const Menu_Tematico = () => {
 
      // useEffect que se ejecuta una vez al cargar el componente
     // Carga los datos de los paquetes desde un archivo JSON ubicado en la carpeta /public/data/
+<<<<<<< HEAD:src/pages/menu_tematico/menu_tematico.jsx
     useEffect(() => {
             const fetchMenuTematico = async () => {
                 try {
@@ -44,6 +53,14 @@ const Menu_Tematico = () => {
             
             fetchMenuTematico();
         }, []);
+=======
+  useEffect(() => {
+    fetch('/data/menuTematico.json')
+      .then(response => response.json())
+      .then(data => setPaquetes(data))
+      .catch(error => console.error('Error al cargar los datos del menú temático', error));
+  }, []);
+>>>>>>> dev:src/pages/menuTematico/MenuTematico.jsx
 
   // Cambiar automáticamente el banner cada 10 segundos
   useEffect(() => {
@@ -86,11 +103,20 @@ const Menu_Tematico = () => {
                     <TarjetaMenuTematico
                         key={item.id}
                         id={item.id}
+<<<<<<< HEAD:src/pages/menu_tematico/menu_tematico.jsx
                         nombre={item.name}
                         precio={item.priceProduct}
                         descripcion={item.description}
                         imagen={item.imagenUrl}
                         onAddToCart ={ buyProducts}
+=======
+                        nombre={item.Paquete}
+                        precio={item.Precio}
+                        descripcion={item.Descripción}
+                        imagen={item.Imagen}
+                        onAddToCart ={ handleAddToCart}
+                        onAddToFavorites = {favoriteProducts}
+>>>>>>> dev:src/pages/menuTematico/MenuTematico.jsx
                     />
                 ))}
             </div>
@@ -100,4 +126,4 @@ const Menu_Tematico = () => {
 };
 
 // Exportación del componente para que pueda ser utilizado en otras partes del proyecto
-export { Menu_Tematico };
+export { MenuTematico };

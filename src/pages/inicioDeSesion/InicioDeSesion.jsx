@@ -4,9 +4,9 @@ import { useAuth } from "../../components/context/AuthContext";
 import Swal from "sweetalert2";
 import { createContext, useState, useContext, useEffect } from "react";
 
-import "./inicio_de_sesion.css";
+import "./inicioDeSesion.css";
 
-const Inicio_de_sesion = () => {
+const InicioDeSesion = () => {
   const { logInInput, guardarLogInInput, logInCheck, setLogInInput } =
     useAuth();
   //-------------------------------------Validaciones----------------
@@ -33,6 +33,8 @@ const Inicio_de_sesion = () => {
 
     return true; // Todo está validado correctamente
   };
+
+  const [mostrarContrasena, setMostrarContrasena] = useState(false);
 
   return (
     <>
@@ -65,7 +67,7 @@ const Inicio_de_sesion = () => {
 
         <div className="col-md-6 registrarse-container">
           <form
-            className="contact-form"
+            className="registroInicioSesion-form"
             id="contactForm"
             autoComplete="off"
             onSubmit={async (e) => {
@@ -94,9 +96,9 @@ const Inicio_de_sesion = () => {
               />
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 input-group">
               <input
-                type="password"
+                type={mostrarContrasena ? "text" : "password"}
                 name="inputContraseña"
                 className="form-control"
                 placeholder="Contraseña"
@@ -104,9 +106,20 @@ const Inicio_de_sesion = () => {
                 onChange={guardarLogInInput}
                 required
               />
+              <button
+                type="button"
+                className="btn btn-outline-light"
+                onClick={() => setMostrarContrasena(!mostrarContrasena)}
+              >
+                <i
+                  className={`bi ${
+                    mostrarContrasena ? "bi-eye-slash" : "bi-eye"
+                  }`}
+                ></i>
+              </button>
             </div>
 
-            <button type="submit" className="btn btn-pink w-100 fw-bold">
+            <button type="submit" className="btn btn-pink w-100 fw-bold mx-auto d-block">
               Ingresar
             </button>
             <h3
@@ -125,4 +138,4 @@ const Inicio_de_sesion = () => {
   );
 };
 
-export { Inicio_de_sesion };
+export { InicioDeSesion };

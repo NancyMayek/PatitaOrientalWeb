@@ -1,5 +1,6 @@
 import "./profile.css";
 import iconoEditarFoto from "../../../public/images/iconos/icon-editar-foto.svg";
+import iconoDireccion from "../../../public/images/iconos/icon-direccion.svg";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../components/context/AuthContext";
@@ -11,14 +12,15 @@ const Profile = () => {
   const defaultProfilePicture =
     "https://res.cloudinary.com/dkufsisvv/image/upload/v1749665101/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/hemsfcvyetspmc5d450i.svg";
 
-  const { isLoggedIn, setIsLoggedIn, usuario, setUsuario, uptadeUser, getListaUsuarios } =
-    useAuth(); //de el contexto solo obtenemos si hay un usuario
-  const { handleImageChange, uploading, uploadedUrl } = useImageUpload();
+  const { isLoggedIn, setIsLoggedIn, usuario, setUsuario, uptadeUser, getListaUsuarios } = useAuth(); //de el contexto solo obtenemos si hay un usuario
+  const { handleImageChange, uploading, uploadedUrl, setUploadedUrl} = useImageUpload();
+ 
 
   const cerrarSesionUsuario = () => {
     localStorage.removeItem("usuario");
     setIsLoggedIn(false);
-    navigate("/Inicio_de_sesion");
+    setUploadedUrl("");
+    navigate("/InicioDeSesion");
   };
 
   const favoritosSesionUsuario = () => {
@@ -173,7 +175,7 @@ const Profile = () => {
             </h1>
             <div className="direccion">
               <img
-                src="../../../public/images/iconos/icon-direccion.svg"
+                src= {iconoDireccion}
                 alt="icono de casa"
               />
               <h2>{usuario.direccion}</h2>

@@ -1,30 +1,27 @@
 
 .banner-section {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./img/banner.png');
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/public/images/inicio/banner.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   height: 400px;
   padding-left: 0 !important;
+  display: flex;
+  align-items: center;
 }
 
-
 .banner-text {
-  display:flex;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.8);
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin-top: 40px;
-  margin-left: 0;
-  margin-bottom: 40px;
-  padding-left: 30px;
-  padding-right: 30px;
-  max-width: 650px; 
-  max-height:max-content;
+  margin-top: 0; 
+  margin-bottom: 0;
+  padding: 30px;
+  max-width: 650px;
 }
 
 
@@ -73,7 +70,15 @@
   background-color: #e89bb7;
   color: white;
   border: none;
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 8px;
+  width: auto;
+  max-width: 220px;
+  text-align: center;
+  display: block;
 }
+
 
 .btn-pink:hover {
   background-color: #d87aa0;

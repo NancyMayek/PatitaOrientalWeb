@@ -1,17 +1,19 @@
 import './inicio.css'
 import { Link } from 'react-router-dom';
-import { TopProducts } from '../../components/tarjeta_menu/filtrosProductos';
+import { TopProducts } from '../../components/tarjetaMenu/filtrosProductos';
 
 const Inicio = () => {
     return(
         <div>
               {/* Sección Banner */}
-      <section className="p-5 banner-section d-flex align-items-left">
-        <div className="banner-text p-4  flex-column align-items-start">
+      <section className="p-5 banner-section d-flex align-items-center">
+        <div className="banner-text d-flex flex-column justify-content-center p-4">
           <h1 className="display-5 mb-3">
             La <span style={{ color: "#425184" }}>mejor</span> comida <span className='fw-bold'><span style={{ color: "#d579af"}}>Coreana</span> en México</span>
           </h1>
-          <Link to = "/Menu"className = "btn btn-pink"> Pedir ahora</Link>
+          <div className="">
+            <Link to="/Menu" className="btn btn-pink">Pedir ahora</Link>
+          </div>
         </div>
       </section>
       <section className="decorative-lines-inicio">
@@ -99,7 +101,7 @@ const Inicio = () => {
       {/* Sección Temática */}
       <section className="p-5 tematica-section mb-0 d-flex align-items-center">
         <div className="tematica-text p-4 d-flex flex-column align-items-end">
-          <Link to = "/Menu_tematico" className='Linkto' >
+          <Link to = "/MenuTematico" className='Linkto' >
             <h3 className="display-6 fw-bold mb-3 text-end" style={{ color: "#425184" }}>
                 Descubre nuestros <br /><span style={{ fontSize: "3.5rem" }}>Platillos <span style={{ color: "#d579af" }}>Temáticos</span></span>
             </h3>
