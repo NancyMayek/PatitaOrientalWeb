@@ -15,47 +15,56 @@ const Products = ({ url }) => {
   const {favoriteProducts} = useFavorito(); // Se manda a llamar la función de favoriteProducts de useFavorito
   
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
-        const data = await response.json();
-        const menuFromJson = data.menu; // Se agrega el menu del json a una variable
-
-        // Leer productos desde localStorage
-        const productosLocales = JSON.parse(localStorage.getItem("productos")) || []; // Se agrega productos del json a productos locales
-
-        
-        // Clasificarlos por categoría
-        const comidasExtra = productosLocales.filter(
-          (p) => p.categoria === "comida" // Filtra productos por categoría de comida p (producto)
-        );
-        const bebidasExtra = productosLocales.filter(
-          (p) => p.categoria === "bebida"
-        );
-        const postresExtra = productosLocales.filter(
-          (p) => p.categoria === "postre"
-        );
-
-        // Combinar los productos del archivo JSON + los del localStorage
-        const menuFinal = {
-          comidas: [...(menuFromJson.comidas || []), ...comidasExtra],
-          bebidas: [...(menuFromJson.bebidas || []), ...bebidasExtra],
-          postres: [...(menuFromJson.postres || []), ...postresExtra],
-        };
-
-        setMenuData(menuFinal);
-
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false); // El finally asegura que loading se cambie a false siempre
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
       }
-    };
-    fetchProducts();
-  }, [url]);
+      const products = await response.json(); // Ahora es un array, no un objeto con "menu"
+
+      // Clasificar productos del JSON por categoría (solo activos)
+      const comidasFromJson = products.filter(
+        (p) => p.categories.name === "Comida" && p.isActive
+      );
+      const bebidasFromJson = products.filter(
+        (p) => p.categories.name === "Bebida" && p.isActive
+      );
+      const postresFromJson = products.filter(
+        (p) => p.categories.name === "Postre" && p.isActive
+      );
+
+      // Leer productos desde localStorage
+      const productosLocales = JSON.parse(localStorage.getItem("productos")) || [];
+
+      // Clasificarlos por categoría
+      const comidasExtra = productosLocales.filter(
+        (p) => p.categoria === "comida"
+      );
+      const bebidasExtra = productosLocales.filter(
+        (p) => p.categoria === "bebida"
+      );
+      const postresExtra = productosLocales.filter(
+        (p) => p.categoria === "postre"
+      );
+
+      // Combinar productos del JSON + localStorage
+      const menuFinal = {
+        comidas: [...comidasFromJson, ...comidasExtra],
+        bebidas: [...bebidasFromJson, ...bebidasExtra],
+        postres: [...postresFromJson, ...postresExtra],
+      };
+
+      setMenuData(menuFinal);
+
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchProducts();
+}, [url]);
 
 
   /*
