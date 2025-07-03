@@ -4,7 +4,7 @@ import iconoMas from '../../../public/images/iconos/icono-mas.svg';
 import iconoCorazon from '../../../public/images/iconos/icono-corazon-negro.svg';
 import { useState } from 'react';
 
-const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id, onAddToFavorites }) => {
+const TarjetaMenu = ({ imagenUrl, name, priceProduct, description, onAddToCart, id, onAddToFavorites }) => {
   const [count, setCount] = useState(1);
 
   const handleIncrement = (maxValue) => {
@@ -18,11 +18,11 @@ const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id, onA
   return (
     <div className="contenedor-tarjeta-menu">
       <div className="contenedor-producto">
-        <img src={imagen} alt={`imagen de ${nombre}`} />
+        <img src={imagenUrl} alt={`imagen de ${name}`} />
         <div className="contenedor-info-producto">
-          <h1 className="titulo-comida">{nombre}</h1>
-          <h3 className="precio-comida">${precio}.00 Mx</h3>
-          <p className="descripcion-comida">{descripcion}</p>
+          <h1 className="titulo-comida">{name}</h1>
+          <h3 className="precio-comida">${priceProduct}.00 Mx</h3>
+          <p className="descripcion-comida">{description}</p>
         </div>
       </div>
       <div className="contenedor-botones-menu">
@@ -33,10 +33,10 @@ const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id, onA
         <button onClick={() => handleIncrement(10)}>
           <img className="icono-suma" srcSet={iconoMas} alt="icono más" />
         </button>
-        <button onClick={() => onAddToCart({ imagen, nombre, precio, descripcion, cantidad: count, id })}>
+        <button onClick={() => onAddToCart({ imagenUrl, name, priceProduct, description, cantidad: count, id })}>
           <h3 className="añadir-comida">Añadir</h3>
         </button>
-        <button onClick={() => onAddToFavorites({ imagen, nombre, precio, descripcion, id })}>
+        <button onClick={() => onAddToFavorites({ imagenUrl, name, priceProduct, description, id })}>
           <img className="icono-corazon-rojo" srcSet={iconoCorazon} alt="icono corazón" />
         </button>
       </div>
