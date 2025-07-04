@@ -6,7 +6,7 @@ import iconoCorazonRojo from '../../../public/images/iconos/icono-corazon-rojo.s
 import { useState } from 'react';
 import { useFavorito } from '../utils/agregarAFavoritos';
 
-const TarjetaMenu = ({ imagenUrl, name, priceProduct, description, onAddToCart, id, onAddToFavorites }) => {
+const TarjetaMenu = ({ imageUrl, name, priceProduct, description, onAddToCart, id, onAddToFavorites }) => {
   const [count, setCount] = useState(1);
   const { toggleFavorite, isFavorito } = useFavorito();
   const esFavorito = isFavorito(id);
@@ -22,7 +22,7 @@ const TarjetaMenu = ({ imagenUrl, name, priceProduct, description, onAddToCart, 
   return (
     <div className="contenedor-tarjeta-menu">
       <div className="contenedor-producto">
-        <img src={imagenUrl} alt={`imagen de ${name}`} />
+        <img src={imageUrl} alt={`imagen de ${name}`} />
         <div className="contenedor-info-producto">
           <h1 className="titulo-comida">{name}</h1>
           <h3 className="precio-comida">${priceProduct}.00 Mx</h3>
@@ -37,10 +37,10 @@ const TarjetaMenu = ({ imagenUrl, name, priceProduct, description, onAddToCart, 
         <button onClick={handleIncrement}>
           <img className="icono-suma" src={iconoMas} alt="icono más" />
         </button>
-        <button onClick={() => onAddToCart({ imagenUrl, name, priceProduct, description, cantidad: count, id })}>
+        <button onClick={() => onAddToCart({ imageUrl, name, priceProduct, description, cantidad: count, id })}>
           <h3 className="añadir-comida">Añadir</h3>
         </button>
-        <button onClick={() => toggleFavorite({ imagenUrl, name, priceProduct, description, id })}>
+        <button onClick={() => toggleFavorite({ imageUrl, name, priceProduct, description, id })}>
           <img
             src={esFavorito ? iconoCorazonRojo : iconoCorazon}
             alt="Favorito"

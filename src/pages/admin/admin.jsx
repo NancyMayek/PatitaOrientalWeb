@@ -40,7 +40,7 @@ const Admin = () => {
   const comidas = products.filter(p => p.categoria === "Comida");
   const bebidas = products.filter(p => p.categoria === "Bebida");
   const postres = products.filter(p => p.categoria === "Postre");
-  const menuTematico = products.filter(p => p.categoria === "menuTematico");
+  const menuTematico = products.filter(p => p.categoria === "Menú Temático");
 
   if (loading) return <div>Cargando productos...</div>;
   if (error) return <div>Error: {error}</div>;

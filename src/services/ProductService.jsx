@@ -51,6 +51,17 @@ class ProductService {
       throw error;
     }
   }
+
+  async getActiveProducts() {
+    try {
+      const response = await axios.get(`${Product_base_rest_api_url}/active`);
+
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching active products:`, error);
+      throw error;
+    }
+  }
 }
 
 export default ProductService;
