@@ -117,8 +117,8 @@ const Carrito = () => {
                     carrito.map(product => (
                         <div className="producto" key={product.id}>
                             <div className="detalle">
-                                <strong>{product.nombre}</strong>
-                                <p>{product.descripcion}</p>
+                                <strong>{product.name}</strong>
+                                <p>{product.description}</p>
                             </div>
                             <div className="cantidad">
                                 <button onClick={() => actualizarCantidad(product.id, -1)}>-</button>
@@ -126,7 +126,7 @@ const Carrito = () => {
                                 <button onClick={() => actualizarCantidad(product.id, 1)}>+</button>
                             </div>
                             <div className="precio">
-                                ${(product.precio * product.cantidad).toFixed(2)}
+                                ${(product.priceProduct * product.cantidad).toFixed(2)}
                             </div>
                             <button className="eliminar" onClick={() => eliminarProducto(product.id)}>
                                 Eliminar

@@ -27,7 +27,7 @@ const Favoritos = () => {
       ) : (
         <div className="favoritos-grid">
           {favorito.map(product => (
-            product.nombre ? (
+            product.name ? (
               <TarjetaMenu
                 key={product.id}
                 {...product}

@@ -6,7 +6,7 @@ import iconoCorazonRojo from '../../../public/images/iconos/icono-corazon-rojo.s
 import { useState } from 'react';
 import { useFavorito } from '../utils/agregarAFavoritos';
 
-const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id }) => {
+const TarjetaMenu = ({ imageUrl, name, priceProduct, description, onAddToCart, id, onAddToFavorites }) => {
   const [count, setCount] = useState(1);
   const { toggleFavorite, isFavorito } = useFavorito();
   const esFavorito = isFavorito(id);
@@ -22,11 +22,11 @@ const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id }) =
   return (
     <div className="contenedor-tarjeta-menu">
       <div className="contenedor-producto">
-        <img src={imagen} alt={`imagen de ${nombre}`} />
+        <img src={imageUrl} alt={`imagen de ${name}`} />
         <div className="contenedor-info-producto">
-          <h1 className="titulo-comida">{nombre}</h1>
-          <h3 className="precio-comida">${precio}.00 MXN</h3>
-          <p className="descripcion-comida">{descripcion}</p>
+          <h1 className="titulo-comida">{name}</h1>
+          <h3 className="precio-comida">${priceProduct}.00 Mx</h3>
+          <p className="descripcion-comida">{description}</p>
         </div>
       </div>
       <div className="contenedor-botones-menu">
@@ -37,10 +37,10 @@ const TarjetaMenu = ({ imagen, nombre, precio, descripcion, onAddToCart, id }) =
         <button onClick={handleIncrement}>
           <img className="icono-suma" src={iconoMas} alt="icono más" />
         </button>
-        <button onClick={() => onAddToCart({ imagen, nombre, precio, descripcion, cantidad: count, id })}>
+        <button onClick={() => onAddToCart({ imageUrl, name, priceProduct, description, cantidad: count, id })}>
           <h3 className="añadir-comida">Añadir</h3>
         </button>
-        <button onClick={() => toggleFavorite({ id, imagen, nombre, precio, descripcion })}>
+        <button onClick={() => toggleFavorite({ imageUrl, name, priceProduct, description, id })}>
           <img
             src={esFavorito ? iconoCorazonRojo : iconoCorazon}
             alt="Favorito"

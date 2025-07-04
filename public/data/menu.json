@@ -1,213 +1,266 @@
-{
-  "menu": {
-    "comidas": [
-      {
-        "id": "comida-1",
-        "nombre": "Ramen",
-        "precio": 65,
-        "descripcion": "Fideos instantáneos de diferentes sabores. Los toppings son por separado.",
-        "imagen": "https://live.staticflickr.com/65535/54582388941_d037fddcda_z.jpg",
-        "categoria": "comida",
-        "contador": 1
-      },
-      {
-        "id": "comida-2",
-        "nombre": "Dumplings",
-        "precio": 65,
-        "descripcion": "Empanadas de pollo con verduras acompañadas con salsa de soya. Incluye 6 piezas.",
-        "imagen": "https://live.staticflickr.com/65535/54557082555_f7701e1e3a_b.jpg",
-        "categoria": "comida",
-        "contador": 300
-
-      },
-      {
-        "id": "comida-3",
-        "nombre": "Gyozas",
-        "precio": 65,
-        "descripcion": "Empanadas de carne con verduras. Incluye 6 piezas.",
-        "imagen": "https://live.staticflickr.com/65535/54556985238_864e8c681a_b.jpg",
-        "categoria": "comida",
-        "contador": 40
-      },
-      {
-        "id": "comida-4",
-        "nombre": "Takoyaki de Queso",
-        "precio": 50,
-        "descripcion": "Comida japonesa en forma de bolita rellena de queso. Incluye 8 piezas.",
-        "imagen": "https://live.staticflickr.com/65535/54557082565_90bf8bc258_b.jpg",
-        "categoria": "comida",
-        "contador": 100
-      },
-      {
-        "id": "comida-5",
-        "nombre": "Takoyaki de Cámaron",
-        "precio": 55,
-        "descripcion": "Comida japonesa en forma de bolita rellena de camarón. Incluye 8 piezas.",
-        "imagen": "https://live.staticflickr.com/65535/54557082565_90bf8bc258_b.jpg",
-        "categoria": "comida",
-        "contador": 188
-      },
-      {
-        "id": "comida-6",
-        "nombre": "Mini Wonton's",
-        "precio": 40,
-        "descripcion": "Mini empanaditas de pollo con cilantro, acompañadas de sopa picosa. Incluye 7 piezas.",
-        "imagen": "https://live.staticflickr.com/65535/54556931139_38462b55f0_b.jpg",
-        "categoria": "comida",
-        "contador": 3
-      }
-    ],
-    "bebidas": [
-      {
-        "id": "bebida-1",
-        "nombre": "Bubble Tea frapeado de oreo",
-        "precio": 70,
-        "descripcion": "Bebida sabor galleta oreo con tapioca.",
-        "imagen": "https://live.staticflickr.com/65535/54556985183_7305512154_b.jpg",
-        "categoria": "bebida",
-        "contador": 21
-      },
-      {
-        "id": "bebida-2",
-        "nombre": "Bubble Tea frapeado de Taro",
-        "precio": 65,
-        "descripcion": "Bebida sabor taro con tapioca.",
-        "imagen": "https://live.staticflickr.com/65535/54556931024_72fd257082_b.jpg",
-        "categoria": "bebida",
-        "contador": 20
-      },
-      {
-        "id": "bebida-3",
-        "nombre": "Bubble Tea frapeado de Matcha",
-        "precio": 65,
-        "descripcion": "Bebida sabor matcha con tapioca.",
-        "imagen": "https://live.staticflickr.com/65535/54555862627_0ce40d4934_b.jpg",
-        "categoria": "bebida",
-        "contador": 19
-      },
-      {
-        "id": "bebida-4",
-        "nombre": "Bubble Tea líquido de Taro",
-        "precio": 60,
-        "descripcion": "Bebida sabor taro con tapioca (versión líquida).",
-        "imagen": "https://live.staticflickr.com/65535/54557159910_2c3ee8cede_b.jpg",
-        "categoria": "bebida",
-        "contador": 18
-      },
-      {
-        "id": "bebida-5",
-        "nombre": "Bubble Tea líquido de Matcha",
-        "precio": 60,
-        "descripcion": "Bebida sabor matcha con tapioca (versión líquida).",
-        "imagen": "https://live.staticflickr.com/65535/54557007719_e1b321b76a_b.jpg",
-        "categoria": "bebida",
-        "contador": 17
-      },
-      {
-        "id": "bebida-6",
-        "nombre": "Soda Italiana sabor Fresa",
-        "precio": 50,
-        "descripcion": "Bebida gaseosa sabor fresa con perlas explosivas del mismo sabor.",
-        "imagen": "https://live.staticflickr.com/65535/54557082485_e4ca34edeb_b.jpg",
-        "categoria": "bebida",
-        "contador": 16
-      },
-      {
-        "id": "bebida-7",
-        "nombre": "Soda Italiana sabor Mora Azul",
-        "precio": 50,
-        "descripcion": "Bebida gaseosa sabor mora azul con perlas explosivas del mismo sabor.",
-        "imagen": "https://live.staticflickr.com/65535/54556931029_ae8d7a705b_b.jpg",
-        "categoria": "bebida",
-        "contador": 15
-      },
-      {
-        "id": "bebida-8",
-        "nombre": "Soda Italiana sabor Mango",
-        "precio": 50,
-        "descripcion": "Bebida gaseosa sabor mango con perlas explosivas del mismo sabor.",
-        "imagen": "https://live.staticflickr.com/65535/54556985153_0099b96e1e_b.jpg",
-        "categoria": "bebida",
-        "contador": 14
-      },
-      {
-        "id": "bebida-9",
-        "nombre": "Calpis",
-        "precio": 30,
-        "descripcion": "Bebida japonesa con sabor parecido a la leche con un toque ácido.",
-        "imagen": "https://live.staticflickr.com/65535/54556743576_51f4d2e89a_b.jpg",
-        "categoria": "bebida",
-        "contador": 13
-      }
-    ],
-    "postres": [
-      {
-        "id": "postre-1",
-        "nombre": "Paleta Ternurin",
-        "precio": 30,
-        "descripcion": "Paleta de fresas con crema con forma de ternurines diferentes.",
-        "imagen": "https://live.staticflickr.com/65535/54556743811_55fd1014a2_b.jpg",
-        "categoria": "postre",
-        "contador": 5
-      },
-      {
-        "id": "postre-2",
-        "nombre": "Galleta Ternurin",
-        "precio": 25,
-        "descripcion": "Galleta artesanal decorada con diseños de ternurines.",
-        "imagen": "https://live.staticflickr.com/65535/54556826716_911356c52d_b.jpg",
-        "categoria": "postre",
-        "contador": 4
-      },
-      {
-        "id": "postre-3",
-        "nombre": "Taiyaki con Mermelada y Philadelphia",
-        "precio": 60,
-        "descripcion": "Pastelito japonés en forma de pez relleno de mermelada y queso Philadelphia. Incluye 2 piezas.",
-        "imagen": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
-        "categoria": "postre",
-        "contador": 2
-      },
-      {
-        "id": "postre-4",
-        "nombre": "Taiyaki con Nutella",
-        "precio": 60,
-        "descripcion": "Pastelito japonés en forma de pez relleno de Nutella. Incluye 2 piezas.",
-        "imagen": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
-        "categoria": "postre",
-        "contador": 12
-      },
-      {
-        "id": "postre-5",
-        "nombre": "Taiyaki con Crema Pastelera",
-        "precio": 60,
-        "descripcion": "Pastelito japonés en forma de pez relleno de crema pastelera. Incluye 2 piezas.",
-        "imagen": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
-        "categoria": "postre",
-        "contador": 11
-      },
-      {
-        "id": "postre-6",
-        "nombre": "Taiyaki con Jamón y queso",
-        "precio": 65,
-        "descripcion": "Pastelito japonés en forma de pez relleno de jamón y queso. Incluye 2 piezas.",
-        "imagen": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
-        "categoria": "postre",
-        "contador": 22
-      },
-      {
-        "id": "postre-7",
-        "nombre": "Taiyaki con Pepperoni y queso",
-        "precio": 65,
-        "descripcion": "Pastelito japonés en forma de pez relleno de pepperoni y queso. Incluye 2 piezas.",
-        "imagen": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
-        "categoria": "postre",
-        "contador": 10
-      }
-    ]
-  },
-  "metadata": {
-    "moneda": "MXN",
-    "ultima_actualizacion": "2023-11-15"
-  }
-}
+[
+    {
+        "id": 1,
+        "name": "Ramen",
+        "description": "Fideos instantáneos de diferentes sabores. Los toppings son por separado.",
+        "priceProduct": 65.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54582388941_d037fddcda_z.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 1,
+            "name": "Comida"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Dumplings",
+        "description": "Empanadas de pollo con verduras acompañadas con salsa de soya. Incluye 6 piezas.",
+        "priceProduct": 65.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557082555_f7701e1e3a_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 1,
+            "name": "Comida"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Gyozas",
+        "description": "Empanadas de carne con verduras. Incluye 6 piezas.",
+        "priceProduct": 65.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54556985238_864e8c681a_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 1,
+            "name": "Comida"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Takoyaki de Queso",
+        "description": "Comida japonesa en forma de bolita rellena de queso. Incluye 8 piezas.",
+        "priceProduct": 50.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557082565_90bf8bc258_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 1,
+            "name": "Comida"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Takoyaki de Cámaron",
+        "description": "Comida japonesa en forma de bolita rellena de camarón. Incluye 8 piezas.",
+        "priceProduct": 55.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557082565_90bf8bc258_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 1,
+            "name": "Comida"
+        }
+    },
+    {
+        "id": 6,
+        "name": "Mini Wonton's",
+        "description": "Mini empanaditas de pollo con cilantro, acompañadas de sopa picosa. Incluye 7 piezas.",
+        "priceProduct": 40.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54556931139_38462b55f0_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 1,
+            "name": "Comida"
+        }
+    },
+    {
+        "id": 7,
+        "name": "Bubble Tea frapeado de oreo",
+        "description": "Bebida sabor galleta oreo con tapioca.",
+        "priceProduct": 70.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54556985183_7305512154_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 2,
+            "name": "Bebida"
+        }
+    },
+    {
+        "id": 8,
+        "name": "Bubble Tea frapeado de Taro",
+        "description": "Bebida sabor taro con tapioca.",
+        "priceProduct": 65.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54556931024_72fd257082_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 2,
+            "name": "Bebida"
+        }
+    },
+    {
+        "id": 9,
+        "name": "Bubble Tea frapeado de Matcha",
+        "description": "Bebida sabor matcha con tapioca.",
+        "priceProduct": 65.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54555862627_0ce40d4934_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 2,
+            "name": "Bebida"
+        }
+    },
+    {
+        "id": 10,
+        "name": "Bubble Tea líquido de Taro",
+        "description": "Bebida sabor taro con tapioca (versión líquida).",
+        "priceProduct": 60.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557159910_2c3ee8cede_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 2,
+            "name": "Bebida"
+        }
+    },
+    {
+        "id": 11,
+        "name": "Bubble Tea líquido de Matcha",
+        "description": "Bebida sabor matcha con tapioca (versión líquida).",
+        "priceProduct": 60.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557007719_e1b321b76a_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 2,
+            "name": "Bebida"
+        }
+    },
+    {
+        "id": 12,
+        "name": "Soda Italiana sabor Fresa",
+        "description": "Bebida gaseosa sabor fresa con perlas explosivas del mismo sabor.",
+        "priceProduct": 50.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557082485_e4ca34edeb_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 2,
+            "name": "Bebida"
+        }
+    },
+    {
+        "id": 13,
+        "name": "Soda Italiana sabor Mora Azul",
+        "description": "Bebida gaseosa sabor mora azul con perlas explosivas del mismo sabor.",
+        "priceProduct": 50.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54556931029_ae8d7a705b_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 2,
+            "name": "Bebida"
+        }
+    },
+    {
+        "id": 14,
+        "name": "Soda Italiana sabor Mango",
+        "description": "Bebida gaseosa sabor mango con perlas explosivas del mismo sabor.",
+        "priceProduct": 50.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54556985153_0099b96e1e_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 2,
+            "name": "Bebida"
+        }
+    },
+    {
+        "id": 15,
+        "name": "Calpis",
+        "description": "Bebida japonesa con sabor parecido a la leche con un toque ácido.",
+        "priceProduct": 30.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54556743576_51f4d2e89a_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 2,
+            "name": "Bebida"
+        }
+    },
+    {
+        "id": 16,
+        "name": "Paleta Ternurin",
+        "description": "Paleta de fresas con crema con forma de ternurines diferentes.",
+        "priceProduct": 30.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54556743811_55fd1014a2_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 3,
+            "name": "Postre"
+        }
+    },
+    {
+        "id": 17,
+        "name": "Galleta Ternurin",
+        "description": "Galleta artesanal decorada con diseños de ternurines.",
+        "priceProduct": 25.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54556826716_911356c52d_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 3,
+            "name": "Postre"
+        }
+    },
+    {
+        "id": 18,
+        "name": "Taiyaki con Mermelada y Philadelphia",
+        "description": "Pastelito japonés en forma de pez relleno de mermelada y queso Philadelphia. Incluye 2 piezas.",
+        "priceProduct": 60.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 3,
+            "name": "Postre"
+        }
+    },
+    {
+        "id": 19,
+        "name": "Taiyaki con Nutella",
+        "description": "Pastelito japonés en forma de pez relleno de Nutella. Incluye 2 piezas.",
+        "priceProduct": 60.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 3,
+            "name": "Postre"
+        }
+    },
+    {
+        "id": 20,
+        "name": "Taiyaki con Crema Pastelera",
+        "description": "Pastelito japonés en forma de pez relleno de crema pastelera. Incluye 2 piezas.",
+        "priceProduct": 60.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 3,
+            "name": "Postre"
+        }
+    },
+    {
+        "id": 21,
+        "name": "Taiyaki con Jamón y queso",
+        "description": "Pastelito japonés en forma de pez relleno de jamón y queso. Incluye 2 piezas.",
+        "priceProduct": 65.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 3,
+            "name": "Postre"
+        }
+    },
+    {
+        "id": 22,
+        "name": "Taiyaki con Pepperoni y queso",
+        "description": "Pastelito japonés en forma de pez relleno de pepperoni y queso. Incluye 2 piezas.",
+        "priceProduct": 65.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 3,
+            "name": "Postre"
+        }
+    }
+]

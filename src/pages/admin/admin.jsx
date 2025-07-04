@@ -1,159 +1,91 @@
 import { Link } from "react-router-dom";
 import "./admin.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ProductService from "../../services/ProductService"; 
 
 const Admin = () => {
-  const [producto, setproducto] = useState({
-    id: "",
-    nombre: "",
-    precio: "",
-    descripcion: "",
-    imagen: "",
-    categoria: "comida",
-    contador: 0,
-  });
+  const [products, setProducts] = useState([]); 
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const handleProductos = (e) => {
-    setproducto({ ...producto, [e.target.name]: e.target.value });
-  };
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const productService = new ProductService();
+        const data = await productService.getAllProducts();
 
-  const validarPrecio = (valor) => {
-    const regex = /^\d+(\.\d{1,2})?$/;
-    return regex.test(valor);
-  };
+        // Transformar los datos al formato que espera tu interfaz
+        const transformedProducts = data.map(product => ({
+          id: product.id,
+          nombre: product.name,
+          precio: product.priceProduct,
+          descripcion: product.description,
+          imagen: product.imageUrl,
+          categoria: product.categories.name,
+          isActive: product.isActive
+        }));
+        
+        setProducts(transformedProducts);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchProducts();
+  }, []);
 
-  const validarNombre = (nombre) => {
-    return nombre.trim().length > 3;
-  };
+  // Filtrar productos por categoría
+  const comidas = products.filter(p => p.categoria === "Comida");
+  const bebidas = products.filter(p => p.categoria === "Bebida");
+  const postres = products.filter(p => p.categoria === "Postre");
+  const menuTematico = products.filter(p => p.categoria === "Menú Temático");
 
-  const validarImagen = (url) => {
-    return /\.(jpeg|jpg|gif|png|webp|bmp|svg)$/i.test(url);
-  };
+  if (loading) return <div>Cargando productos...</div>;
+  if (error) return <div>Error: {error}</div>;
 
-  const validarDescripcion = (descripcion) => {
-    const longitud = descripcion.trim().length;
-    return longitud > 15 && longitud < 100;
-  };
-
-  const validarCategoria = (categoria) => {
-    const categoriasValidas = ["comida", "bebida", "postre"];
-    return categoriasValidas.includes(categoria.toLowerCase().trim());
-  };
-
-  const agregarProductos = (e) => {
-    e.preventDefault();
-
-    if (
-      !validarNombre(producto.nombre) ||
-      !validarPrecio(producto.precio) ||
-      !validarDescripcion(producto.descripcion) ||
-      !validarImagen(producto.imagen) ||
-      !validarCategoria(producto.categoria)
-    ) {
-      alert("Por favor, completa los campos correctamente.");
-      return;
-    }
-
-    const nuevoProducto = { ...producto, id: `${producto.categoria}-${Date.now()}` };
-    const productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
-    productosGuardados.push(nuevoProducto);
-    localStorage.setItem("productos", JSON.stringify(productosGuardados));
-
-    alert("Tu producto ha sido registrado");
-    console.log("Productos guardados:", productosGuardados);
-
-    setproducto({
-      id: "",
-      nombre: "",
-      precio: "",
-      descripcion: "",
-      imagen: "",
-      categoria: "comida",
-      contador: 0,
-    });
-  };
+  const renderProductSection = (title, products) => (
+    <>
+      <h2>{title}</h2>
+      <div className="row">
+        {products.map((product) => (
+          <div key={`${title.toLowerCase()}-${product.id}`} className="col-10 col-md-4 col-lg-3">
+            <div className="card mt-2">
+              <img src={product.imagen} className="card-img-top" alt={product.nombre} />
+              <div className="card-body">
+                <h5 className="card-title">{product.nombre}</h5>
+                <p className="card-text">${product.precio}</p>
+                <p className="card-text">{product.descripcion}</p>
+                <p className="card-text">Estado: {product.isActive ? "Activo" : "Inactivo"}</p>
+                <Link
+                  to={`/Formulario/editar/${product.id}`}
+                  className="btn btn-primary"
+                >
+                  Editar
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
 
   return (
-<section className="contact-section">
-  <div className="w-50 mx-auto">
-    <form className="contact-form" id="contactForm" onSubmit={agregarProductos}>
-      <h4 className="text-white mb-4 fw-bold mb-3 form-title">
-        Agregar Productos
-      </h4>
-
-      <div className="mb-3">
-        <label className="form-label text-white fw-semibold">Nombre del producto</label>
-        <input
-          type="text"
-          name="nombre"
-          onChange={handleProductos}
-          value={producto.nombre}
-          className="form-control"
-          placeholder="Nombre"
-          required
-        />
+    <div className="container">
+      <div className="mt-4">
+        <Link to="/formulario" className="btn btn-success">
+          Agregar producto
+        </Link>
       </div>
+      {renderProductSection("Comidas", comidas)}
+      {renderProductSection("Bebidas", bebidas)}
+      {renderProductSection("Postres", postres)}
+      {renderProductSection("Menú Temático", menuTematico)}
 
-      <div className="mb-3">
-        <label className="form-label text-white fw-semibold">Precio</label>
-        <input
-          type="number"
-          name="precio"
-          onChange={handleProductos}
-          value={producto.precio}
-          className="form-control"
-          placeholder="Precio"
-          required
-        />
-      </div>
-
-      <div className="mb-3">
-        <label className="form-label text-white fw-semibold">Descripción</label>
-        <input
-          type="text"
-          name="descripcion"
-          onChange={handleProductos}
-          value={producto.descripcion}
-          className="form-control"
-          placeholder="Descripción breve del producto"
-          required
-        />
-      </div>
-
-      <div className="mb-3">
-        <label className="form-label text-white fw-semibold">URL de la imagen</label>
-        <input
-          type="text"
-          name="imagen"
-          onChange={handleProductos}
-          value={producto.imagen}
-          className="form-control"
-          placeholder="https://..."
-          required
-        />
-      </div>
-
-      <div className="mb-3">
-        <label className="form-label text-white fw-semibold">Categoría</label>
-        <select
-          name="categoria"
-          value={producto.categoria}
-          onChange={handleProductos}
-          className="form-control"
-          required
-        >
-          <option value="comida">Comida</option>
-          <option value="bebida">Bebida</option>
-          <option value="postre">Postre</option>
-        </select>
-      </div>
-
-      <button type="submit" className="btn btn-pink w-100 fw-bold">
-        Enviar
-      </button>
-    </form>
-  </div>
-</section>
+      
+    </div>
   );
 };
 

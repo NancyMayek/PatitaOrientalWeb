@@ -82,7 +82,7 @@ const Inicio = () => {
       </section>
 
       {/* Platillos Más Vendidos */}
-      <section className="p-4" >
+      {/*<section className="p-4" >
         <div className="container container d-flex flex-column align-items-center">
           <h3 className="mb-0 fw-bold" style={{marginLeft: "20px"}}>Platillos más vendidos</h3>
           <section className="decorative-lines-inicio ">
@@ -95,8 +95,7 @@ const Inicio = () => {
       
         <div className="col-md-12 mb-4">
         <TopProducts url= "/public/data/menu.json" />
-        </div>
-      
+        </div>*/} 
 
       {/* Sección Temática */}
       <section className="p-5 tematica-section mb-0 d-flex align-items-center">
