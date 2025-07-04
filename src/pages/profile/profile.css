@@ -193,6 +193,32 @@
   color: white;
 }
 
+.btn-borrar-Cuenta {
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin-top: 2rem;
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde completo */
+    border-bottom: 1px solid #fff; /* Línea inferior (puedes cambiar el color) */
+    color: #000000; /* Color del texto */
+    padding: 0.25rem 0; /* Un poco de espacio arriba y abajo */
+    cursor: pointer; /* Mano al pasar por encima */
+    font-size: 1rem; /* Ajusta el tamaño si lo necesitas */
+    border-bottom-color: rgb(0, 0, 0);
+  }
+}
+
+.btn-borrar-Cuenta button:hover {
+  border-bottom-color: rgb(
+    255,
+    0,
+    0
+  ); /* Cambia el color al pasar por encima (opcional) */
+  color: red;
+}
+
 /*---------------------------------MEDIA QUERY------------------------------*/
 
 @media (max-width: 1200px) {
@@ -269,10 +295,8 @@
         height: 130px;
       }
       .icono-editar-foto-profile {
-      
-      bottom: -95px;
-    
-    }
+        bottom: -95px;
+      }
     }
   }
 
@@ -326,7 +350,6 @@
       position: relative;
       left: 11px;
     }
-    
   }
 
   .title-profile {

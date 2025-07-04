@@ -12,9 +12,17 @@ const Profile = () => {
   const defaultProfilePicture =
     "https://res.cloudinary.com/dkufsisvv/image/upload/v1749665101/USER%20PRE-SET%20IMAGES%20DONT%20DELETE/hemsfcvyetspmc5d450i.svg";
 
-  const { isLoggedIn, setIsLoggedIn, usuario, setUsuario, uptadeUser, getListaUsuarios } = useAuth(); //de el contexto solo obtenemos si hay un usuario
-  const { handleImageChange, uploading, uploadedUrl, setUploadedUrl} = useImageUpload();
- 
+  const {
+    isLoggedIn,
+    setIsLoggedIn,
+    usuario,
+    setUsuario,
+    uptadeUser,
+    getListaUsuarios,
+    deleteUser,
+  } = useAuth(); //de el contexto solo obtenemos si hay un usuario
+  const { handleImageChange, uploading, uploadedUrl, setUploadedUrl } =
+    useImageUpload();
 
   const cerrarSesionUsuario = () => {
     localStorage.removeItem("usuario");
@@ -30,7 +38,9 @@ const Profile = () => {
   const buscarUsuarioPorEmailYId = async (email, id) => {
     try {
       const usuarios = await getListaUsuarios();
-      return usuarios.some((usuario) => usuario.id !== id && usuario.email === email.trim() );//Si el usuario diferente id que el usuario actual y el usuario tiene el mismo email
+      return usuarios.some(
+        (usuario) => usuario.id !== id && usuario.email === email.trim()
+      ); //Si el usuario diferente id que el usuario actual y el usuario tiene el mismo email
     } catch (error) {
       console.error("Error al buscar el usuario por email y Id:", error);
       return false; // En caso de error, asumimos que no se encontró
@@ -52,38 +62,36 @@ const Profile = () => {
 
   const esCodigoPostalValido = (cp) => /^\d{5}$/.test(cp.trim());
 
-
-
   //-----------------------------------------------------------------
 
   const validarFormulario = async () => {
     let errores = [];
 
-    if (
-      !esNombreValido(usuario.nombre) ||
-      !esNombreValido(usuario.apellido)
-    ) {
+    if (!esNombreValido(usuario.name) || !esNombreValido(usuario.lastName)) {
       errores.push("Nombre y apellido inválidos.");
     }
 
     if (!esEmailValido(usuario.email)) {
       errores.push("Correo electrónico inválido.");
     } else {
-      const yaExiste = await buscarUsuarioPorEmailYId (usuario.email, usuario.id);
+      const yaExiste = await buscarUsuarioPorEmailYId(
+        usuario.email,
+        usuario.id
+      );
       if (yaExiste) {
         errores.push("Ya existe un usuario registrado con este correo.");
       }
     }
 
-    if (!esDireccionValida(usuario.direccion)) {
+    if (!esDireccionValida(usuario.address)) {
       errores.push("Dirección inválida.");
     }
 
-    if (!esCodigoPostalValido(usuario.CP)) {
+    if (!esCodigoPostalValido(usuario.postalCode)) {
       errores.push("Código postal inválido.");
     }
 
-    if (!esTelefonoValido(usuario.telefono)) {
+    if (!esTelefonoValido(usuario.phoneNumber)) {
       errores.push("Teléfono inválido.");
     }
 
@@ -144,7 +152,7 @@ const Profile = () => {
                   src={
                     usuario.imagen === ""
                       ? defaultProfilePicture
-                      : usuario.imagen
+                      : usuario.imageUrl
                   } //Si el usuario no puso foto de perfil que se muestre la imagen for defecto
                   alt="foto de perfil"
                 />
@@ -171,14 +179,11 @@ const Profile = () => {
           </div>
           <div className="usuario-informacion-principal">
             <h1 className="title-profile" id="nombre-usuario ">
-              {usuario.nombre} {usuario.apellido}
+              {usuario.name} {usuario.lastName}
             </h1>
             <div className="direccion">
-              <img
-                src= {iconoDireccion}
-                alt="icono de casa"
-              />
-              <h2>{usuario.direccion}</h2>
+              <img src={iconoDireccion} alt="icono de casa" />
+              <h2>{usuario.address}</h2>
             </div>
             <div className="usuario-nav-botones-movile ">
               <button
@@ -206,7 +211,11 @@ const Profile = () => {
             if ((await validarFormulario()) === true) {
               try {
                 await uptadeUser(); // Esperamos que termine bien
-                Swal.fire("Éxito", "¡Datos actualizados correctamente!", "success");
+                Swal.fire(
+                  "Éxito",
+                  "¡Datos actualizados correctamente!",
+                  "success"
+                );
               } catch (error) {
                 Swal.fire(
                   "Error",
@@ -225,9 +234,9 @@ const Profile = () => {
                 <input
                   type="text"
                   id="nombre"
-                  name="nombre"
+                  name="name"
                   value={usuario.name}
-                  defaultValue={usuario.nombre}
+                  defaultValue={usuario.name}
                   onChange={handleGuardarNuevaInformacion}
                   required
                 />
@@ -239,9 +248,9 @@ const Profile = () => {
                 <input
                   type="text"
                   id="apellido"
-                  name="apellido"
-                  defaultValue={usuario.apellido}
-                  value={usuario.apellido}
+                  name="lastName"
+                  defaultValue={usuario.lastName}
+                  value={usuario.lastName}
                   onChange={handleGuardarNuevaInformacion}
                   required
                 />
@@ -269,9 +278,9 @@ const Profile = () => {
                 <input
                   type="number"
                   id="telefono"
-                  name="telefono"
-                  value={usuario.telefono}
-                  defaultValue={usuario.telefono}
+                  name="phoneNumber"
+                  value={usuario.phoneNumber}
+                  defaultValue={usuario.phoneNumber}
                   onChange={handleGuardarNuevaInformacion}
                   required
                 />
@@ -285,9 +294,9 @@ const Profile = () => {
                 <input
                   type="text"
                   id="direccion"
-                  name="direccion"
-                  value={usuario.direccion}
-                  defaultValue={usuario.direccion}
+                  name="address"
+                  value={usuario.address}
+                  defaultValue={usuario.address}
                   onChange={handleGuardarNuevaInformacion}
                   required
                 />
@@ -299,9 +308,9 @@ const Profile = () => {
                 <input
                   type="number"
                   id="CP"
-                  name="CP"
-                  value={usuario.CP}
-                  defaultValue={usuario.CP}
+                  name="postalCode"
+                  value={usuario.postalCode}
+                  defaultValue={usuario.postalCode}
                   onChange={handleGuardarNuevaInformacion}
                   required
                 />
@@ -319,6 +328,11 @@ const Profile = () => {
               className="btn-cancelar-cambios"
             >
               Cancelar
+            </button>
+          </div>
+          <div className="btn-borrar-Cuenta">
+            <button type="button" onClick={deleteUser}>
+              Borrar Cuenta
             </button>
           </div>
         </form>
