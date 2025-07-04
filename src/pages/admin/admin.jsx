@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./admin.css";
 import { useState, useEffect } from "react";
+import ProductService from "../../services/ProductService"; 
 
 const Admin = () => {
   const [products, setProducts] = useState([]); 
@@ -10,13 +11,9 @@ const Admin = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // Simulando la carga del JSON (en un caso real sería una API)
-        const response = await fetch("/data/menu.json"); // Asegúrate de tener la ruta correcta
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        
+        const productService = new ProductService();
+        const data = await productService.getAllProducts();
+
         // Transformar los datos al formato que espera tu interfaz
         const transformedProducts = data.map(product => ({
           id: product.id,
@@ -62,8 +59,7 @@ const Admin = () => {
                 <p className="card-text">{product.descripcion}</p>
                 <p className="card-text">Estado: {product.isActive ? "Activo" : "Inactivo"}</p>
                 <Link
-                  to={`/formulario/editar/${product.id}`}
-                  state={{producto: product}}
+                  to={`/Formulario/editar/${product.id}`}
                   className="btn btn-primary"
                 >
                   Editar
@@ -78,16 +74,17 @@ const Admin = () => {
 
   return (
     <div className="container">
-      {renderProductSection("Comidas", comidas)}
-      {renderProductSection("Bebidas", bebidas)}
-      {renderProductSection("Postres", postres)}
-      {renderProductSection("Menú Temático", menuTematico)}
-
       <div className="mt-4">
         <Link to="/formulario" className="btn btn-success">
           Agregar producto
         </Link>
       </div>
+      {renderProductSection("Comidas", comidas)}
+      {renderProductSection("Bebidas", bebidas)}
+      {renderProductSection("Postres", postres)}
+      {renderProductSection("Menú Temático", menuTematico)}
+
+      
     </div>
   );
 };
