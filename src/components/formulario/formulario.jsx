@@ -248,4 +248,3 @@ const Formulario = () => {
 };
 
 export { Formulario };
-
