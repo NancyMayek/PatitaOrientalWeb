@@ -28,12 +28,30 @@ const MenuTematico = () => {
 
      // useEffect que se ejecuta una vez al cargar el componente
     // Carga los datos de los paquetes desde un archivo JSON ubicado en la carpeta /public/data/
-  useEffect(() => {
-    fetch('/data/menuTematico.json')
-      .then(response => response.json())
-      .then(data => setPaquetes(data))
-      .catch(error => console.error('Error al cargar los datos del menú temático', error));
-  }, []);
+    useEffect(() => {
+            const fetchMenuTematico = async () => {
+                try {
+                    const response = await fetch('../../../public/data/menu.json'); // Reemplaza con tu endpoint
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    
+                    // Filtrar solo los productos de categoría "menuTematico" y que estén activos
+                    const menuTematicoProducts = data.filter(
+                        product => product.categories?.name === "menuTematico" && product.isActive
+                    );
+                    
+                    setPaquetes(menuTematicoProducts);
+                } catch (err) {
+                    setError(err.message);
+                } finally {
+                    setLoading(false);
+                }
+            };
+            
+            fetchMenuTematico();
+        }, []);
 
   // Cambiar automáticamente el banner cada 10 segundos
   useEffect(() => {
@@ -76,12 +94,11 @@ const MenuTematico = () => {
                     <TarjetaMenuTematico
                         key={item.id}
                         id={item.id}
-                        nombre={item.Paquete}
-                        precio={item.Precio}
-                        descripcion={item.Descripción}
-                        imagen={item.Imagen}
-                        onAddToCart ={ handleAddToCart}
-                        onAddToFavorites = {favoriteProducts}
+                        nombre={item.name}
+                        precio={item.priceProduct}
+                        descripcion={item.description}
+                        imagen={item.imagenUrl}
+                        onAddToCart ={ buyProducts}
                     />
                 ))}
             </div>

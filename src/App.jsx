@@ -16,6 +16,7 @@ import { InicioDeSesion } from "./pages/inicioDeSesion/InicioDeSesion.jsx";
 import { Favoritos } from "./pages/favoritos/favoritos";
 import { Contact } from "./pages/contact/contact";
 import {Admin} from './pages/admin/admin'
+import { Formulario } from "./components/formulario/formulario.jsx";
 import "./App.css";
 import ContextProviderFavoriteProduct from "./components/context/contextFavoritos.jsx";
 
@@ -42,6 +43,8 @@ function App() {
                 <Route path="/Registro" element={<Registro />} />
                 <Route path="/Favoritos" element={<Favoritos />} />
                 <Route path="/Admin" element={<Admin />} />
+                <Route path = "/Formulario" element ={<Formulario/>} />
+                <Route path = "/Formulario/editar/:id" element ={<Formulario/>} />
               </Routes>
               <Footer></Footer>
             </ContextProviderFavoriteProduct>
