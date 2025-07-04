@@ -263,12 +263,96 @@
             "name": "Postre"
         }
     },
+{
+        "id": 24,
+        "name": "Bangtan Box",
+        "description": "El paquete contiene de Comida: Ramen, Bebida: Bubble Tea frappeado de Oreo, Postre: Taiyaki con mermelada y Philadelphia + tu photocard de regalo.",
+        "priceProduct": 180.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54564323050_866807c8f9_c.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 4,
+            "name": "Menú Temático"
+        }
+    },
     {
-        "id": 23,
-        "name": "Combo",
-        "description": "Pastelito japonés en forma de pez relleno de pepperoni y queso. Incluye 2 piezas.",
-        "priceProduct": 65.00,
-        "imageUrl": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
+        "id": 25,
+        "name": "Blackpink Box",
+        "description": "El paquete contiene: Dumplings, Bebida: Bubble Tea frappeado de taro, Postre: Paleta Ternurin + tu photocard de regalo.",
+        "priceProduct": 140.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54563993926_9efa59c3a2_c.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 4,
+            "name": "Menú Temático"
+        }
+    },
+    {
+        "id": 26,
+        "name": "Exo Box",
+        "description": "El paquete contiene de Comida: Gyozas, Bebida: Soda italiana sabor mora azul, Postre: Taiyaki con Nutella + tu photocard de regalo.",
+        "priceProduct": 155.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54564323050_866807c8f9_c.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 4,
+            "name": "Menú Temático"
+        }
+    },
+    {
+        "id": 27,
+        "name": "Twice Box",
+        "description": "El paquete contiene de Comida: Takoyaki de queso, Bebida: Calpis, Postre: Galleta Ternurin + tu photocard de regalo.",
+        "priceProduct": 90.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54564225858_f920dd80b7_z.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 4,
+            "name": "Menú Temático"
+        }
+    },
+    {
+        "id": 28,
+        "name": "Stray Box",
+        "description": "El paquete contiene de Comida: Mini Wontons, Bebida: Bubble Tea líquido de matcha, Postre: Taiyaki con jamón y queso + tu photocard de regalo.",
+        "priceProduct": 145.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54563119802_de3011362d_z.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 4,
+            "name": "Menú Temático"
+        }
+    },
+    {
+        "id": 29,
+        "name": "Seventeen Box",
+        "description": "El paquete contiene de Comida: Takoyaki de camarón, Bebida: Soda italiana sabor mango, Postre: Taiyaki con crema pastelera + tu photocard de regalo.",
+        "priceProduct": 145.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54564323450_4d347eceef_z.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 4,
+            "name": "Menú Temático"
+        }
+    },
+    {
+        "id": 30,
+        "name": "TXT Box",
+        "description": "El paquete contiene de Comida: Dumplings, Bebida: Bubble Tea líquido de taro, Postre: Taiyaki con pepperoni y queso + tu photocard de regalo.",
+        "priceProduct": 170.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54564323050_866807c8f9_c.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 4,
+            "name": "Menú Temático"
+        }
+    },
+    {
+        "id": 31,
+        "name": "SHINee Box",
+        "description": "El paquete contiene de Comida: Gyozas, Bebida: Soda italiana sabor fresa, Postre: Paleta Ternurin + tu photocard de regalo.",
+        "priceProduct": 130.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54564323050_866807c8f9_c.jpg",
         "isActive": true,
         "categories": {
             "id": 4,
