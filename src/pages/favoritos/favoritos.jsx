@@ -44,10 +44,6 @@ const Favoritos = () => {
           ))}
         </div>
       )}
-
-
-
-
     </div>
   );
 };

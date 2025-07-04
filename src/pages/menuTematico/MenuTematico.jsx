@@ -39,7 +39,7 @@ const MenuTematico = () => {
                     
                     // Filtrar solo los productos de categoría "menuTematico" y que estén activos
                     const menuTematicoProducts = data.filter(
-                        product => product.categories?.name === "menuTematico" && product.isActive
+                        product => product.categories?.name === "Menú Temático" && product.isActive
                     );
                     
                     setPaquetes(menuTematicoProducts);

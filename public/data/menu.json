@@ -262,5 +262,17 @@
             "id": 3,
             "name": "Postre"
         }
+    },
+    {
+        "id": 23,
+        "name": "Combo",
+        "description": "Pastelito japonés en forma de pez relleno de pepperoni y queso. Incluye 2 piezas.",
+        "priceProduct": 65.00,
+        "imageUrl": "https://live.staticflickr.com/65535/54557082665_4bcf762f78_b.jpg",
+        "isActive": true,
+        "categories": {
+            "id": 4,
+            "name": "Menú Temático"
+        }
     }
 ]
