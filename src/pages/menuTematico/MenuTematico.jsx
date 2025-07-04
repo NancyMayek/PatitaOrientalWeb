@@ -97,7 +97,7 @@ const MenuTematico = () => {
                         nombre={item.name}
                         precio={item.priceProduct}
                         descripcion={item.description}
-                        imagen={item.imagenUrl}
+                        imagen={item.imageUrl}
                         onAddToCart ={ buyProducts}
                     />
                 ))}
